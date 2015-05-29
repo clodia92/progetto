@@ -10,9 +10,6 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        ciao2
-        <?php
-  
-        ?>
+        <h1>Istruzioni</h1>
     </body>
 </html>
