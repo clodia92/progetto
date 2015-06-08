@@ -1,5 +1,5 @@
 <?php
-include_once '../database/Database.php';
+include_once basename(__DIR__) . '/../database/Database.php';
 
 class User{
     /**
