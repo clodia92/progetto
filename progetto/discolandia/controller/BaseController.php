@@ -105,7 +105,7 @@ class BaseController {
     protected function showHomeCliente($vd) {
         // mostro la home del cliente
         $vd->setTitolo("Pannello Cliente");
-        $vd->setHeaderFile(basename(__DIR__) . '/../view/cliente/logo.php');
+        $vd->setHeaderFile(basename(__DIR__) . '/../view/cliente/header.php');
         $vd->setLeftBarFile(basename(__DIR__) . '/../view/cliente/leftBar.php');
         $vd->setRightBarFile(basename(__DIR__) . '/../view/cliente/rightBar.php');
         $vd->setContentFile(basename(__DIR__) . '/../view/cliente/content.php');
@@ -118,7 +118,7 @@ class BaseController {
     protected function showHomeVenditore($vd) {
         // mostro la home del venditore
         $vd->setTitolo("Pannello Venditore");
-        $vd->setHeaderFile(basename(__DIR__) . '/../view/venditore/logo.php');
+        $vd->setHeaderFile(basename(__DIR__) . '/../view/venditore/header.php');
         $vd->setLeftBarFile(basename(__DIR__) . '/../view/venditore/leftBar.php');
         $vd->setRightBarFile(basename(__DIR__) . '/../view/venditore/rightBar.php');
         $vd->setContentFile(basename(__DIR__) . '/../view/venditore/content.php');
@@ -281,5 +281,3 @@ class BaseController {
     }
 
 }
-
-?>

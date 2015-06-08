@@ -10,7 +10,6 @@ FrontController::dispatch($_REQUEST);
 
 /**
  * Classe che controlla il punto unico di accesso all'applicazione
- * @author Davide Spano
  */
 class FrontController {
 
@@ -31,9 +30,9 @@ class FrontController {
                     $controller->handleInput($request, $_SESSION);
                     break;
                 
+                // cliente
                 case 'cliente':
-                    // la pagina degli studenti e' accessibile solo
-                    // agli studenti ed agli amminstratori
+                    // la pagina del cliente e' accessibile solo al cliente
                     // il controllo viene fatto dal controller apposito
                     $controller = new ClienteController();
                     $sessione = &$controller->getSessione($request);
@@ -43,10 +42,9 @@ class FrontController {
                     $controller->handleInput($request, $sessione);
                     break;
                     
-                      // venditore
+                // venditore
                 case 'venditore':
-                    // la pagina dei docenti e' accessibile solo
-                    // ai docenti ed agli amminstratori
+                    // la pagina dei venditore e' accessibile solo ai venditori
                     // il controllo viene fatto dal controller apposito
                     $controller = new VenditoreController();
                     $sessione = &$controller->getSessione($request);

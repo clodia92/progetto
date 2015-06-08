@@ -8,11 +8,9 @@ include_once basename(__DIR__) . '/../Settings.php';
      le varie pagine vengono caricate a "pezzi" a seconda della zona
      del layout:
      - logo (header)
-     - menu (i tab)
      - leftBar (sidebar sinistra)
      - content (la parte centrale con il contenuto)
      - rightBar (sidebar destra)
-     - footer (footer)
 
       Queste informazioni sono manentute in una struttura dati, chiamata ViewDescriptor
       la classe contiene anche le stringhe per i messaggi di feedback per 
@@ -95,8 +93,6 @@ include_once basename(__DIR__) . '/../Settings.php';
 
             </div>
 
-            
-         
         </div>
     </body>
 </html>
