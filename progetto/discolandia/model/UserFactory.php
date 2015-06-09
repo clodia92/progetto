@@ -3,7 +3,8 @@
 include_once 'User.php';
 include_once 'Cliente.php';
 include_once 'Venditore.php';
-include_once basename(__DIR__) . '/../database/Database.php';
+include_once '../discolandia/database/Database.php';
+include_once '../discolandia/database/Database.php';
 //include_once 'Transazione.php';
 
 
@@ -26,7 +27,7 @@ class UserFactory {
     public static function loadUser($user, $pass) {
     
 
-        $query=  getQuery("caricaUtente");
+        $query=getQuery("caricaUtente");
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = avviaDatabase();
         
