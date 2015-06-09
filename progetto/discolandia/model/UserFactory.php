@@ -3,8 +3,8 @@
 include_once 'User.php';
 include_once 'Cliente.php';
 include_once 'Venditore.php';
-include_once '../discolandia/database/Database.php';
-include_once '../discolandia/database/Database.php';
+include_once '../database/Database.php';
+include_once '../database/Query.php';
 //include_once 'Transazione.php';
 
 
@@ -28,6 +28,7 @@ class UserFactory {
     
 
         $query=getQuery("caricaUtente");
+        echo $query;
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = avviaDatabase();
         
