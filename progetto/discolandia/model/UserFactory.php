@@ -23,43 +23,61 @@ class UserFactory {
      * @return Cliente/Venditore
      */
 
-    public static function loadUser($username, $password) {
+    public static function loadUser($user, $pass) {
     
-        $query=queryCercaUtente($username, $password);
+
+        $query=  getQuery("caricaUtente");
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = avviaDatabase();
-        $result = avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);
-
-        $row = $result->fetch_row();
-
-        if(isset($row[0])){ // questo controllo serve a verificare se l'utente è stato realmente trovato nel database
-
-            switch ($row[2]){
-                case "cliente":
-                    $toRet = new Cliente();
-                    $toRet->setRuolo(User::Cliente);
-                    break;
-                case "venditore":
-                    $toRet = new Venditore();
-                    $toRet->setRuolo(User::Venditore);
-                    break;
-            }
-            $toRet->setUsername($username);
-            $toRet->setPassword($password);
-            $toRet->setNome($row[3]);
-            $toRet->setCognome($row[4]);
-            $toRet->setEmail($row[5]);
-            $toRet->setCitta($row[6]);
-            $toRet->setVia($row[7]);
-            $toRet->setCivico($row[8]);
-            $toRet->setCap($row[9]);
-            $toRet->setProvincia($row[10]);
-            $toRet->setCredito($row[11]);
-            return $toRet;
-
-        }
         
+        
+        $stmt= $mysqli->stmt_init();
+        // preparo lo statement per l'esecuzione
+        $stmt->prepare($query);
+        // collego i parametri della querycon il loro tipo
+        $stmt->bind_param("ss", $user, $pass);
+        // eseguiamo la query
+        $stmt->execute();
+        // collego i risultati della query con un insieme di variabili
+        $stmt->bind_result($idUtente, $username, $password, $nome, $cognome, $ruolo, $email, $via, $civico, $citta, $cap, $provincia, $credito);
+        // ciclo sulle righe che la queryha restituito
+        if(isset($idUtente)){
+            while($stmt->fetch()){
+                // ho nelle varibilidei risultati il contenuto delle colonne
+                switch ($ruolo){
+                    case "cliente":
+                        $toRet = new Cliente();
+                        $toRet->setRuolo(User::Cliente);
+                        break;
+                    case "venditore":
+                        $toRet = new Venditore();
+                        $toRet->setRuolo(User::Venditore);
+                        break;
+                }
+                $toRet->setUsername($username);
+                $toRet->setPassword($password);
+                $toRet->setNome($nome);
+                $toRet->setCognome($cognome);
+                $toRet->setEmail($email);
+                $toRet->setCitta($citta);
+                $toRet->setVia($via);
+                $toRet->setCivico($civico);
+                $toRet->setCap($cap);
+                $toRet->setProvincia($provincia);
+                $toRet->setCredito($credito);
+                return $toRet;
+
+            }
+        }
+        // liberiamo le risorse dello statement
+        $stmt->close();
+        
+        
+        
+        
+        
+        
+        chiudiDatabase($mysqli);
 
     }
     

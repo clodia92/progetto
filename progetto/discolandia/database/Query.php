@@ -3,9 +3,13 @@
  *Restituisce la giusta query
  */
 
-function getQuery($tipo, $parametro){
+function getQuery($tipo){
 	
     switch ($tipo){
+        case 'caricaUtente':
+            $query = "SELECT * FROM Utente WHERE user = ? and pass = ?";
+            break;
+        
         case 'catalogo':
             $query = "SELECT * FROM `Dischi` WHERE 1";
             break;
