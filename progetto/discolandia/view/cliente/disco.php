@@ -1,4 +1,4 @@
-<div id="disco">
+<div id="disco" class="disco">
     
     <div class="disco_bottone">
         <form method="post" action="cliente/carrello">

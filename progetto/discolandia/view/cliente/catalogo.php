@@ -1,4 +1,4 @@
-<div id="catalogo">
+<div id="catalogo" class="catalogo">
     <h2 class="catalogo_titolo">Catalogo Dischi</h2>
 
 <?php 

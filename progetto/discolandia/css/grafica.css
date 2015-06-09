@@ -5,7 +5,7 @@ body{
     color: black;
 }
 
-#header{
+.header{
     width: 100%;
     height: 200px;
     text-align: center;
@@ -20,27 +20,27 @@ body{
 }
 
 
-#titolo {
+.titolo {
 	font-size: 60px;
 	color: #fff;
 	font-family: fbsbltc, Arial, Helvetica, sans-serif;
 }
 
-#leftBar{
+.leftBar{
     width: 20%;
     float: left;
     min-height: 500px;
     background-color: yellowgreen;
 }
 
-#rightBar{
+.rightBar{
     width: 20%;
     min-height: 500px;
     float: right;
     background-color: blueviolet;
 }
 
-#content{
+.content{
     width: 60%;
     min-height: 500px;
     background-color: white;
@@ -58,7 +58,7 @@ body{
     width: 150px;
 }
 
-#catalogo{
+.catalogo{
     padding: 25px;
 }
 
@@ -86,7 +86,7 @@ body{
     float: right;
 }
 
-#disco{
+.disco{
     width: 100%;
     padding: 20px;
 }

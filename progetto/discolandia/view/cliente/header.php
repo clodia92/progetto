@@ -1,2 +1,2 @@
-<h1 id="titolo">Discolandia</h1>
+<h1 id="titolo" class="titolo">Discolandia</h1>
 
