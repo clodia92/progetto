@@ -16,7 +16,7 @@ body{
 //Carico il font scelto per il titolo
 @font-face {
    font-family: 'fbsbltc';
-   src: url(fbsbltc.eot);
+   src: url(fbsbltc.ttf);
    src: local('fbsbltc'), url('fbsbltc.ttf') format('truetype');
 }
 
