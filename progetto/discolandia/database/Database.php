@@ -1,10 +1,6 @@
 <?php
 class Database{
 
-    private $db_host ="localhost";
-    private $db_user="porcuClaudia";
-    private $db_password="pulcinella90";
-    private $db_name="porcuClaudia";
     /**
      * Restituisce una connessione al db
      * @return \mysqli 
@@ -14,7 +10,7 @@ class Database{
     function avviaDatabase(){
         $mysqli = new mysqli();
         //$mysqli->connect($this->db_host, $this->db_user, $this->db_password, $this->db_name);
-        $mysqli->connect("localhost", "porcuClaudia","pulcinella90", "porcuClaudia");
+        $mysqli->connect("localhost", "porcuClaudia","criceto2413", "amm15_porcuClaudia");
         // verifico la presenza di errori
 	if($mysqli->connect_errno!= 0)
 		{
