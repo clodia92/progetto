@@ -31,14 +31,14 @@ switch ($vd->getSottoPagina()) {
     <a href="cliente/catalogo">
         <div class="contenitore_pannello">
             <h3>Catalogo Dischi</h3>
-            <img class="immagine_pannello" src= "../images/disc.png">
+            <img class="immagine_pannello" src= "../discolandia/images/disc.png">
         </div>
     </a>
 
     <a href="cliente/profilo">
         <div class="contenitore_pannello">
             <h3>Profilo</h3>
-            <img class="immagine_pannello" src="../images/dj.png">
+            <img class="immagine_pannello" src="../discolandia/images/dj.png">
         </div>
     </a>
         
