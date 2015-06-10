@@ -78,7 +78,7 @@ class UserFactory {
         
         
         
-        chiudiDatabase($mysqli);
+        Database::chiudiDatabase($mysqli);
 
     }
     
