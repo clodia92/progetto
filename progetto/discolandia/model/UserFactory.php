@@ -33,16 +33,12 @@ class UserFactory {
         $mysqli = Database::avviaDatabase();
         
         $stmt= $mysqli->stmt_init();
-        echo $stmt;
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
-        echo $stmt;
         // collego i parametri della querycon il loro tipo
         $stmt->bind_param("ss", $user, $pass);
-        echo $stmt;
         // eseguiamo la query
         $stmt->execute();
-        echo $stmt;
         // collego i risultati della query con un insieme di variabili
         $stmt->bind_result($idUtente, $username, $password, $nome, $cognome, $ruolo, $email, $via, $civico, $citta, $cap, $provincia, $credito);
         // ciclo sulle righe che la queryha restituito
