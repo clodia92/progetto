@@ -38,7 +38,7 @@ body{
     width: 20%;
     min-height: 500px;
     float: right;
-    background-color: blueviolet;
+    //background-color: blueviolet;
 }
 
 .content{
@@ -48,13 +48,13 @@ body{
     margin-left: 20%;
 }
 
-.contentBox{
+.contenitore_pannello{
     height: 250px;
     width: 250px;
     text-align: center;
     float: left;
 }
-.contentBoxImage{
+.immagine_pannello{
     height: 150px;
     width: 150px;
 }
@@ -121,3 +121,12 @@ body{
     border-right: 1px solid #CCC;
     padding: 5px;
 }
+
+.profilo_laterale{
+    padding: 5px;
+}
+
+.testo_centrato{
+    text-align: center;
+}
+
