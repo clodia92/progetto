@@ -153,7 +153,7 @@ class BaseController {
     protected function login($vd, $username, $password) {
         // carichiamo i dati dell'utente
 
-        $user = UserFactory::loadUser($username, $password); // carica i dati dell'utente solo se questo è presente nel DB
+        $user = UserFactory::caricaUtente($username, $password); // carica i dati dell'utente solo se questo è presente nel DB
         if (isset($user)) {
             // utente autenticato
             $_SESSION[self::user] = $user;

@@ -24,7 +24,7 @@ class UserFactory {
      * @return Cliente/Venditore
      */
 
-    public static function loadUser($user, $pass) {
+    public static function caricaUtente($user, $pass) {
     
 
         $query=getQuery("caricaUtente");
@@ -46,7 +46,7 @@ class UserFactory {
             while($stmt->fetch()){
                 // ho nelle varibilidei risultati il contenuto delle colonne
                 switch ($ruolo){
-                    case "compratore":
+                    case "cliente":
                         $toRet = new Cliente();
                         $toRet->setRuolo(User::Cliente);
                         break;

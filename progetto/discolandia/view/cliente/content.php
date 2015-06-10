@@ -29,16 +29,16 @@ switch ($vd->getSottoPagina()) {
         Benvenuto, <?= $user->getNome() ?>
     </p>
     <a href="cliente/catalogo">
-        <div class="contentBox">
+        <div class="contenitore_pannello">
             <h3>Catalogo Dischi</h3>
-            <img class="contentBoxImage" src= "../immagini/discs.png">
+            <img class="immagine_pannello" src= "../images/disc.png">
         </div>
     </a>
 
     <a href="cliente/profilo">
-        <div class="contentBox">
+        <div class="contenitore_pannello">
             <h3>Profilo</h3>
-            <img class="contentBoxImage" src="../immagini/profile.png">
+            <img class="immagine_pannello" src="../images/dj.png">
         </div>
     </a>
         
