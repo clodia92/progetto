@@ -46,7 +46,7 @@ class UserFactory {
             while($stmt->fetch()){
                 // ho nelle varibilidei risultati il contenuto delle colonne
                 switch ($ruolo){
-                    case "cliente":
+                    case "compratore":
                         $toRet = new Cliente();
                         $toRet->setRuolo(User::Cliente);
                         break;
