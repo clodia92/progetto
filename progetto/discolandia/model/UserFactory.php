@@ -28,7 +28,6 @@ class UserFactory {
     
 
         $query=getQuery("caricaUtente");
-        echo $query;
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = Database::avviaDatabase();
         
