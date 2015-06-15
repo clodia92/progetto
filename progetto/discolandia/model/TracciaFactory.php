@@ -17,7 +17,7 @@ public function listaTracce($codDisco){
 
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-    $queryTraccia = "SELECT * FROM `Traccia` WHERE `codDisco`=" . $parametro. " ORDER BY `numero`";
+    $queryTraccia = "SELECT * FROM `Traccia` WHERE `codDisco`=" . $codDisco. " ORDER BY `numero`";
     $risultato = Database::lanciaQuery($queryTraccia, $mysqli);
     Database::chiudiDatabase($mysqli);
 	
