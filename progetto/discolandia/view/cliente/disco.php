@@ -1,6 +1,6 @@
-<div id="disco" class="disco">
+<div class="pagina_disco">
     
-    <div class="disco_bottone">
+    <div class="add_cart_button">
         <form method="post" action="cliente/carrello">
             <input type="hidden" name="act" value="add"/>
             <input type="submit" value="Compra a <?=$disco->getPrezzo()?> €"/>

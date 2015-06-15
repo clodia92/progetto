@@ -17,7 +17,7 @@ public function creaCatalogo(){
     
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-    $query=getQuery('catalogo', 1);//L'uno è inutile, serve solo a riempire il parametro
+    $query=getQuery('catalogo');
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 	

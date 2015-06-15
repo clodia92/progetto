@@ -80,7 +80,7 @@ class ClienteController extends BaseController {
                      * 
                      */
                 
-                        $catalogo = CatalogoFactory::creaCatalogo();
+                        $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('catalogo');
                         $vd->setTitolo("Catalogo Discolandia");
                         break;

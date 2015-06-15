@@ -6,7 +6,7 @@
 
 if (count($catalogo) > 0) { ?>
 
-    <?foreach ($catalogo as $cd) {?>
+    <?php foreach ($catalogo as $cd) {?>
 
     
     <div class="catalogo_disco">
@@ -28,8 +28,8 @@ if (count($catalogo) > 0) { ?>
 }
 ?>
 
-<? } else { ?>
+<?php } else { ?>
 <p> Nessun disco presente </p>
-<? } ?>
+<?php } ?>
 
 </div>

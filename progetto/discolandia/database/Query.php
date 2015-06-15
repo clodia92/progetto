@@ -11,11 +11,11 @@ function getQuery($tipo){
             break;
         
         case 'catalogo':
-            $query = "SELECT * FROM `Dischi` WHERE 1";
+            $query = "SELECT * FROM `Disco` JOIN 'Catalogo' ON 'Disco'.'codDisco' = 'Catalogo'.'codDisco' WHERE 1";
             break;
         
         case 'tracce'://ritorna le tracce ordinate per il disco
-            $query = "SELECT * FROM `Tracce` WHERE `codDisco`=" . $parametro. " ORDER BY `numero`";
+            $query = "SELECT * FROM `Traccia` WHERE `codDisco`=" . $parametro. " ORDER BY `numero`";
             break;
         
         case 'disco':
