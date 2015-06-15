@@ -19,7 +19,7 @@ function getQuery($tipo){
             break;
         
         case 'disco':
-          //  $query = "SELECT * FROM `Dischi` WHERE `codDisco`=" . $parametro;
+          //  $query = 
             break;
     }   
     
