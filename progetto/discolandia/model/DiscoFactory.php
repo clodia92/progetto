@@ -51,7 +51,7 @@ public function getDisco($codDisco){
     
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-    $query="SELECT * FROM `Dischi` WHERE `codDisco`=" . $codDisco;
+    $query="SELECT * FROM `Disco` WHERE `codDisco`=" . $codDisco;
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 
