@@ -11,7 +11,7 @@ function getQuery($tipo){
             break;
         
         case 'catalogo':
-            $query = "SELECT * FROM `Disco` JOIN 'Catalogo' ON 'Disco'.'codDisco' = 'Catalogo'.'codDisco' WHERE 1";
+            $query = "SELECT * FROM `Disco` JOIN `Catalogo` ON `Disco`.`codDisco` = `Catalogo`.`codDisco` WHERE 1";
             break;
         
         case 'tracce'://ritorna le tracce ordinate per il disco
