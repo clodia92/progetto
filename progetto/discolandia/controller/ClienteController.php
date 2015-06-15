@@ -88,7 +88,7 @@ class ClienteController extends BaseController {
                     // visualizzazione della pagina del prodotto generata dinamicamente    
                     case 'disco':
                         
-                        $disco = ProdottoFactory::getProdottoPerModello($request['cod']);
+                        $disco = DiscoFactory::getDisco($request['cod']);
                         $vd->setSottoPagina('disco');
                         $vd->setTitolo($disco->getTitolo());
                         break;
