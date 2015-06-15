@@ -48,7 +48,7 @@ class ClienteController extends BaseController {
             // utente autenticato
             $user = $session[BaseController::user];
             
-            $carrello=new Carrello();
+            //$carrello=new Carrello();
 
             /**
             * controllo la sottopagina richiesta e imposto il descrittore della
