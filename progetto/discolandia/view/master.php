@@ -29,7 +29,7 @@ include_once basename(__DIR__) . '/../Settings.php';
 
     </head>
     <body>
-        <div id="page">
+        
             <!--  header -->
             <div id="header">
                 <?php
@@ -93,6 +93,6 @@ include_once basename(__DIR__) . '/../Settings.php';
 
             </div>
 
-        </div>
+        
     </body>
 </html>
