@@ -18,7 +18,7 @@ public function creaCatalogo(){
     //Avvio il database
     $mysqli=Database::avviaDatabase();
    
-    $query=getQuery('catalogo');
+    $query="SELECT * FROM `Disco` JOIN `Catalogo` ON `Disco`.`codDisco` = `Catalogo`.`codDisco` WHERE 1";
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 	

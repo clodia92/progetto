@@ -17,7 +17,8 @@ public function listaTracce($codDisco){
 
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-    $risultato = Database::lanciaQuery(getQuery('tracce', $codDisco), $mysqli);
+    $queryTraccia = "SELECT * FROM `Traccia` WHERE `codDisco`=" . $parametro. " ORDER BY `numero`";
+    $risultato = Database::lanciaQuery($queryTraccia, $mysqli);
     Database::chiudiDatabase($mysqli);
 	
     /*Il ciclo legge il risultato della query e salva i dati in array*/

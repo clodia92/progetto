@@ -27,7 +27,7 @@ class UserFactory {
     public static function caricaUtente($user, $pass) {
     
 
-        $query=getQuery("caricaUtente");
+        $query="SELECT * FROM Utente WHERE user = ? and pass = ?";
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = Database::avviaDatabase();
         
