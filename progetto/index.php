@@ -11,5 +11,6 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Istruzioni</h1>
+        <p>Pagina in allestimento</p>
     </body>
 </html>
