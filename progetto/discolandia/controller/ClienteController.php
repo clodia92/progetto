@@ -219,6 +219,7 @@ else{
                             {
                                 Carrello::addToCart($user->getUsername(), $request['codDisco']);
                             }
+                        $this->showHomeUtente($vd);    
                         break;
                     
                     // modifica del profilo del cliente
