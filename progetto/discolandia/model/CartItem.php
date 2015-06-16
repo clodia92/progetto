@@ -6,6 +6,8 @@ class CartItem {
     private $codDisco;
     
     private $quantita;
+    
+    private $titolo;
 
 
     public function getIdCompratore() {
@@ -30,6 +32,14 @@ class CartItem {
 
     public function setQuantita($quantita) {
         $this->quantita = $quantita;
+    }
+    
+    public function getTitolo() {
+        return $this-> titolo;
+    }
+
+    public function setTitolo($titolo) {
+        $this->titolo = $titolo;
     }
 }
 ?>

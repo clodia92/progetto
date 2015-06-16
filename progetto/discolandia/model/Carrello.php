@@ -13,7 +13,7 @@ public function getCarrello($idCliente){
     //Avvio il database
     $mysqli=Database::avviaDatabase();
    
-    $query="SELECT * FROM `Carrello` WHERE `idCompratore`=" . $idCliente;
+    $query="SELECT `idCompratore`, `codDisco`, `quantita`, `titolo` FROM `Carrello` JOIN `Disco` ON `Disco`.`codDisco` = `Carrello`.`codDisco` WHERE `idCompratore`=" . $idCliente;
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 
@@ -27,6 +27,7 @@ public function getCarrello($idCliente){
         $cartItem->setIdCompratore($row[0]);
         $cartItem->setCodDisco($row[1]);
         $cartItem->setQuantita($row[2]);
+        $cartItem->setTitolo($row[3]);
 
         $carrello[] = $cartItem;
     }
@@ -35,10 +36,39 @@ public function getCarrello($idCliente){
     return $carrello;
 }
 
-public function exist($idCliente, $codDisco){}
-public function addToCart($idCliente, $codDisco){}
+//Controlla se il disco è già presente nel carrello. In caso di esito positivo restituisce la qta
+public function exist($idCliente, $codDisco){
+     //Avvio il database
+    $mysqli=Database::avviaDatabase();
+   
+    $query="SELECT `quantita` FROM `Carrello` WHERE `idCompratore`=" . $idCliente . " AND `codDisco`=" . $codDisco;
+    $risultato = Database::lanciaQuery($query, $mysqli);
+    Database::chiudiDatabase($mysqli);
+    
+    if(isset($risultato) && count($risultato)>0)
+    {
+        $row = $risultato->fetch_row();
+         return ($row[0]);
+    }
+    else 
+        return 0;
+}
+
+public function addToCart($idCliente, $codDisco){
+    //controllo se l'elemento è già nel carrello
+    $qta = exist($idCliente, $codDisco);
+    if($qta>0)
+    {
+        $query="UPDATE `Carrello` SET `quantita`=`".$qta."` WHERE `codDisco` = ".$codDisco;
+    }
+    else
+    {
+        $qta=0;
+        $query="INSERT INTO `Carrello`(`idCompratore`,`codDisco`,`quantita`) VALUES (`".$idCliente."`,`".$codDisco."`,`".$qta."`)";
+    }
+}
 public function removeToTheCart($idCliente, $codDisco){}
-public function itemPlus($idCliente, $codDisco){}
+
 
 
 

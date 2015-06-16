@@ -213,6 +213,14 @@ else{
                         $this->logout($vd);
                         break;
 
+                    case 'add':
+                        
+                        if(isset($request['codDisco']))
+                            {
+                                Carrello::addToCart($user-getUsername(), $request['codDisco']);
+                            }
+                        break;
+                    
                     // modifica del profilo del cliente
                     case 'modificaprofilo':
                         
