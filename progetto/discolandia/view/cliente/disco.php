@@ -29,7 +29,7 @@
         <h3>Tracce:</h3>
         <ol>
         <?php
-        if(count($tracce)<1)
+        if(!(isset($tracce)))
                 echo "Non sono presenti tracce per questo disco";
         else
         {

@@ -92,32 +92,15 @@ class ClienteController extends BaseController {
                         $vd->setSottoPagina('disco');
                         $vd->setTitolo($disco->getTitolo());
                         break;
-                    /*
+                    
                     // visualizzazione del carrello del cliente
                     case 'carrello':
-                         
-                        // gestione dei comandi di aggiunta o rimozione di un prodotto all'interno del carrello
-                        if(isset($request['act'])){
-                            switch ($request['act']){
-                                case 'add':
-                                    $confermaAggiunta=1; // variabile che serve a mostrare un feedback al cliente
-                                    $carrello->addProdotto($request['id']);
-                                    break;
-                                
-                                case 'remove':
-                                    $confermaRimozione=1; // variabile che serve a mostrare un feedback al cliente
-                                    $carrello->removeProdotto($request['id']);
-                                    break;
-                            }
-                            $session[self::carrelloProdotti]=$carrello; // salvo il contenuto del carrello nella sessione
-                            unset($request['act']); //svuoto la variabile del comando
-                            
-                        }
-                        $listaCarrello = $carrello->getCarrello(); // aggiorno la lista dei prodotti nel carrello
+                        
+                        $carrello = Carrello::getCarrello($user->getUsername()); // aggiorno la lista dei prodotti nel carrello
                         $vd->setSottoPagina('carrello');
                         $vd->setTitolo('Carrello');
                         break;
-                    */
+                    
                      // visualizzazione del profilo
                     case 'profilo':
                         $vd->setSottoPagina('profilo');

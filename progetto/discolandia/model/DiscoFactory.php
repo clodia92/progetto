@@ -4,7 +4,7 @@
 include_once basename(__DIR__) . '/../model/Disco.php';
 include_once basename(__DIR__) . '/../model/TracciaFactory.php';
 include_once basename(__DIR__) . '/../database/Database.php';
-include_once basename(__DIR__) . '/../database/Query.php';
+
 
 class DiscoFactory{
 public function __construct() {
