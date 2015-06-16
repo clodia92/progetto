@@ -56,7 +56,7 @@ public function exist($idCliente, $codDisco){
 
 public function addToCart($idCliente, $codDisco){
     //controllo se l'elemento è già nel carrello
-    $qta = exist($idCliente, $codDisco);
+    $qta = Carrello::exist($idCliente, $codDisco);
     if($qta>0)
     {
         $query="UPDATE `Carrello` SET `quantita`=`".$qta."` WHERE `codDisco` = '".$codDisco."'";
