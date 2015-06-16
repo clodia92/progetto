@@ -51,7 +51,7 @@ public function getDisco($codDisco){
     
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-    $query="SELECT * FROM `Disco` JOIN `Catalogo` ON `Disco`.`codDisco` = `Catalogo`.`codDisco` WHERE `codDisco`=" . $codDisco;
+    $query="SELECT * FROM `Disco` JOIN `Catalogo` ON `Disco`.`codDisco` = `Catalogo`.`codDisco` WHERE `Catalogo`.`codDisco`=" . $codDisco;
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 
