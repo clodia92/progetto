@@ -31,7 +31,8 @@ class Database{
 	{
 	// errore nella esecuzione della query(es. sintassi)
 		error_log("Errore nella esecuzione della query $mysqli->errno: $mysqli->error", 0);
-		echo"La query ha generato un errore";
+		echo"La query ha generato un errore<br>";
+                echo $query;
 	}
 	else
 	{
