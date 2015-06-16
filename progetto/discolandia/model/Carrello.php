@@ -41,7 +41,7 @@ public function exist($idCliente, $codDisco){
      //Avvio il database
     $mysqli=Database::avviaDatabase();
    
-    $query="SELECT `quantita` FROM `Carrello` WHERE `idCompratore`=" . $idCliente . " AND `codDisco`=" . $codDisco;
+    $query="SELECT `quantita` FROM `Carrello` WHERE `idCompratore`='" . $idCliente . "' AND `codDisco`='" . $codDisco ."'";
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
     
@@ -59,12 +59,12 @@ public function addToCart($idCliente, $codDisco){
     $qta = exist($idCliente, $codDisco);
     if($qta>0)
     {
-        $query="UPDATE `Carrello` SET `quantita`=`".$qta."` WHERE `codDisco` = ".$codDisco;
+        $query="UPDATE `Carrello` SET `quantita`=`".$qta."` WHERE `codDisco` = '".$codDisco."'";
     }
     else
     {
         $qta=0;
-        $query="INSERT INTO `Carrello`(`idCompratore`,`codDisco`,`quantita`) VALUES (`".$idCliente."`,`".$codDisco."`,`".$qta."`)";
+        $query="INSERT INTO `Carrello`(`idCompratore`,`codDisco`,`quantita`) VALUES ('".$idCliente."','".$codDisco."','".$qta."')";
     }
 }
 public function removeToTheCart($idCliente, $codDisco){}
