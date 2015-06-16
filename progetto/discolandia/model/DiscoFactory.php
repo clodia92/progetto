@@ -66,8 +66,8 @@ public function getDisco($codDisco){
     $disco->setEtichetta($row[5]);
     $disco->setImmagine($row[6]);
     $disco->setAnno($row[7]);
-    $disco->setPrezzo($row[8]);
-    $disco->setDisponibili($row[9]);
+    $disco->setPrezzo($row[10]);
+    $disco->setDisponibili($row[11]);
     $disco->setTracce(TracciaFactory::listaTracce($row[0]));
     
     return $disco;

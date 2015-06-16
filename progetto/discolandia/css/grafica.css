@@ -28,24 +28,32 @@ body{
 }
 
 .leftBar{
-    padding: 1em;
+
     border: solid 1px grey;
     width: 20%;
     float: left;
     min-height: 500px;
 }
 
+.generi_leftbar{
+    margin: 1em;
+}
+
 .rightBar{
-    padding: 1em;
+
     border: solid 1px grey;
     width: 20%;
     min-height: 500px;
     float: right;
+}
 
+
+.profilo_rightbar{
+    margin: 3em 1em 1em 1em;
 }
 
 .content{
-    padding: 1em;
+
     border: solid 1px grey;
     width: 60%;
     min-height: 500px;
@@ -131,10 +139,6 @@ body{
     padding: 5px;
 }
 
-.profilo_laterale{
-    padding: 5px;
-    margin-top: 3em;
-}
 
 .testo_centrato{
     text-align: center;

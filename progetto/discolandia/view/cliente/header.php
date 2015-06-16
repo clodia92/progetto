@@ -1,1 +1,1 @@
-<h1 class="titolo" class="titolo">Discolandia</h1>
+<h1 class="titolo" class="titolo"><a href="login">Discolandia</a></h1>
