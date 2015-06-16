@@ -1,4 +1,4 @@
-<div class="profilo_laterale">
+<div class="profilo_rightbar">
     <div class="testo_centrato">
         <img src="../discolandia/images/dj.png" class="immagine_profilo_laterale">
         <h4><?=$user->getUsername(); ?></h4>
