@@ -28,20 +28,25 @@ body{
 }
 
 .leftBar{
+    padding: 1em;
+    border: solid 1px grey;
     width: 20%;
     float: left;
     min-height: 500px;
-    background-color: yellowgreen;
 }
 
 .rightBar{
+    padding: 1em;
+    border: solid 1px grey;
     width: 20%;
     min-height: 500px;
     float: right;
-    //background-color: blueviolet;
+
 }
 
 .content{
+    padding: 1em;
+    border: solid 1px grey;
     width: 60%;
     min-height: 500px;
     background-color: white;
@@ -92,10 +97,14 @@ body{
     padding: 20px;
 }
 
-.disco_bottone{
+.add_cart_button{
     float: right;
     margin-top: 50px;
     margin-right: 30px;
+}
+
+.disco_prezzo{
+    color: red;
 }
 
 .disco_immagine{

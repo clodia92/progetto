@@ -20,7 +20,7 @@ if (count($catalogo) > 0) { ?>
                 <?=$cd->getArtista()?>
             </p>
         </div>
-        <div class="catalogo_prezzo"><?= $cd->getPrezzo()?>€</div>
+        <div class="catalogo_prezzo"><p><?= $cd->getPrezzo()?> Euro</p></div>
     </div>
 
 <?php

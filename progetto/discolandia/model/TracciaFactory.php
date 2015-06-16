@@ -20,19 +20,20 @@ public function listaTracce($codDisco){
     $queryTraccia = "SELECT * FROM `Traccia` WHERE `codDisco`=" . $codDisco. " ORDER BY `numero`";
     $risultato = Database::lanciaQuery($queryTraccia, $mysqli);
     Database::chiudiDatabase($mysqli);
+    $tracce = array();
 	
     /*Il ciclo legge il risultato della query e salva i dati in array*/
-	
-    while($row = $risultato->fetch_row())
-    {
-        $traccia = new Traccia();
-        $traccia->setCodTraccia($row[0]);
-        $traccia->setNumero($row[1]);
-        $traccia->setTitolo($row[2]);
-        $traccia->setCodDisco($row[3]);
-       
-        $tracce[] = $traccia;
-    }
+           
+        while($row = $risultato->fetch_row())
+        {
+            $traccia = new Traccia();
+            $traccia->setCodTraccia($row[0]);
+            $traccia->setNumero($row[1]);
+            $traccia->setTitolo($row[2]);
+            $traccia->setCodDisco($row[3]);
+
+            $tracce[] = $traccia;
+        }
         
         
     return $tracce;

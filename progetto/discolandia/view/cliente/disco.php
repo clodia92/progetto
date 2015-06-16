@@ -1,10 +1,12 @@
 <div class="pagina_disco">
     
     <div class="add_cart_button">
+        <p class="disco_prezzo"><?=$disco->getPrezzo()?> Euro</p>
         <form method="post" action="cliente/carrello">
             <input type="hidden" name="act" value="add"/>
-            <input type="submit" value="Compra a <?=$disco->getPrezzo()?> €"/>
+            <input type="submit" value="Aggiungi al carrello"/>
         </form>
+        
     </div>    
     
     <img class="disco_immagine" src="<?=$disco->getImmagine()?>">
@@ -26,12 +28,19 @@
     <div class="disco_tracce">
         <h3>Tracce:</h3>
         <ol>
-        <?//Le tracce arrivano già ordinate
-        $tracce=$disco->getTracce();
-        foreach ($tracce as $traccia) {
-            ?>
-            <li><?=$traccia->getTitolo()?></li>
-            <?
+        <?php
+        if(count($tracce)=0)
+                echo "Non sono presenti tracce per questo disco";
+        else
+        {
+            //Le tracce arrivano già ordinate
+            $tracce=$disco->getTracce();
+            foreach ($tracce as $traccia) {
+                ?>
+                <li><?=$traccia->getTitolo()?></li>
+                <?php
+            }
+            
         }
         ?>
         </ol>
