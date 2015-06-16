@@ -217,7 +217,7 @@ else{
                         
                         if(isset($request['codDisco']))
                             {
-                                Carrello::addToCart($user-getUsername(), $request['codDisco']);
+                                Carrello::addToCart($user->getUsername(), $request['codDisco']);
                             }
                         break;
                     
