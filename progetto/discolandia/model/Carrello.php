@@ -13,7 +13,12 @@ public function getCarrello($idCliente){
     //Avvio il database
     $mysqli=Database::avviaDatabase();
     
-    $query="SELECT `idCompratore`, `Carrello`.`codDisco`, `quantita`, `titolo` FROM `Carrello` JOIN `Disco` ON `Disco`.`codDisco` = `Carrello`.`codDisco` WHERE `idCompratore`='" . $idCliente."'";
+    $query="SELECT `idCompratore`, `Carrello`.`codDisco`, "
+            . "`Carrello`.`quantita`, `titolo`, `prezzo` "
+            . "FROM `Carrello` JOIN `Disco` ON `Disco`.`codDisco` = `Carrello`.`codDisco` "
+            . "JOIN `Catalogo` ON `Catalogo`.`codDisco` = `Carrello`.`CodDisco` "
+            . "WHERE `idCompratore`='" . $idCliente."'";
+    
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 
@@ -28,6 +33,7 @@ public function getCarrello($idCliente){
         $cartItem->setCodDisco($row[1]);
         $cartItem->setQuantita($row[2]);
         $cartItem->setTitolo($row[3]);
+        $cartItem->setPrezzo($row[4]);
 
         $carrello[] = $cartItem;
     }

@@ -8,6 +8,8 @@ class CartItem {
     private $quantita;
     
     private $titolo;
+    
+    private $prezzo;
 
 
     public function getIdCompratore() {
@@ -40,6 +42,14 @@ class CartItem {
 
     public function setTitolo($titolo) {
         $this->titolo = $titolo;
+    }
+    
+    public function getPrezzo() {
+        return $this-> prezzo;
+    }
+
+    public function setPrezzo($prezzo) {
+        $this->prezzo = $prezzo;
     }
 }
 ?>
