@@ -66,7 +66,7 @@ public function addToCart($idCliente, $codDisco){
     $qta = Carrello::exist($idCliente, $codDisco);
     if($qta>0)
     {
-        $query="UPDATE `Carrello` SET `quantita`=`".$qta++."` WHERE `codDisco` = '".$codDisco."'";
+        $query="UPDATE `Carrello` SET `quantita`='". ($qta+1) ."' WHERE `codDisco` = '".$codDisco."'";
     }
     else
     {
