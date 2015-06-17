@@ -213,11 +213,21 @@ else{
                         $this->logout($vd);
                         break;
 
-                    case 'add':
+                    case 'addCart':
                         
                         if(isset($request['codDisco']))
                         {
                             Carrello::addToCart($user->getUsername(), $request['codDisco']);
+                        }
+                        $carrello = Carrello::getCarrello($user->getUsername()); // aggiorno la lista dei prodotti nel carrello
+                        $this->showHomeUtente($vd);    
+                        break;
+                        
+                    case 'removeCart':
+                        
+                        if(isset($request['codDisco']))
+                        {
+                            Carrello::removeToCart($user->getUsername(), $request['codDisco']);
                         }
                         $carrello = Carrello::getCarrello($user->getUsername()); // aggiorno la lista dei prodotti nel carrello
                         $this->showHomeUtente($vd);    

@@ -3,7 +3,7 @@
     <div class="add_cart_button">
         <p class="disco_prezzo"><?=$disco->getPrezzo()?> Euro</p>
         <form method="post" action="cliente/carrello">
-            <input type="hidden" name="cmd" value="add"/>
+            <input type="hidden" name="cmd" value="addCart"/>
             <input type="hidden" name='codDisco' value="<?=$disco->getCodDisco()?>">
             <input type="submit" value="Aggiungi al carrello"/>
         </form>

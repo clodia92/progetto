@@ -21,7 +21,13 @@
             <td><?=$cartItem->getTitolo()?></td>
             <td><?=$cartItem->getQuantita()?></td>
             <td><?=$cartItem->getPrezzo(); $tot=$tot+$cartItem->getPrezzo();?></td>
-            <td>Remove<?php $cartItem->getCodDisco()?></td>
+            <td>
+                <form class="" method="post" action="cliente/carrello">
+                    <input type="hidden" name="cmd" value="removeCart"/>
+                    <input type="hidden" name='codDisco' value="<?=$disco->getCodDisco()?>">
+                    <input type="submit" value="Rimuovi"/>
+                </form>
+            </td>    
         </tr>
         <?php } ?>
     </table>
