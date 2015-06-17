@@ -2,7 +2,6 @@
     <h3>Il tuo carrello</h3>
         
     <?php
-    echo count($carrello);
     if(!(isset($carrello) && count($carrello)>0))
         echo "Nessun elemento nel carrello";
     else
@@ -19,10 +18,10 @@
 
         <?php foreach ($carrello as $cartItem){ ?>
         <tr>
-            <td><?=$cartItem->getTitolo?></td>
-            <td><?=$cartItem->getQuantita?></td>
-            <td><?=$cartItem->getPrezzo; $tot=$tot+$cartItem->getPrezzo;?></td>
-            <td>Remove<?php $cartItem->getCodDisco?></td>
+            <td><?=$cartItem->getTitolo()?></td>
+            <td><?=$cartItem->getQuantita()?></td>
+            <td><?=$cartItem->getPrezzo(); $tot=$tot+$cartItem->getPrezzo();?></td>
+            <td>Remove<?php $cartItem->getCodDisco()?></td>
         </tr>
         <?php } ?>
     </table>
