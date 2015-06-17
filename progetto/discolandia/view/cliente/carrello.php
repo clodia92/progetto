@@ -24,12 +24,13 @@
             <td>Remove<?php $cartItem->getCodDisco?></td>
         </tr>
         <?php } ?>
-    </table>    
+    </table>
+    <p>Totale: <?=$tot?></p>
     <?php
     }
     ?>
 
-    <p>Totale: <?=$tot?></p>
+    
     
     <p>Manca il bottone di conferma</p>
 

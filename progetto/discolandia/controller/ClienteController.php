@@ -216,9 +216,12 @@ else{
                     case 'add':
                         
                         if(isset($request['codDisco']))
-                            {
-                                Carrello::addToCart($user->getUsername(), $request['codDisco']);
-                            }
+                        {
+                            Carrello::addToCart($user->getUsername(), $request['codDisco']);
+                        }
+                        echo 'Inserimento elemento';
+                        $vd->setSottoPagina('carrello');
+                        $vd->setTitolo('Carrello');    
                         $this->showHomeUtente($vd);    
                         break;
                     
