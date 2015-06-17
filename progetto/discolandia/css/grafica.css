@@ -149,5 +149,6 @@ body{
 }
 
 .profilo_destro{
-    float: left;
+    float: right;
+    margin-right: 3em;
 }

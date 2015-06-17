@@ -1,7 +1,8 @@
 <!--Visualizzazione del profilo del cliente-->
 <div class="profilo">
+    <h2 class="titolo">Profilo</h2>
     <div class="profilo_sinistro">
-        <h2>Dati personali</h2><span>Modifica</span>
+        <h3>Dati personali</h3><span>Modifica</span>
 
         <ul>
             <li><strong>Nome:</strong> <?= $user->getNome() ?></li>
@@ -23,9 +24,40 @@
     </div>
     
     
+
+    <!--Lista degli acquisti effettuati-->
+<div id="storico" class="contenitore altezza">
+    <h2>Storico acquisti</h2>
+
+    <?php 
+
+
+    if (isset($storico) && (count($storico) > 0)) { ?>
+    <div class="storico_spazioTabella">
+    <table class="storico_tabella">
+        <tr>
+            <th>Data</th>
+            <th>Prodotto</th>		
+            <th>Prezzo</th>
+            <th>Venditore</th>
+        </tr>
     
-    
-    <h3><strong><a href="cliente/storico">Acquisti effettuati</a></strong></h3>
-    
+        <?php foreach ($storico as $transazione) {?>
+        <tr>
+            <td><?= $transazione->getData()?></td>
+            <td><?= $transazione->getMarca()?> - <?= $transazione->getModello()?></td>
+            <td><?= $transazione->getPrezzo()?></td>
+            <td><?= $transazione->getVenditore()?></td>
+        </tr>
+    <?php
+
+    }
+    ?>
+    </table>
+    <?php } else { ?>
+    <p> Nessun acquisto effettuato </p>
+    <?php } ?>
+    </div>
+</div>
     
 </div>
