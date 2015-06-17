@@ -219,6 +219,7 @@ else{
                         {
                             Carrello::addToCart($user->getUsername(), $request['codDisco']);
                         }
+                        $carrello = Carrello::getCarrello($user->getUsername()); // aggiorno la lista dei prodotti nel carrello
                         $this->showHomeUtente($vd);    
                         break;
                     
