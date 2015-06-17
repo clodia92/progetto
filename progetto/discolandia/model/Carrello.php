@@ -12,7 +12,7 @@ public function __construct() {
 public function getCarrello($idCliente){
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-   
+    
     $query="SELECT `idCompratore`, `Carrello`.`codDisco`, `quantita`, `titolo` FROM `Carrello` JOIN `Disco` ON `Disco`.`codDisco` = `Carrello`.`codDisco` WHERE `idCompratore`='" . $idCliente."'";
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
@@ -66,6 +66,11 @@ public function addToCart($idCliente, $codDisco){
         $qta=0;
         $query="INSERT INTO `Carrello`(`idCompratore`,`codDisco`,`quantita`) VALUES ('".$idCliente."','".$codDisco."','".$qta."')";
     }
+    
+    $mysqli=Database::avviaDatabase();
+    $risultato = Database::lanciaQuery($query, $mysqli);
+    Database::chiudiDatabase($mysqli);
+    
 }
 public function removeToTheCart($idCliente, $codDisco){}
 

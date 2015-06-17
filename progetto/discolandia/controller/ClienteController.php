@@ -219,9 +219,6 @@ else{
                         {
                             Carrello::addToCart($user->getUsername(), $request['codDisco']);
                         }
-                        echo 'Inserimento elemento';
-                        $vd->setSottoPagina('carrello');
-                        $vd->setTitolo('Carrello');    
                         $this->showHomeUtente($vd);    
                         break;
                     
