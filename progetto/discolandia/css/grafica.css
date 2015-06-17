@@ -144,3 +144,10 @@ body{
     text-align: center;
 }
 
+.profilo_sinistro{
+    float: left;
+}
+
+.profilo_destro{
+    float: left;
+}
