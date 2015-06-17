@@ -1,7 +1,7 @@
 <div class="profilo_rightbar">
     <div class="testo_centrato">
         <img src="../discolandia/images/dj.png" class="immagine_profilo_laterale">
-        <h4><?=$user->getUsername(); ?></h4>
+        <a href="cliente/profilo"><h4><?=$user->getNome(); ?></h4></a>
     </div>
     <!--Aggiungi gli altri dati profilo, carrello-->
     <div class="info_profilo_laterale">
@@ -11,7 +11,7 @@
     
     
     <h3>
-        <strong>Credito:</strong> <text class="prezzo"><?= $user->getCredito() ?> Euro</text>
+        Credito: <text class=""><?= $user->getCredito() ?> Euro</text>
     </h3>
     <!--Form per ricaricare il credito-->    
     <form method="post" action="cliente/profilo">
