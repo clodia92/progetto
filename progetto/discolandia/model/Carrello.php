@@ -55,6 +55,8 @@ public function exist($idCliente, $codDisco){
 }
 
 public function addToCart($idCliente, $codDisco){
+    echo $idCliente;
+    echo $codDisco;
     //controllo se l'elemento è già nel carrello
     $qta = Carrello::exist($idCliente, $codDisco);
     if($qta>0)
@@ -66,7 +68,7 @@ public function addToCart($idCliente, $codDisco){
         $qta=0;
         $query="INSERT INTO `Carrello`(`idCompratore`,`codDisco`,`quantita`) VALUES ('".$idCliente."','".$codDisco."','".$qta."')";
     }
-    
+    echo $qta;
     $mysqli=Database::avviaDatabase();
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
