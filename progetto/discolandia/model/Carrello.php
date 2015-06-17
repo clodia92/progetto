@@ -82,7 +82,7 @@ public function addToCart($idCliente, $codDisco){
 
 public function removeToCart($idCliente, $codDisco){
 
-    $query = "DELETE FROM `Carrello` WHERE `idCliente` ='". $idCliente . "' AND `codDisco` = '" . $codDisco ."'";
+    $query = "DELETE FROM `Carrello` WHERE `idCompratore` ='". $idCliente . "' AND `codDisco` = '" . $codDisco ."'";
     $mysqli=Database::avviaDatabase();
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
