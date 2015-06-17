@@ -22,7 +22,7 @@
             <td><?=$cartItem->getQuantita()?></td>
             <td><?=$cartItem->getPrezzo(); $tot=$tot+$cartItem->getPrezzo();?></td>
             <td>
-                <a href=cliente/carrello?cmd=removeCart&codDisco=<?=$cartItem->getCodDisco()?>">
+                <a href="cliente/carrello?cmd=removeCart&codDisco=<?=$cartItem->getCodDisco()?>">
                     Rimuovi</a>
             </td>    
         </tr>
