@@ -82,7 +82,7 @@ class UserFactory {
      * @param Decimal $credito
      */
     public function salvaCredito ($user, $credito){
-        $query="";
+        $query="UPDATE `Utenti` SET `credito` = '". $credito . "' WHERE user = '". $user."'";
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = avviaDatabase();
         avviaQuery($query, $mysqli);
