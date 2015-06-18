@@ -2,7 +2,6 @@
 
 include_once 'BaseController.php';
 include_once basename(__DIR__) . '/../model/DiscoFactory.php';
-include_once basename(__DIR__) . '/../model/CatalogoFactory.php';
 
 /**
  * Controller che gestisce la modifica dei dati dell'applicazione relativa ai venditori
