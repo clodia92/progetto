@@ -241,7 +241,7 @@ else{
         // controllo degli accessi
         switch ($user->getRuolo()) {
 
-            // l'utente e' uno studente, consentiamo l'accesso
+            // l'utente e' un cliente, consentiamo l'accesso
             case User::Cliente:
                 return $_SESSION;
 
