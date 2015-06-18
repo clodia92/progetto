@@ -81,7 +81,7 @@ class UserFactory {
      * @param Decimal $credito
      */
     public function salvaCredito ($user, $credito){
-        $query="UPDATE `Utenti` SET `credito` = '". $credito . "' WHERE user = '". $user."'";
+        $query="UPDATE `Utente` SET `credito` = '". $credito . "' WHERE user = '". $user."'";
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = Database::avviaDatabase();
         Database::lanciaQuery($query, $mysqli);
