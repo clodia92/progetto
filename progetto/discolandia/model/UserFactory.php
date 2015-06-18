@@ -3,7 +3,7 @@
 include_once 'User.php';
 include_once 'Cliente.php';
 include_once 'Venditore.php';
-//include_once basename(__DIR__) . '/../database/Database.php';
+include_once 'database/Database.php';
 //include_once 'Transazione.php';
 
 
@@ -28,7 +28,7 @@ class UserFactory {
 
         $query="SELECT * FROM Utente WHERE user = ? and pass = ?";
         //Avvia la procedura di lettura e salva il risultato
-        $mysqli = Database::avviaDatabase();
+        $mysqli = avviaDatabase();
         
         $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
