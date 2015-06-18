@@ -23,6 +23,16 @@
         </ul>
     </div>
     
+    <h3>
+        Credito: <text class=""><?= $user->getCredito() ?> Euro</text>
+    </h3>
+    <!--Form per ricaricare il credito-->    
+    <form method="post" action="cliente/profilo">
+        <input type="hidden" name="cmd" value="ricarica"/>
+        <label for="ricarica">Quanto vuoi ricaricare?:</label>
+        <input type="text" name="ricarica" value=""/>
+        <input type="submit" value="Ricarica!"/>
+    </form>
     
 
     <!--Lista degli acquisti effettuati-->
