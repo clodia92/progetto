@@ -3,7 +3,6 @@
 include_once 'User.php';
 include_once 'Cliente.php';
 include_once 'Venditore.php';
-include_once 'database/Database.php';
 //include_once 'Transazione.php';
 
 
@@ -28,7 +27,7 @@ class UserFactory {
 
         $query="SELECT * FROM Utente WHERE user = ? and pass = ?";
         //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
+        $mysqli = Database::avviaDatabase();
         
         $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
@@ -84,9 +83,9 @@ class UserFactory {
     public function salvaCredito ($user, $credito){
         $query="UPDATE `Utenti` SET `credito` = '". $credito . "' WHERE user = '". $user."'";
         //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);
+        $mysqli = Database::avviaDatabase();
+        Database::avviaQuery($query, $mysqli);
+        Database::chiudiDatabase($mysqli);
     }
     
     /**
@@ -96,11 +95,11 @@ class UserFactory {
      */
     public function recuperaCredito($user) {
         $query=queryGetCredito($user);
-        $mysqli = avviaDatabase();
-        $result = avviaQuery($query, $mysqli);
+        $mysqli = Database::avviaDatabase();
+        $result = Database::avviaQuery($query, $mysqli);
         $row = $result->fetch_row();
         $credito=$row[0];
-        chiudiDatabase($mysqli);
+        Database::chiudiDatabase($mysqli);
         return $credito;
     }
     
