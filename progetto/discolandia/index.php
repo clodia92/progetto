@@ -3,7 +3,7 @@
 
 include_once 'controller/BaseController.php';
 include_once 'controller/ClienteController.php';
-//include_once 'controller/VenditoreController.php';
+include_once 'controller/VenditoreController.php';
 
 // punto unico di accesso all'applicazione
 FrontController::dispatch($_REQUEST);
