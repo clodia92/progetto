@@ -30,7 +30,7 @@
     <form method="post" action="cliente/profilo">
         <input type="hidden" name="cmd" value="ricarica"/>
         <label for="ricarica">Quanto vuoi ricaricare?:</label>
-        <input type="text" name="ricarica" value=""/>
+        <input type="text" name="importo" value=""/>
         <input type="submit" value="Ricarica!"/>
     </form>
     
