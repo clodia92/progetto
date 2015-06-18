@@ -84,7 +84,7 @@ class UserFactory {
         $query="UPDATE `Utenti` SET `credito` = '". $credito . "' WHERE user = '". $user."'";
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = Database::avviaDatabase();
-        Database::avviaQuery($query, $mysqli);
+        Database::lanciaQuery($query, $mysqli);
         Database::chiudiDatabase($mysqli);
     }
     
@@ -96,7 +96,7 @@ class UserFactory {
     public function recuperaCredito($user) {
         $query=queryGetCredito($user);
         $mysqli = Database::avviaDatabase();
-        $result = Database::avviaQuery($query, $mysqli);
+        $result = Database::lanciaQuery($query, $mysqli);
         $row = $result->fetch_row();
         $credito=$row[0];
         Database::chiudiDatabase($mysqli);
