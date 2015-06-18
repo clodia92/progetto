@@ -67,7 +67,7 @@ class VenditoreController extends BaseController {
 
                     // visualizzazione dell'elenco dei prodotti in vendita per il venditore
                     case 'lista':
-                        $prodotti = CatalogoFactory::creaLista();
+                        $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('lista');
                         $vd->setTitolo('Venditore - Lista Prodotti');
                         break;
