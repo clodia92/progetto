@@ -164,8 +164,10 @@ else{
                     case 'ricarica':
                         if(isset($request['importo'])){
                             $newCredito=($user->getCredito()+$request['importo']);
+                            $user->setCredito($newCredito);
                             UserFactory::salvaCredito($user->getUsername(), $newCredito); // salvo il credito nel DataBase
                         }
+                        
                         $this->showHomeUtente($vd);
                         break;
                         
