@@ -112,78 +112,12 @@ class ClienteController extends BaseController {
                         
                         $vd->setSottoPagina('modificaprofilo');
                         $vd->setTitolo("Modifica Profilo Discolandia");
-                        break;
-                    /*
-                    // visualizzazone di una pagina di conferma dell'acquisto e gestione della transazione  
-                    case 'conferma':
-                        switch($request['pag'])
-                        {
-                            // visualizzazione di una pagina con il riepilogo dell'acquisto
-                            case 'richiestaConferma':
-                            break;
-                        
-                            // gestione dell'acquisto
-                            case 'confermaOk':
-                                $mysqli = avviaDatabase(); 
-                                $mysqli->autocommit(false);
-                                $tot=0;
-                                
-                                // procedo solo se il carrello non è vuoto
-                                if(isset($listaCarrello) && count($listaCarrello)!=0){
-
-                                    foreach ($listaCarrello as $elemento)
-                                    {   
-
-                                        $prodottoConferma = ProdottoFactory::getProdottoPerModelloNDB($elemento, $mysqli);
-                                        // si procede solo se il prodotto è disponibile
-                                        if($prodottoConferma->getDisp()>0){
-                                            $prezzo=$prodottoConferma->getPrezzo(); 
-                                            $tot+=$prezzo; // aggiungo il prezzo del prodotto al totale
-                                            ProdottoFactory::modificaQtaProdottoNDB($prodottoConferma->getModello(), $prodottoConferma->getVenditore(),($prodottoConferma->getDisp()-1), $mysqli); // aggiorno la quantità disponibile del prodotto nel database
-                                            $prodottoConferma->setDisp($prodottoConferma->getDisp()-1); // aggiorno la quantità disponibile nell' oggetto
-                                            
-                                            // salvataggio del nuovo credito del cliente
-                                            $user->changeCredito($prezzo, 0); // sottraggo il prezzo del prodotto al credito. Il valore 0 imposta la sottrazione
-                                            UserFactory::salvaCredito($user->getUsername(),$user->getCredito()); // salvo il credito nel DataBase
-                                            
-                                            // salvtaggio del nuovo credito del venditore
-                                            $creditoVenditore = UserFactory::recuperaCredito($prodottoConferma->getVenditore()); // recupero l'attuale credito del venditore del prodotto
-                                            UserFactory::salvaCredito(($prodottoConferma->getVenditore()), ($creditoVenditore+$prezzo)); //saslvo il nuovo credito del venditore nel database
-                                            
-                                            // salvataggio della transazione nel DataBase
-                                            UserFactory::addTransazione($user->getUsername(), $prodottoConferma->getVenditore(), $prodottoConferma->getMarca(), $prodottoConferma->getModello(), $prodottoConferma->getPrezzo(), date('Y/m/d H:i:s'));
-                                        }
-                                        
-                                    }
-                                    // svuoto il carrello
-                                    $carrello->svuotaCarrello();
-                                    $session[self::carrelloProdotti]=$carrello;
-                                    
-                                    // salvo le modifiche nel DataBase
-                                    $mysqli->commit();
-                                    $mysqli->autocommit(true);
-                                    chiudiDatabase($mysqli);
-                                  
-                                    //ACQUISTO TERMINATO
-                                }
-                            break;
-                        }
-                        
-                        $vd->setSottoPagina('conferma');
-                        $vd->setTitolo('conferma');
-                        break;
-                        */
-                        // visualizzazione dei prodotti acquistati in precedenza
-                        case 'storico':
-                        $storico=UserFactory::creaStorico($user->getUsername());    
-                        $vd->setSottoPagina('storico');
-                        $vd->setTitolo('storico');
-                        break;
+                        break;    
                     
                     default:
-                        $prodotti = ProdottoFactory::creaLista();
-                        $vd->setSottoPagina('vetrina');
-                        $vd->setTitolo("AMMazon - Vetrina Prodotti");
+                        $catalogo = DiscoFactory::creaCatalogo();
+                        $vd->setSottoPagina('catalogo');
+                        $vd->setTitolo("Catalogo Discolandia");
                         break;
                 }
               
@@ -197,15 +131,6 @@ else{
             if (isset($request["cmd"])) {
                 // abbiamo ricevuto un comando
                 switch ($request["cmd"]) {
-                    
-                    //ricarica il credito del cliente
-                    case 'ricarica':
-                        if(isset($request['importo'])){
-                            $user->ricarica($request['importo']);
-                            UserFactory::salvaCredito($user->getUsername(), $user->getCredito()); // salvo il credito nel DataBase
-                        }
-                        $this->showHomeUtente($vd);
-                        break;
                     
                     // logout
                     case 'logout':
@@ -223,6 +148,7 @@ else{
                         $this->showHomeUtente($vd);    
                         break;
                         
+                        
                     case 'removeCart':
                         
                         if(isset($request['codDisco']))
@@ -233,6 +159,17 @@ else{
                         $this->showHomeUtente($vd);    
                         break;
                     
+                        
+                         //ricarica il credito del cliente
+                    case 'ricarica':
+                        if(isset($request['importo'])){
+                            $user->ricarica($request['importo']);
+                            UserFactory::salvaCredito($user->getUsername(), $user->getCredito()); // salvo il credito nel DataBase
+                        }
+                        $this->showHomeUtente($vd);
+                        break;
+                        
+                        
                     // modifica del profilo del cliente
                     case 'modificaprofilo':
                         

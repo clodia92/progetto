@@ -297,19 +297,6 @@ class User{
     public function getCredito() {
         return $this->credito;
     }
-    
-    /**
-     * Esegue operazioni sul credito
-     * @param Decimal $valore Quantita' da sommare o detrarre
-     * @param int $op identifica l'operazione da eseguire(1 per ricaricare - 0 per sotrarre)
-     */
-    public function changeCredito($valore, $op){
-           
-        if($op)// 1Ricarica - 0Sottrae
-            $this->credito =  $this->credito + $valore;
-        else
-            $this->credito =  $this->credito - $valore;
-    }
 
     /**
      * Imposta il credito

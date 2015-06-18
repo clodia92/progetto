@@ -70,11 +70,7 @@ class UserFactory {
         }
         // liberiamo le risorse dello statement
         $stmt->close();
-        
-        
-        
-        
-        
+
         
         Database::chiudiDatabase($mysqli);
 
@@ -86,7 +82,7 @@ class UserFactory {
      * @param Decimal $credito
      */
     public function salvaCredito ($user, $credito){
-        $query=querySetCredito($user, $credito);
+        $query="";
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = avviaDatabase();
         avviaQuery($query, $mysqli);
