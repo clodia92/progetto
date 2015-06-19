@@ -46,8 +46,10 @@ public function aggiungiTracce($codDisco, $tracce){
         echo $traccia;
         $query = "INSERT INTO `Traccia` (`numero`,`titolo`,`codDisco`) "
                 . "VALUES (`".$i."`,`".$traccia."`,`".$codDisco."`)";
+        Database::lanciaQuery($query, $mysqli);
         $i=$i+1;
     }
+    Database::chiudiDatabase($mysqli);
     return TRUE;
 }
 
