@@ -134,6 +134,8 @@ class VenditoreController extends BaseController {
                         }
 
                         $catalogo = DiscoFactory::creaCatalogo();
+                        $vd->setSottoPagina('lista');
+                        $vd->setTitolo('Venditore - Lista Prodotti');
                         $this->showHomeUtente($vd);
                         break;
                     
