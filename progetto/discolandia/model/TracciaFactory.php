@@ -45,7 +45,7 @@ public function aggiungiTracce($codDisco, $tracce){
     foreach ($tracce as $traccia){
         echo $traccia;
         $query = "INSERT INTO `Traccia` (`numero`,`titolo`,`codDisco`) "
-                . "VALUES (`".$i."`,`".$traccia."`,`".$codDisco."`)";
+                . "VALUES ('".$i."','".$traccia."','".$codDisco."')";
         Database::lanciaQuery($query, $mysqli);
         $i=$i+1;
     }
