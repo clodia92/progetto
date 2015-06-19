@@ -120,7 +120,7 @@ class VenditoreController extends BaseController {
                         $disco["anno"]=$request['anno'];
                         $disco["prezzo"]=$request['prezzo'];
                         $disco["quantita"]=$request['quantita'];
-                        $disco["venditore"]=$user->getUsername();
+                        $disco["venditore"]=$user->getId();
                         $tracce=  explode("\n", $request['tracce']);
                         
                         
