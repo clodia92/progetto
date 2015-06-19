@@ -43,6 +43,7 @@ public function aggiungiTracce($codDisco, $tracce){
     $i=1;
     $mysqli=Database::avviaDatabase();
     foreach ($tracce as $traccia){
+        echo $traccia;
         $query = "INSERT INTO `Traccia` (`numero`,`titolo`,`codDisco`) "
                 . "VALUES (`".$i."`,`".$traccia."`,`".$codDisco."`)";
         $i=$i+1;
