@@ -88,7 +88,7 @@ public function aggiungiDisco($disco){
     
     Database::lanciaQuery($query, $mysqli);
     
-    $query="INSERT INTO `` (``,``,``,``) "
+    $query="INSERT INTO `Catalogo` (`idVenditore`,`codDisco`,`prezzo`,`quantita`) "
             . "VALUES ('".$disco['venditore']."','".$disco['codDisco']."',"
             . "'".$disco['prezzo']."','".$disco['quantita']."')";
     Database::lanciaQuery($query, $mysqli);
