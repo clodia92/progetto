@@ -74,5 +74,29 @@ public function getDisco($codDisco){
 }
 
 
+public function aggiungiDisco($disco){
+    //Avvio il database
+    $mysqli=Database::avviaDatabase();
+    
+    
+    $query="INSERT INTO `Disco`(`codDisco`,`titolo`,"
+            . "`artista`,`genere`,`descrizione`,`etichetta`,`immagine`,`anno`) "
+            . "VALUES ('".$disco['codDisco']."','".$disco['titolo']."',"
+            . "'".$disco['artista']."','".$disco['genere']."',"
+            . "'".$disco['descrizione']."','".$disco['etichetta']."',"
+            . "'".$disco['immagine']."','".$disco['anno']."')";
+    
+    Database::lanciaQuery($query, $mysqli);
+    
+    $query="INSERT INTO `` (``,``,``,``) "
+            . "VALUES ('".$disco['venditore']."','".$disco['codDisco']."',"
+            . "'".$disco['prezzo']."','".$disco['quantita']."')";
+    Database::lanciaQuery($query, $mysqli);
+    
+    Database::chiudiDatabase($mysqli);
+    
+    return TRUE;
+}
+
 }
 ?>

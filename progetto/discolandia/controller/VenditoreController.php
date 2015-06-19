@@ -60,8 +60,8 @@ class VenditoreController extends BaseController {
                         break;
                     
                     // pagina per l'aggiunta di un prodotto
-                    case 'aggiungiDisco':
-                        $vd->setSottoPagina('aggiungiDisco');
+                    case 'nuovo_disco':
+                        $vd->setSottoPagina('nuovo_disco');
                         $vd->setTitolo('Aggiungi Disco');
                         break;
 
@@ -109,31 +109,31 @@ class VenditoreController extends BaseController {
 
                     // salvataggio di un nuovo prodotto
                     case 'nuovoDisco':
-                        $elenco=array(); // dati del prodotto
-                        $elenco["marca"]=$request['marca'];
-                        $elenco["modello"]=$request['modello'];
-                        $elenco["tipo"]=$request['tipo'];
-                        $elenco["schermo"]=$request['schermo'];
-                        $elenco["ram"]=$request['ram'];
-                        $elenco["cpu"]=$request['cpu'];
-                        $elenco["hdd"]=$request['hdd'];
-                        $elenco["so"]=$request['so'];
-                        $elenco["descrizione"]=$request['descrizione'];
-                        $elenco["foto"]=$request['foto'];
+                        $disco=array(); // dati del disco
+                        $disco["codDisco"]=$request['codDisco'];
+                        $disco["artista"]=$request['artista'];
+                        $disco["titolo"]=$request['titolo'];
+                        $disco["genere"]=$request['genere'];
+                        $disco["descrizione"]=$request['descrizione'];
+                        $disco["etichetta"]=$request['etichetta'];
+                        $disco["immagine"]=$request['immagine'];
+                        $disco["anno"]=$request['anno'];
+                        $disco["prezzo"]=$request['prezzo'];
+                        $disco["quantita"]=$request['quantita'];
+                        $disco["venditore"]=$user->getUsername();
+                        $tracce=  explode("\n", $request['tracce']);
                         
-                        $dettagli=array(); // dettagli che dipendono dal venditore
-                        $dettagli["modello"]=$request['modello'];
-                        $dettagli["disp"]=$request['disp'];
-                        $dettagli["prezzo"]=$request['prezzo'];
-                        $dettagli["userV"]=$user->getUsername();
+                        
                         
                         // se il prodotto viene correttamente aggiunto viene mostrato un feedback positivo
-                        if(ProdottoFactory::aggiungiProdotto($elenco, $dettagli))
-                        {$conferma="aggiunto";}
+                        if(DiscoFactory::aggiungiDisco($disco))
+                        {
+                            if(TracciaFactory::aggiungiTracce($disco['codDisco'],$tracce)){
+                                $msg="Il disco '" . $disco['titolo'] . "' è stato aggiunto al catalogo";
+                            }
+                        }
 
-                        $prodotti = ProdottoFactory::creaLista();
-                        $vd->setSottoPagina('lista');
-                        $vd->setTitolo('Venditore - Lista Prodotti');
+                        $catalogo = DiscoFactory::creaCatalogo();
                         $this->showHomeUtente($vd);
                         break;
                     

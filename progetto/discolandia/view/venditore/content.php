@@ -12,6 +12,10 @@ switch ($vd->getSottoPagina()) {
     case 'profilo':
         include_once 'profilo.php';
         break;
+    
+    case 'nuovo_disco':
+        include_once 'newDisco.php';
+        break;
         
     default:
         
@@ -21,6 +25,7 @@ switch ($vd->getSottoPagina()) {
     <p>
         Benvenuto, <?= $user->getNome() ?>
     </p>
+    <br>
     <a href="venditore/lista">
         <div class="contenitore_pannello">
             <h3>Catalogo Dischi</h3>
@@ -28,6 +33,13 @@ switch ($vd->getSottoPagina()) {
         </div>
     </a>
 
+    <a href="venditore/lista">
+        <div class="contenitore_pannello">
+            <h3>Aggiungi un nuovo disco</h3>
+            <img class="immagine_pannello" src= "../discolandia/images/disc.png">
+        </div>
+    </a>
+    
     <a href="venditore/profilo">
         <div class="contenitore_pannello">
             <h3>Profilo</h3>

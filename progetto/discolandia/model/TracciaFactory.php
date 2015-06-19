@@ -17,8 +17,8 @@ public function listaTracce($codDisco){
 
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-    $queryTraccia = "SELECT * FROM `Traccia` WHERE `codDisco`=" . $codDisco. " ORDER BY `numero`";
-    $risultato = Database::lanciaQuery($queryTraccia, $mysqli);
+    $query = "SELECT * FROM `Traccia` WHERE `codDisco`=" . $codDisco. " ORDER BY `numero`";
+    $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
     $tracce = array();
 	
@@ -38,5 +38,17 @@ public function listaTracce($codDisco){
         
     return $tracce;
 }
+
+public function aggiungiTracce($codDisco, $tracce){
+    $i=1;
+    $mysqli=Database::avviaDatabase();
+    foreach ($tracce as $traccia){
+        $query = "INSERT INTO `Traccia` (`numero`,`titolo`,`codDisco`) "
+                . "VALUES (`".$i."`,`".$traccia."`,`".$codDisco."`)";
+        $i=$i+1;
+    }
+    return TRUE;
 }
+
+    }
 ?>
