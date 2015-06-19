@@ -108,7 +108,7 @@ class VenditoreController extends BaseController {
                         break;
 
                     // salvataggio di un nuovo prodotto
-                    case 'nuovoDisco':
+                    case 'aggiungi_disco':
                         $disco=array(); // dati del disco
                         $disco["codDisco"]=$request['codDisco'];
                         $disco["artista"]=$request['artista'];
