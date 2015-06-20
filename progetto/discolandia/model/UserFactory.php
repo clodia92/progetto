@@ -1,5 +1,4 @@
 <?php
-include_once basename(__DIR__) . '/../database/Database.php';
 include_once 'User.php';
 include_once 'Cliente.php';
 include_once 'Venditore.php';
