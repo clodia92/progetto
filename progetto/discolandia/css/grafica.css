@@ -4,12 +4,12 @@ body{
     float: left;
     font: 16px Arial, Helvetica, sans-serif;
     color: black;
-    background-color: #8E151E;
 }
 
 .header{
     width: 100%;
     text-align: center;
+    background-color: #8E151E;
 }
  
 //Carico il font scelto per il titolo
@@ -24,6 +24,8 @@ body{
 	font-size: 60px;
 	color: #fff;
 	font-family: fbsbltc, Arial, Helvetica, sans-serif;
+        height: 80px;
+        margin: 0;
 }
 
 .leftBar{
