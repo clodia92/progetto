@@ -2,7 +2,6 @@
 
 include_once 'BaseController.php';
 include_once basename(__DIR__) . '/../model/DiscoFactory.php';
-include_once basename(__DIR__) . '/../model/CatalogoFactory.php';
 
 /**
  * Controller che gestisce la modifica dei dati dell'applicazione relativa ai venditori
@@ -61,14 +60,14 @@ class VenditoreController extends BaseController {
                         break;
                     
                     // pagina per l'aggiunta di un prodotto
-                    case 'aggiungiDisco':
-                        $vd->setSottoPagina('aggiungiDisco');
+                    case 'nuovo_disco':
+                        $vd->setSottoPagina('nuovo_disco');
                         $vd->setTitolo('Aggiungi Disco');
                         break;
 
                     // visualizzazione dell'elenco dei prodotti in vendita per il venditore
                     case 'lista':
-                        $prodotti = CatalogoFactory::creaLista();
+                        $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('lista');
                         $vd->setTitolo('Venditore - Lista Prodotti');
                         break;
@@ -109,30 +108,33 @@ class VenditoreController extends BaseController {
                         break;
 
                     // salvataggio di un nuovo prodotto
-                    case 'nuovoDisco':
-                        $elenco=array(); // dati del prodotto
-                        $elenco["marca"]=$request['marca'];
-                        $elenco["modello"]=$request['modello'];
-                        $elenco["tipo"]=$request['tipo'];
-                        $elenco["schermo"]=$request['schermo'];
-                        $elenco["ram"]=$request['ram'];
-                        $elenco["cpu"]=$request['cpu'];
-                        $elenco["hdd"]=$request['hdd'];
-                        $elenco["so"]=$request['so'];
-                        $elenco["descrizione"]=$request['descrizione'];
-                        $elenco["foto"]=$request['foto'];
+                    case 'aggiungi_disco':
+                        $disco=array(); // dati del disco
+                        $disco["codDisco"]=$request['codDisco'];
+                        $disco["artista"]=$request['artista'];
+                        $disco["titolo"]=$request['titolo'];
+                        $disco["genere"]=$request['genere'];
+                        $disco["descrizione"]=$request['descrizione'];
+                        $disco["etichetta"]=$request['etichetta'];
+                        $disco["immagine"]=$request['immagine'];
+                        $disco["anno"]=$request['anno'];
+                        $disco["prezzo"]=$request['prezzo'];
+                        $disco["quantita"]=$request['quantita'];
+                        $disco["venditore"]=$user->getId();
+                        $tracce=  explode("\n", $request['tracce']);
                         
-                        $dettagli=array(); // dettagli che dipendono dal venditore
-                        $dettagli["modello"]=$request['modello'];
-                        $dettagli["disp"]=$request['disp'];
-                        $dettagli["prezzo"]=$request['prezzo'];
-                        $dettagli["userV"]=$user->getUsername();
+                        
                         
                         // se il prodotto viene correttamente aggiunto viene mostrato un feedback positivo
-                        if(ProdottoFactory::aggiungiProdotto($elenco, $dettagli))
-                        {$conferma="aggiunto";}
-
-                        $prodotti = ProdottoFactory::creaLista();
+                        if(DiscoFactory::aggiungiDisco($disco))
+                        {
+                            
+                        }
+                        if(TracciaFactory::aggiungiTracce($disco['codDisco'],$tracce)){
+                            $msg="Il disco '" . $disco['titolo'] . "' è stato aggiunto al catalogo";
+                        }
+                        
+                        $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('lista');
                         $vd->setTitolo('Venditore - Lista Prodotti');
                         $this->showHomeUtente($vd);

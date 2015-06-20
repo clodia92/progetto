@@ -1,13 +1,8 @@
 <div class="pagina_disco">
-    
+    <h3>Anteprima della pagina del disco</h3>
     <div class="add_cart_button">
         <p class="disco_prezzo"><?=$disco->getPrezzo()?> Euro</p>
-        <form method="post" action="cliente/carrello">
-            <input type="hidden" name="cmd" value="addCart"/>
-            <input type="hidden" name='codDisco' value="<?=$disco->getCodDisco()?>">
-            <input type="submit" value="Aggiungi al carrello"/>
-        </form>
-        
+         
     </div>    
     
     <img class="disco_immagine" src="<?=$disco->getImmagine()?>">

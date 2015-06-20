@@ -1,25 +1,22 @@
 <?php
 switch ($vd->getSottoPagina()) {
    
-    case 'catalogo';
-        include_once 'catalogo.php';
+    case 'lista';
+        include_once 'lista.php';
         break;
     
     case 'disco':
         include_once 'disco.php';
         break;
     
-    case 'carrello':
-        include_once 'carrello.php';
-        break;
-
     case 'profilo':
         include_once 'profilo.php';
         break;
-        
-    case 'conferma':
-        include_once 'conferma.php';
+    
+    case 'nuovo_disco':
+        include_once 'newDisco.php';
         break;
+        
     default:
         
         ?>
@@ -28,14 +25,22 @@ switch ($vd->getSottoPagina()) {
     <p>
         Benvenuto, <?= $user->getNome() ?>
     </p>
-    <a href="cliente/catalogo">
+    <br>
+    <a href="venditore/lista">
         <div class="contenitore_pannello">
             <h3>Catalogo Dischi</h3>
             <img class="immagine_pannello" src= "../discolandia/images/disc.png">
         </div>
     </a>
 
-    <a href="cliente/profilo">
+    <a href="venditore/nuovo_disco">
+        <div class="contenitore_pannello">
+            <h3>Aggiungi un nuovo disco</h3>
+            <img class="immagine_pannello" src= "../discolandia/images/disc.png">
+        </div>
+    </a>
+    
+    <a href="venditore/profilo">
         <div class="contenitore_pannello">
             <h3>Profilo</h3>
             <img class="immagine_pannello" src="../discolandia/images/dj.png">

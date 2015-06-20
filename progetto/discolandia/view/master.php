@@ -29,9 +29,9 @@ include_once basename(__DIR__) . '/../Settings.php';
 
     </head>
     <body>
-        <div id="page">
+        
             <!--  header -->
-            <div id="header">
+            <div id="header" class="header">
                 <?php
                     $header = $vd->getHeaderFile();
                     require "$header";
@@ -40,7 +40,7 @@ include_once basename(__DIR__) . '/../Settings.php';
 
             <!-- start page -->
             <!--  sidebar 1 -->
-            <div id="leftBar">
+            <div id="leftBar" class="leftBar">
                
                         <?php
                         $left = $vd->getLeftBarFile();
@@ -49,7 +49,7 @@ include_once basename(__DIR__) . '/../Settings.php';
                    
             </div>
 
-            <div id="rightBar">
+            <div id="rightBar" class="rightBar">
                 <?php
                 $right = $vd->getRightBarFile();
                 require "$right";
@@ -58,7 +58,7 @@ include_once basename(__DIR__) . '/../Settings.php';
             </div>
 
             <!-- contenuto -->
-            <div id="content">
+            <div id="content" class="content">
                 <?php
                 if ($vd->getMessaggioErrore() != null) {
                     ?>
@@ -93,6 +93,6 @@ include_once basename(__DIR__) . '/../Settings.php';
 
             </div>
 
-        </div>
+        
     </body>
 </html>

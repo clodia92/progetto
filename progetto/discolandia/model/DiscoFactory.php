@@ -4,7 +4,7 @@
 include_once basename(__DIR__) . '/../model/Disco.php';
 include_once basename(__DIR__) . '/../model/TracciaFactory.php';
 include_once basename(__DIR__) . '/../database/Database.php';
-include_once basename(__DIR__) . '/../database/Query.php';
+
 
 class DiscoFactory{
 public function __construct() {
@@ -17,7 +17,8 @@ public function creaCatalogo(){
     
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-    $query=getQuery('catalogo', 1);//L'uno è inutile, serve solo a riempire il parametro
+   
+    $query="SELECT * FROM `Disco` JOIN `Catalogo` ON `Disco`.`codDisco` = `Catalogo`.`codDisco` WHERE 1";
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 	
@@ -34,8 +35,8 @@ public function creaCatalogo(){
         $disco->setEtichetta($row[5]);
         $disco->setImmagine($row[6]);
         $disco->setAnno($row[7]);
-        $disco->setPrezzo($row[8]);
-        $disco->setDisponibili($row[9]);
+        $disco->setPrezzo($row[10]);
+        $disco->setDisponibili($row[11]);
        
         $disco->setTracce(TracciaFactory::listaTracce($row[0]));
         $dischi[] = $disco;
@@ -50,7 +51,7 @@ public function getDisco($codDisco){
     
     //Avvio il database
     $mysqli=Database::avviaDatabase();
-    $query=getQuery('disco', $codDisco);
+    $query="SELECT * FROM `Disco` JOIN `Catalogo` ON `Disco`.`codDisco` = `Catalogo`.`codDisco` WHERE `Catalogo`.`codDisco`=" . $codDisco;
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 
@@ -65,13 +66,37 @@ public function getDisco($codDisco){
     $disco->setEtichetta($row[5]);
     $disco->setImmagine($row[6]);
     $disco->setAnno($row[7]);
-    $disco->setPrezzo($row[8]);
-    $disco->setDisponibili($row[9]);
+    $disco->setPrezzo($row[10]);
+    $disco->setDisponibili($row[11]);
     $disco->setTracce(TracciaFactory::listaTracce($row[0]));
     
     return $disco;
 }
 
+
+public function aggiungiDisco($disco){
+    //Avvio il database
+    $mysqli=Database::avviaDatabase();
+    
+    
+    $query="INSERT INTO `Disco`(`codDisco`,`titolo`,"
+            . "`artista`,`genere`,`descrizione`,`etichetta`,`immagine`,`anno`) "
+            . "VALUES ('".$disco['codDisco']."','".$disco['titolo']."',"
+            . "'".$disco['artista']."','".$disco['genere']."',"
+            . "'".$disco['descrizione']."','".$disco['etichetta']."',"
+            . "'".$disco['immagine']."','".$disco['anno']."')";
+    
+    Database::lanciaQuery($query, $mysqli);
+    
+    $query="INSERT INTO `Catalogo` (`idVenditore`,`codDisco`,`prezzo`,`quantita`) "
+            . "VALUES ('".$disco['venditore']."','".$disco['codDisco']."',"
+            . "'".$disco['prezzo']."','".$disco['quantita']."')";
+    Database::lanciaQuery($query, $mysqli);
+    
+    Database::chiudiDatabase($mysqli);
+    
+    return TRUE;
+}
 
 }
 ?>

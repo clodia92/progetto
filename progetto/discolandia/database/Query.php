@@ -7,19 +7,19 @@ function getQuery($tipo){
 	
     switch ($tipo){
         case 'caricaUtente':
-            $query = "SELECT * FROM Utente WHERE user = ? and pass = ?";
+          
             break;
         
         case 'catalogo':
-            $query = "SELECT * FROM `Dischi` WHERE 1";
+            
             break;
         
         case 'tracce'://ritorna le tracce ordinate per il disco
-            $query = "SELECT * FROM `Tracce` WHERE `codDisco`=" . $parametro. " ORDER BY `numero`";
+            
             break;
         
         case 'disco':
-            $query = "SELECT * FROM `Dischi` WHERE `codDisco`=" . $parametro;
+          //  $query = 
             break;
     }   
     

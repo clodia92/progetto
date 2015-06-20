@@ -3,8 +3,6 @@
 include_once 'User.php';
 include_once 'Cliente.php';
 include_once 'Venditore.php';
-include_once basename(__DIR__) . '/../database/Database.php';
-include_once basename(__DIR__) . '/../database/Query.php';
 //include_once 'Transazione.php';
 
 
@@ -27,7 +25,7 @@ class UserFactory {
     public static function caricaUtente($user, $pass) {
     
 
-        $query=getQuery("caricaUtente");
+        $query="SELECT * FROM Utente WHERE user = ? and pass = ?";
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = Database::avviaDatabase();
         
@@ -71,11 +69,7 @@ class UserFactory {
         }
         // liberiamo le risorse dello statement
         $stmt->close();
-        
-        
-        
-        
-        
+
         
         Database::chiudiDatabase($mysqli);
 
@@ -87,11 +81,11 @@ class UserFactory {
      * @param Decimal $credito
      */
     public function salvaCredito ($user, $credito){
-        $query=querySetCredito($user, $credito);
+        $query="UPDATE `Utente` SET `credito` = '". $credito . "' WHERE user = '". $user."'";
         //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);
+        $mysqli = Database::avviaDatabase();
+        Database::lanciaQuery($query, $mysqli);
+        Database::chiudiDatabase($mysqli);
     }
     
     /**
@@ -101,11 +95,11 @@ class UserFactory {
      */
     public function recuperaCredito($user) {
         $query=queryGetCredito($user);
-        $mysqli = avviaDatabase();
-        $result = avviaQuery($query, $mysqli);
+        $mysqli = Database::avviaDatabase();
+        $result = Database::lanciaQuery($query, $mysqli);
         $row = $result->fetch_row();
         $credito=$row[0];
-        chiudiDatabase($mysqli);
+        Database::chiudiDatabase($mysqli);
         return $credito;
     }
     
