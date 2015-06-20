@@ -91,6 +91,11 @@ body{
     max-height: 100%;
 }
 
+.catalogo_box_immagine{
+    height: 90px;
+    width: 90px;
+}
+
 .catalogo_dati{
     float: left;
     margin-left: 20px;

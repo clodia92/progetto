@@ -10,9 +10,9 @@ if (count($catalogo) > 0) { ?>
 
     
     <div class="catalogo_disco">
-        <div class="catalogo_immagine">
+        <div class="catalogo_box_immagine">
             <a href="cliente/disco?cod=<?=$cd->getCodDisco();?>">
-                <img src="<?=$cd->getImmagine();?>" class="">
+                <img src="<?=$cd->getImmagine();?>" class="catalogo_immagine">
             </a>
         </div>
         <div class="catalogo_dati">
