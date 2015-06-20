@@ -30,8 +30,8 @@ body{
 
 .leftBar{
     background-color: white;
-    border: solid 1px grey;
-    width: 18.5%;
+   
+    width: 19%;
     float: left;
     min-height: 500px;
 }
@@ -42,8 +42,8 @@ body{
 
 .rightBar{
     background-color: white;
-    border: solid 1px grey;
-    width: 18.5%;
+   
+    width: 19%;
     min-height: 500px;
     float: right;
 }
@@ -54,11 +54,10 @@ body{
 }
 
 .content{
-
-    border: solid 1px grey;
+    padding: 1%;
     width: 60%;
     min-height: 500px;
-    background-color: white;
+    background-color: whitesmoke;
     margin-left: 20%;
 }
 
