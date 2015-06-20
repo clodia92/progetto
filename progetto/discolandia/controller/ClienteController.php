@@ -188,7 +188,7 @@ else{
                             $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
                             
-                            $carrello =  Carrello::pagamentoCarrello();
+                            $carrello =  Carrello::pagamentoCarrello($user->getId());
                             foreach ($carrello as $unita){
                                 
                                 DiscoFactory::modificaDisponibilita($carrello->getCodDisco(), $carrello->getQuantita());
