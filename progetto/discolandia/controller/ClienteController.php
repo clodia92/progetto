@@ -196,11 +196,10 @@ else{
                                 
                                 //Modifico il credito del cliente
                                 $creditoCliente=($user->getCredito())-(($unita->getPrezzo())*($unita->getQuantita()));
-                                echo $creditoCliente . "<br>";
+                                
                                 $user->setCredito($creditoCliente);
                                 UserFactory::modificaCredito($user->getId(), $creditoCliente, $mysqli);
-                                echo $user->getId();
-    
+                                    
                                 //Modifico il credito del venditore
                                 $nuovoCredito=(UserFactory::getCreditoById($unita->getIdVenditore(), $mysqli))+($unita->getPrezzo()*$unita->getQuantita());
                                 UserFactory::modificaCredito($unita->getIdVenditore(),$nuovoCredito, $mysqli);
@@ -216,8 +215,8 @@ else{
                             Database::chiudiDatabase($mysqli);
                             
                         }
-                        $vd->setSottoPagina('riepilogo');
-                        $vd->setTitolo("Riepilogo");
+                        $vd->setSottoPagina('carrello');
+                        $vd->setTitolo("Carrello");
                         $this->showHomeUtente($vd);
                         break;
                     
