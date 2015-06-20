@@ -194,10 +194,10 @@ else{
                                 DiscoFactory::modificaDisponibilita($unita->getCodDisco(), $nuovaDisp, $mysqli);
                                 
                                 //Modifico il credito del cliente
-                                $nuovoCredito=($user->getCredito())-($unita->getPrezzo()*$unita->getQuantita());
-                                echo $nuovoCredito . "<br>";
-                                $user->setCredito($nuovoCredito);
-                                UserFactory::modificaCredito($user->getId(), $nuovoCredito, $mysqli);
+                                $creditoCliente=($user->getCredito())-(($unita->getPrezzo())*($unita->getQuantita()));
+                                echo $creditoCliente . "<br>";
+                                $user->setCredito($creditoCliente);
+                                UserFactory::modificaCredito($user->getId(), $creditoCliente, $mysqli);
                                 echo $user->getId();
     
                                 //Modifico il credito del venditore
