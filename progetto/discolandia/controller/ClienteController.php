@@ -191,7 +191,9 @@ else{
                             
                       
                             foreach ($carrello as $unita){
-                                $nuovaDisp =  (DiscoFactory::leggiDisp($unita->getCodDisco(), $mysqli))-$unita->getQuantita();
+                                $disp=  DiscoFactory::leggiDisp($unita->getCodDisco(), $mysqli);
+                                $qta= $unita->getQuantita();
+                                $nuovaDisp = $disp - $qta;
                                 DiscoFactory::modificaDisponibilita($unita->getCodDisco(), $nuovaDisp, $mysqli);
                                 
                                 //Modifico il credito del cliente
