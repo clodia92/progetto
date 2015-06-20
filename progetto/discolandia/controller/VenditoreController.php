@@ -72,6 +72,14 @@ class VenditoreController extends BaseController {
                         $vd->setTitolo('Venditore - Lista Prodotti');
                         break;
                     
+                    // visualizzazione della pagina del prodotto generata dinamicamente    
+                    case 'disco':
+                        
+                        $disco = DiscoFactory::getDisco($request['cod']);
+                        $vd->setSottoPagina('disco');
+                        $vd->setTitolo($disco->getTitolo());
+                        break;
+                    
                     // pagina per modificare i dati di un prodotto
                     case 'modificaProdotto':
                         $nome=$request["id"];

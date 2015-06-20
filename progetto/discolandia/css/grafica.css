@@ -130,6 +130,7 @@ body{
     float: left;
     margin-left: 30px;
     height: 250px;
+    min-width: 30%;
 }
 
 .disco_tracce{
