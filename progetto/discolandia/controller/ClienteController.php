@@ -192,8 +192,8 @@ else{
                             
                       
                             foreach ($carrello as $unita){
-                                $disp=  DiscoFactory::leggiDisp($unita->getCodDisco(), $mysqli);
-                                $qta= $unita->getQuantita();
+                                $disp =  DiscoFactory::leggiDisp($unita->getCodDisco(), $mysqli);
+                                $qta = $unita->getQuantita();
                                 $nuovaDisp = $disp - $qta;
                                 DiscoFactory::modificaDisponibilita($unita->getCodDisco(), $nuovaDisp, $mysqli);
                                 

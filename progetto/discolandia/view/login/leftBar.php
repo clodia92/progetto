@@ -1,3 +1,1 @@
-<div class="leftBar">
-    LeftBar
-</div>
+<p>Accedi per visualizzare il catalogo</p>
