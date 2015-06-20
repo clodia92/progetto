@@ -208,7 +208,7 @@ else{
                             }
                             $mysqli->commit();
                             $mysqli->autocommit(true);
-                            Database::chiudiDatabase();
+                            Database::chiudiDatabase($mysqli);
                             
                         }
                         $vd->setSottoPagina('riepilogo');
