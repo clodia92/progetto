@@ -185,8 +185,8 @@ else{
                         }
                         else{
  
-                            $carrello =  Carrello::getCarrello($user->getId());
-                            echo count($carrello);
+                            $carrello =  Carrello::getCarrello($user->getUsername());
+             
                             $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
                             
