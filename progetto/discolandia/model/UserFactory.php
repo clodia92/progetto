@@ -94,7 +94,7 @@ class UserFactory {
     
     public function getCreditoById($idUtente, $mysqli){
         $query= "SELECT `credito` FROM `Utente` WHERE `idUtente` = '".$idUtente."'";
-        $credito::lanciaQuery($query, $mysqli);
+        $credito=lanciaQuery($query, $mysqli);
         return $credito;
     }
     
