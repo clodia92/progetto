@@ -1,10 +1,8 @@
 <?php
 
 include_once 'BaseController.php';
-include_once basename(__DIR__) . '/../model/Disco.php';
 include_once basename(__DIR__) . '/../model/DiscoFactory.php';
 include_once basename(__DIR__) . '/../model/Carrello.php';
-include_once basename(__DIR__) . '/../model/CartItem.php';
 /**
  * Controller che gestisce la modifica dei dati dell'applicazione relativa ai clienti
  */
@@ -192,20 +190,20 @@ else{
                             $carrello =  Carrello::pagamentoCarrello($user->getId(), $mysqli);
                             foreach ($carrello as $unita){
                                 
-                                DiscoFactory::modificaDisponibilita($carrello->getCodDisco(), $carrello->getQuantita(), $mysqli);
+                                DiscoFactory::modificaDisponibilita($unita->getCodDisco(), $unita->getQuantita(), $mysqli);
                                 echo "modificata la disponibilità";
                                 //Modifico il credito del cliente
-                                $nuovoCredito=$user->getCredito()-($carrello->getPrezzo()*$carrello->getQuantita());
+                                $nuovoCredito=$user->getCredito()-($unita->getPrezzo()*$unita->getQuantita());
                                 UserFactory::modificaCredito($user->getId(),$nuovoCredito, $mysqli);
                                 echo 'Modificato credito cliente';
                                 //Modifico il credito del venditore
-                                $nuovoCredito=UserFactory::getCreditoById($carrello->getIdVenditore())+($carrello->getPrezzo()*$carrello->getQuantita());
-                                UserFactory::modificaCredito($carrello->getIdVenditore(),$nuovoCredito, $mysqli);
+                                $nuovoCredito=UserFactory::getCreditoById($unita->getIdVenditore())+($unita->getPrezzo()*$unita->getQuantita());
+                                UserFactory::modificaCredito($unita->getIdVenditore(),$nuovoCredito, $mysqli);
                                 echo 'modificato credito venditore';
                                 //Aggiungi storico
                                 
                                 //Elimino elementi dal carrello
-                                Carrello::rimuoviElementi($carrello->getIdCompratore(), $carrello->getCodDisco(), $mysqli);
+                                Carrello::rimuoviElementi($unita->getIdCompratore(), $unita->getCodDisco(), $mysqli);
                                 echo 'modificato carrello';
                             }
                             $mysqli->commit();
