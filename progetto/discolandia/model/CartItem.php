@@ -57,7 +57,7 @@ class CartItem {
         return $this->idVenditore;
     }
 
-    public function setIVenditore($idVenditore) {
+    public function setIdVenditore($idVenditore) {
         $this->idVenditore = $idVenditore;
     }
     
