@@ -212,6 +212,8 @@ else{
                             Database::chiudiDatabase();
                             
                         }
+                        $vd->setSottoPagina('riepilogo');
+                        $vd->setTitolo("Riepilogo");
                         $this->showHomeUtente($vd);
                         break;
                     
