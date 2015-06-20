@@ -107,7 +107,7 @@ public function modificaDisponibilita($codDisco, $disponibilita, $mysqli){
 
 public function leggiDisp($codDisco, $mysqli){
     $query="SELECT `quantita` FROM `Catalogo` WHERE `codDisco` = '".$codDisco."'";
-    $result=Database::lanciaQuery($query, $mysqli);
+    $risultato=Database::lanciaQuery($query, $mysqli);
     $row = $risultato->fetch_row();
     return ($row[0]);
 }
