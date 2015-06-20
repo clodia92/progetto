@@ -185,7 +185,7 @@ else{
                             $msg="Credito insufficiente per completare l'acquisto";
                         }
                         else{
-                            $mysqli = avviaDatabase(); 
+                            $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
                             
                             $carrello =  Carrello::pagamentoCarrello();
@@ -193,9 +193,26 @@ else{
                                 
                                 DiscoFactory::modificaDisponibilita($carrello->getCodDisco(), $carrello->getQuantita());
                                 
+                                //Modifico il credito del cliente
+                                $nuovoCredito=$user->getCredito()-($carrello->getPrezzo()*$carrello->getQuantita());
+                                UserFactory::modificaCredito($user->getId(),$nuovoCredito);
+                                
+                                //Modifico il credito del venditore
+                                $nuovoCredito=UserFactory::getCreditoById($carrello->getIdVenditore())+($carrello->getPrezzo()*$carrello->getQuantita());
+                                UserFactory::modificaCredito($carrello->getIdVenditore(),$nuovoCredito);
+                                
+                                //Aggiungi storico
+                                
+                                //Elimino elementi dal carrello
+                                Carrello::rimuoviElementi($carrello->getIdCompratore(), $carrello->getCodDisco());
+                                
                             }
-                        }
+                            $mysqli->commit();
+                            $mysqli->autocommit(false);
+                            Database::chiudiDatabase();
                             
+                        }
+                        $this->showHomeUtente($vd);
                         break;
                     
                     

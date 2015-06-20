@@ -26,7 +26,7 @@ class UserFactory {
 
         $query="SELECT * FROM Utente WHERE user = ? and pass = ?";
         //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
+        $mysqli = Database::avviaDatabase();
         
         $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
@@ -85,6 +85,17 @@ class UserFactory {
         $mysqli = Database::avviaDatabase();
         Database::lanciaQuery($query, $mysqli);
         Database::chiudiDatabase($mysqli);
+    }
+    
+    public function modificaCredito ($idUtente, $credito){
+        $query="UPDATE `Utente` SET `credito` = '". $credito . "' WHERE idUtente = '". $idUtente."'";
+        Database::lanciaQuery($query, $mysqli);
+    }
+    
+    public function getCreditoById($idUtente){
+        $query= "SELECT `credito` FROM `Utente` WHERE `idUtente` = '".$idUtente."'";
+        $credito::lanciaQuery($query, $mysqli);
+        return $credito;
     }
     
 
