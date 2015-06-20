@@ -99,7 +99,7 @@ public function aggiungiDisco($disco){
 }
 
 
-public function modificaDisponibilita($codDisco, $disponibilita){
+public function modificaDisponibilita($codDisco, $disponibilita, $mysqli){
     
     $query="UPDATE `Catalogo` SET `quantita`='". $disponibilita ."' WHERE `codDisco` = '".$codDisco."'";
     Database::lanciaQuery($query, $mysqli);
