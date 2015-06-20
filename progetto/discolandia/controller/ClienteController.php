@@ -192,23 +192,23 @@ else{
                             foreach ($carrello as $unita){
                                 
                                 DiscoFactory::modificaDisponibilita($carrello->getCodDisco(), $carrello->getQuantita());
-                                
+                                echo "modificata la disponibilità";
                                 //Modifico il credito del cliente
                                 $nuovoCredito=$user->getCredito()-($carrello->getPrezzo()*$carrello->getQuantita());
                                 UserFactory::modificaCredito($user->getId(),$nuovoCredito);
-                                
+                                echo 'Modificato credito cliente';
                                 //Modifico il credito del venditore
                                 $nuovoCredito=UserFactory::getCreditoById($carrello->getIdVenditore())+($carrello->getPrezzo()*$carrello->getQuantita());
                                 UserFactory::modificaCredito($carrello->getIdVenditore(),$nuovoCredito);
-                                
+                                echo 'modificato credito venditore';
                                 //Aggiungi storico
                                 
                                 //Elimino elementi dal carrello
                                 Carrello::rimuoviElementi($carrello->getIdCompratore(), $carrello->getCodDisco());
-                                
+                                echo 'modificato carrello';
                             }
                             $mysqli->commit();
-                            $mysqli->autocommit(false);
+                            $mysqli->autocommit(true);
                             Database::chiudiDatabase();
                             
                         }
