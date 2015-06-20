@@ -195,7 +195,7 @@ else{
                                 
                                 //Modifico il credito del cliente
                                 $nuovoCredito=($user->getCredito())-($unita->getPrezzo()*$unita->getQuantita());
-                                echo $nuovoCredito;
+                                $user->setCredito($nuovoCredito);
                                 UserFactory::modificaCredito($user->getId(), $nuovoCredito, $mysqli);
     
                                 //Modifico il credito del venditore
