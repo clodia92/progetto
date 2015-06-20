@@ -103,6 +103,7 @@ public function modificaDisponibilita($codDisco, $disponibilita, $mysqli){
     
     $query="UPDATE `Catalogo` SET `quantita`='". $disponibilita ."' WHERE `codDisco` = '".$codDisco."'";
     Database::lanciaQuery($query, $mysqli);
+    echo 'okkokokokoko';
 }
 
 public function leggiDisp($codDisco, $mysqli){
