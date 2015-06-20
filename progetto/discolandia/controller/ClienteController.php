@@ -114,6 +114,10 @@ class ClienteController extends BaseController {
                         $vd->setTitolo("Modifica Profilo Discolandia");
                         break;    
                     
+                    case 'riepilogo':
+                        $vd->setSottoPagina('riepilogo');
+                        $vd->setTitolo("Riepilogo");
+                        
                     default:
                         $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('catalogo');
@@ -172,6 +176,29 @@ else{
                         break;
                         
                         
+                    case 'pagamento':
+                        
+                        $errore=0;
+                        
+                        if($request['tot']>$user->getCredito()){
+                            $errore=1;
+                            $msg="Credito insufficiente per completare l'acquisto";
+                        }
+                        else{
+                            $mysqli = avviaDatabase(); 
+                            $mysqli->autocommit(false);
+                            
+                            $carrello =  Carrello::pagamentoCarrello();
+                            foreach ($carrello as $unita){
+                                
+                                DiscoFactory::modificaDisponibilita($carrello->getCodDisco(), $carrello->getQuantita());
+                                
+                            }
+                        }
+                            
+                        break;
+                    
+                    
                     // modifica del profilo del cliente
                     case 'modificaprofilo':
                         

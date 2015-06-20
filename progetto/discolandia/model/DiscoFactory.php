@@ -98,5 +98,11 @@ public function aggiungiDisco($disco){
     return TRUE;
 }
 
+
+public function modificaDisponibilita($codDisco, $disponibilita){
+    
+    $query="UPDATE `Catalogo` SET `quantita`='". $disponibilita ."' WHERE `codDisco` = '".$codDisco."'";
+    Database::lanciaQuery($query, $mysqli);
+}
 }
 ?>

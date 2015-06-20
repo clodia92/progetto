@@ -1,5 +1,5 @@
 <?php
-
+include_once basename(__DIR__) . '/../database/Database.php';
 include_once 'User.php';
 include_once 'Cliente.php';
 include_once 'Venditore.php';
@@ -27,7 +27,7 @@ class UserFactory {
 
         $query="SELECT * FROM Utente WHERE user = ? and pass = ?";
         //Avvia la procedura di lettura e salva il risultato
-        $mysqli = Database::avviaDatabase();
+        $mysqli = avviaDatabase();
         
         $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
@@ -88,20 +88,8 @@ class UserFactory {
         Database::chiudiDatabase($mysqli);
     }
     
-    /**
-     * Recupera il credito di un determinato utente
-     * @param String $user
-     * @return Decimal
-     */
-    public function recuperaCredito($user) {
-        $query=queryGetCredito($user);
-        $mysqli = Database::avviaDatabase();
-        $result = Database::lanciaQuery($query, $mysqli);
-        $row = $result->fetch_row();
-        $credito=$row[0];
-        Database::chiudiDatabase($mysqli);
-        return $credito;
-    }
+
+    //FUNZIONI DA AGGIUNGERE
     
     /**
      * Aggiunge una transazione all'elenco degli acquisti effetuati
