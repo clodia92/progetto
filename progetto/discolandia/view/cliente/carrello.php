@@ -30,7 +30,7 @@
     </table>
     <p>Totale: <?=$tot?></p>
     <?php
-    //onclick="return confirm('Sei sicuro di voler effettuare il pagamento di <?=$tot?> Euro?');"
+    
     }
     ?>
     <br>
@@ -41,3 +41,4 @@
     </form>
 
 </div>
+
