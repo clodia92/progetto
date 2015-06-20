@@ -51,6 +51,7 @@ class UserFactory {
                         $toRet->setRuolo(User::Venditore);
                         break;
                 }
+                $toRet->setId($idUtente);
                 $toRet->setUsername($username);
                 $toRet->setPassword($password);
                 $toRet->setNome($nome);
