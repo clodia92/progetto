@@ -20,7 +20,7 @@
         <tr>
             <td><?=$cartItem->getTitolo()?></td>
             <td><?=$cartItem->getQuantita()?></td>
-            <td><?=$cartItem->getPrezzo(); $tot=$tot+$cartItem->getPrezzo();?></td>
+            <td><?=$cartItem->getPrezzo(); $tot=$tot+($cartItem->getPrezzo()*$cartItem->getQuantita());?></td>
             <td>
                 <a href="cliente/carrello?cmd=removeCart&codDisco=<?=$cartItem->getCodDisco()?>">
                     Rimuovi</a>
