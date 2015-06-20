@@ -197,7 +197,7 @@ else{
                                 UserFactory::modificaCredito($user->getId(),$nuovoCredito, $mysqli);
                                 echo 'Modificato credito cliente';
                                 //Modifico il credito del venditore
-                                $nuovoCredito=UserFactory::getCreditoById($unita->getIdVenditore())+($unita->getPrezzo()*$unita->getQuantita());
+                                $nuovoCredito=(UserFactory::getCreditoById($unita->getIdVenditore(), $mysqli))+($unita->getPrezzo()*$unita->getQuantita());
                                 UserFactory::modificaCredito($unita->getIdVenditore(),$nuovoCredito, $mysqli);
                                 echo 'modificato credito venditore';
                                 //Aggiungi storico
