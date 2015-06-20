@@ -5,9 +5,13 @@
     </div>
     <!--Aggiungi gli altri dati profilo, carrello-->
     <div class="info_profilo_laterale">
-        <a href="cliente?cmd=logout">Logout</a>
         <a href="cliente/profilo">Profilo</a>
-        <span>Credito: <?=$user->getCredito(); ?></span>
+        <br>
+        <span>Credito: <?=$user->getCredito(); ?> Euro</span>
+        <br>
+        <a href="cliente/carrello">Carrello</a>
+        <br>
+        <a href="cliente?cmd=logout">Logout</a>
     </div>
     
 
