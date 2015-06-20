@@ -184,7 +184,7 @@ else{
                             $msg="Credito insufficiente per completare l'acquisto";
                         }
                         else{
-                            $errore=2;
+ 
                             $carrello =  Carrello::getCarrello($user->getId());
                             $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
