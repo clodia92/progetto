@@ -20,7 +20,7 @@
         <br>Genere: <?=$disco->getGenere()?>
         </p>
     </div>
-    
+    <br>
     <div class="disco_descrizione">
         <h3>Descrizione:</h3>
         <p><?=$disco->getDescrizione()?></p>
