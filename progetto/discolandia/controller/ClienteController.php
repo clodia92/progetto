@@ -186,6 +186,7 @@ else{
                         else{
  
                             $carrello =  Carrello::getCarrello($user->getId());
+                            echo count($carrello);
                             $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
                             
@@ -194,7 +195,7 @@ else{
                                 $disp=  DiscoFactory::leggiDisp($unita->getCodDisco(), $mysqli);
                                 $qta= $unita->getQuantita();
                                 $nuovaDisp = $disp - $qta;
-                                DiscoFactory::modficaDisponibilita($unita->getCodDisco(), $nuovaDisp, $mysqli);
+                                DiscoFactory::modificaDisponibilita($unita->getCodDisco(), $nuovaDisp, $mysqli);
                                 
                                 //Modifico il credito del cliente
                                 $credito= $user->getCredito();
