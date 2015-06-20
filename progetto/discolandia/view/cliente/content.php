@@ -17,8 +17,8 @@ switch ($vd->getSottoPagina()) {
         include_once 'profilo.php';
         break;
         
-    case 'conferma':
-        include_once 'conferma.php';
+    case 'riepilogo':
+        include_once 'riepilogo.php';
         break;
     default:
         
