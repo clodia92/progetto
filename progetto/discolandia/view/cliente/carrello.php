@@ -30,13 +30,14 @@
     </table>
     <p>Totale: <?=$tot?></p>
     <?php
+    //onclick="return confirm('Sei sicuro di voler effettuare il pagamento di <?=$tot?> Euro?');"
     }
     ?>
     <br>
     <form method="post" action="cliente/riepilogo">
         <input type="hidden" name="tot" value="<?=$tot?>"/>
         <input type="hidden" name="cmd" value="pagamento">
-        <input class="button btn_pagamento" type="submit" value="Procedi al pagamento" onclick="return confirm('Sei sicuro di voler effettuare il pagamento di <?=$tot?> Euro?');"/>
+        <input class="button btn_pagamento" type="submit" value="Procedi al pagamento" />
     </form>
 
 </div>
