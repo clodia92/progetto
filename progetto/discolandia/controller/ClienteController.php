@@ -179,7 +179,7 @@ else{
                         
                         $errore=0;
                         
-                        if($request['tot']>$user->getCredito()){
+                        if($request['tot']>($user->getCredito())){
                             $errore=1;
                             $msg="Credito insufficiente per completare l'acquisto";
                         }
@@ -188,7 +188,7 @@ else{
                             $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
                             
-                            
+                            echo 'ok1';
                             foreach ($carrello as $unita){
                                 $nuovaDisp =  (DiscoFactory::leggiDisp($unita->getCodDisco(), $mysqli))-$unita->getQuantita();
                                 DiscoFactory::modificaDisponibilita($unita->getCodDisco(), $nuovaDisp, $mysqli);
