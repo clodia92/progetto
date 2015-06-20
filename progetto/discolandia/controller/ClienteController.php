@@ -184,27 +184,28 @@ else{
                             $msg="Credito insufficiente per completare l'acquisto";
                         }
                         else{
+                            $carrello =  Carrello::getCarrello($user->getId());
                             $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
                             
-                            $carrello =  Carrello::pagamentoCarrello($user->getId(), $mysqli);
+                            
                             foreach ($carrello as $unita){
+                                $nuovaDisp =  (DiscoFactory::leggiDisp($unita->getCodDisco(), $mysqli))-$unita->getQuantita();
+                                DiscoFactory::modificaDisponibilita($unita->getCodDisco(), $nuovaDisp, $mysqli);
                                 
-                                DiscoFactory::modificaDisponibilita($unita->getCodDisco(), $unita->getQuantita(), $mysqli);
-                                echo "modificata la disponibilità";
                                 //Modifico il credito del cliente
-                                $nuovoCredito=$user->getCredito()-($unita->getPrezzo()*$unita->getQuantita());
+                                $nuovoCredito=($user->getCredito())-($unita->getPrezzo()*$unita->getQuantita());
                                 UserFactory::modificaCredito($user->getId(),$nuovoCredito, $mysqli);
-                                echo 'Modificato credito cliente';
+    
                                 //Modifico il credito del venditore
                                 $nuovoCredito=(UserFactory::getCreditoById($unita->getIdVenditore(), $mysqli))+($unita->getPrezzo()*$unita->getQuantita());
                                 UserFactory::modificaCredito($unita->getIdVenditore(),$nuovoCredito, $mysqli);
-                                echo 'modificato credito venditore';
+                           
                                 //Aggiungi storico
                                 
                                 //Elimino elementi dal carrello
                                 Carrello::rimuoviElementi($unita->getIdCompratore(), $unita->getCodDisco(), $mysqli);
-                                echo 'modificato carrello';
+                     
                             }
                             $mysqli->commit();
                             $mysqli->autocommit(true);

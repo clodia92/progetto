@@ -14,7 +14,7 @@ public function getCarrello($idCliente){
     $mysqli=Database::avviaDatabase();
     
     $query="SELECT `idCompratore`, `Carrello`.`codDisco`, "
-            . "`Carrello`.`quantita`, `titolo`, `prezzo` "
+            . "`Carrello`.`quantita`, `titolo`, `prezzo`, `idVenditore` "
             . "FROM `Carrello` JOIN `Disco` ON `Disco`.`codDisco` = `Carrello`.`codDisco` "
             . "JOIN `Catalogo` ON `Catalogo`.`codDisco` = `Carrello`.`CodDisco` "
             . "WHERE `idCompratore`='" . $idCliente."'";
@@ -34,7 +34,7 @@ public function getCarrello($idCliente){
         $cartItem->setQuantita($row[2]);
         $cartItem->setTitolo($row[3]);
         $cartItem->setPrezzo($row[4]);
-
+        $cartItem->setIdVenditore($row[5]);
         $carrello[] = $cartItem;
     }
         
@@ -75,7 +75,7 @@ public function addToCart($idCliente, $codDisco){
     }
     
     $mysqli=Database::avviaDatabase();
-    $risultato = Database::lanciaQuery($query, $mysqli);
+    Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
     
 }
@@ -89,35 +89,6 @@ public function removeToCart($idCliente, $codDisco){
     
 }
 
-public function pagamentoCarrello($idCliente, $mysqli){
-    
-    $query="SELECT `idCompratore`, `Carrello`.`codDisco`, "
-            . "`Carrello`.`quantita`, `titolo`, `prezzo`, `idVenditore` "
-            . "FROM `Carrello` JOIN `Disco` ON `Disco`.`codDisco` = `Carrello`.`codDisco` "
-            . "JOIN `Catalogo` ON `Catalogo`.`codDisco` = `Carrello`.`CodDisco` "
-            . "WHERE `idCompratore`='" . $idCliente."'";
-    
-    $risultato = Database::lanciaQuery($query, $mysqli);
-
-    $carrello = array();
-    
-    /*Il ciclo legge il risultato della query e salva i dati in array*/
-	
-    while($row = $risultato->fetch_row())
-    {
-        $cartItem = new CartItem();
-        $cartItem->setIdCompratore($row[0]);
-        $cartItem->setCodDisco($row[1]);
-        $cartItem->setQuantita($row[2]);
-        $cartItem->setTitolo($row[3]);
-        $cartItem->setPrezzo($row[4]);
-        $cartItem->setIdVenditore($row[5]);
-        $carrello[] = $cartItem;
-    }
-        
-        
-    return $carrello;
-}
 
 public function rimuoviElementi($idCliente, $codDisco, $mysqli){
 
