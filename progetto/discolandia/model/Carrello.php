@@ -89,7 +89,7 @@ public function removeToCart($idCliente, $codDisco){
     
 }
 
-public function pagamentoCarrello($idCliente){
+public function pagamentoCarrello($idCliente, $mysqli){
     
     $query="SELECT `idCompratore`, `Carrello`.`codDisco`, "
             . "`Carrello`.`quantita`, `titolo`, `prezzo`, `idVenditore` "
@@ -119,7 +119,7 @@ public function pagamentoCarrello($idCliente){
     return $carrello;
 }
 
-public function rimuoviElementi($idCliente, $codDisco){
+public function rimuoviElementi($idCliente, $codDisco, $mysqli){
 
     $query = "DELETE FROM `Carrello` WHERE `idCompratore` ='". $idCliente . "' AND `codDisco` = '" . $codDisco ."'";
 

@@ -188,23 +188,23 @@ else{
                             $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
                             
-                            $carrello =  Carrello::pagamentoCarrello($user->getId());
+                            $carrello =  Carrello::pagamentoCarrello($user->getId(), $mysqli);
                             foreach ($carrello as $unita){
                                 
-                                DiscoFactory::modificaDisponibilita($carrello->getCodDisco(), $carrello->getQuantita());
+                                DiscoFactory::modificaDisponibilita($carrello->getCodDisco(), $carrello->getQuantita(), $mysqli);
                                 echo "modificata la disponibilità";
                                 //Modifico il credito del cliente
                                 $nuovoCredito=$user->getCredito()-($carrello->getPrezzo()*$carrello->getQuantita());
-                                UserFactory::modificaCredito($user->getId(),$nuovoCredito);
+                                UserFactory::modificaCredito($user->getId(),$nuovoCredito, $mysqli);
                                 echo 'Modificato credito cliente';
                                 //Modifico il credito del venditore
                                 $nuovoCredito=UserFactory::getCreditoById($carrello->getIdVenditore())+($carrello->getPrezzo()*$carrello->getQuantita());
-                                UserFactory::modificaCredito($carrello->getIdVenditore(),$nuovoCredito);
+                                UserFactory::modificaCredito($carrello->getIdVenditore(),$nuovoCredito, $mysqli);
                                 echo 'modificato credito venditore';
                                 //Aggiungi storico
                                 
                                 //Elimino elementi dal carrello
-                                Carrello::rimuoviElementi($carrello->getIdCompratore(), $carrello->getCodDisco());
+                                Carrello::rimuoviElementi($carrello->getIdCompratore(), $carrello->getCodDisco(), $mysqli);
                                 echo 'modificato carrello';
                             }
                             $mysqli->commit();

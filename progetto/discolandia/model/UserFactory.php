@@ -87,12 +87,12 @@ class UserFactory {
         Database::chiudiDatabase($mysqli);
     }
     
-    public function modificaCredito ($idUtente, $credito){
+    public function modificaCredito ($idUtente, $credito, $mysqli){
         $query="UPDATE `Utente` SET `credito` = '". $credito . "' WHERE idUtente = '". $idUtente."'";
         Database::lanciaQuery($query, $mysqli);
     }
     
-    public function getCreditoById($idUtente){
+    public function getCreditoById($idUtente, $mysqli){
         $query= "SELECT `credito` FROM `Utente` WHERE `idUtente` = '".$idUtente."'";
         $credito::lanciaQuery($query, $mysqli);
         return $credito;
