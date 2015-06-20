@@ -87,11 +87,12 @@ body{
 }
 
 .catalogo_immagine{
-    float: left;
+    
     max-height: 100%;
 }
 
 .catalogo_box_immagine{
+    float: left;
     height: 90px;
     width: 90px;
 }
