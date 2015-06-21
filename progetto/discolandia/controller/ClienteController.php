@@ -243,7 +243,7 @@ else{
                         $dati['cap']=$request['cap'];
                         
                         
-                        $this->modificaDati($user->getId(), $dati);// aggiorna i dati dal base controller
+                        UserFactory::modificaDati($user->getId(), $dati);// aggiorna i dati dal base controller
                         $msg1="Dati aggiornati";
                         $vd->setSottoPagina('profilo');
                         $vd->setTitolo("Profilo");
