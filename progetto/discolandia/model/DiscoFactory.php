@@ -160,7 +160,7 @@ public function creaCatalogoGenere($param){
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 	
-    if(count($risultato)>0){
+   
     
         /*Il ciclo legge il risultato della query e salva i dati in array*/
 
@@ -182,11 +182,11 @@ public function creaCatalogoGenere($param){
             $dischi[] = $disco;
         }
 
-
-        return $dischi;
-    }
-    else
-        return 0;
+        if(isset($dischi))
+            return $dischi;
+        else
+            return 0;
+    
 }
 
 
