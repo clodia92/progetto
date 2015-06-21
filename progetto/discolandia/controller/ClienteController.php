@@ -213,7 +213,7 @@ else{
                                 UserFactory::modificaCredito($unita->getIdVenditore(),$nuovoCredito, $mysqli);
                            
                                 //Inserimento nello storico
-                                UserFactory::addTransazione($user->getId(), $unita->getIdVenditore(), $unita->getCodDisco(), date('Y/m/d H:i:s'), $prodottoConferma->getPrezzo());
+                                UserFactory::addTransazione($user->getId(), $unita->getIdVenditore(), $unita->getCodDisco(), date('Y/m/d H:i:s'), $unita->getPrezzo());
                                 
                                 //Elimino elementi dal carrello
                                 Carrello::rimuoviElementi($unita->getIdCompratore(), $unita->getCodDisco(), $mysqli);
