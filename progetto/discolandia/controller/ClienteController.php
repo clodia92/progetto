@@ -228,7 +228,7 @@ else{
                     
                     
                     // modifica del profilo del cliente
-                    case 'modificaprofilo':
+                    case 'modificaProfilo':
                         
                         if(isset($request['pass1']) && ($request['pass1']!='') && ($request['pass1'] == $request['pass2'])){ // controllo che si voglia modificare la pass
                             $this->modificaPassword($user->getId(), $request); // se le password coincidono restituisco un messaggio positivo         
