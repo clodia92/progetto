@@ -54,7 +54,7 @@ class Storico {
             $transazione->setTitolo($row[3]);
             $transazione->setData($row[4]);
             $transazione->setPrezzo($row[5]);
-            $transazione->setQauntita($row[6]);
+            $transazione->setQuantita($row[6]);
             $storico[] = $transazione;
         }
         if(isset($storico))
