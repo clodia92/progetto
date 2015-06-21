@@ -112,5 +112,78 @@ public function leggiDisp($codDisco, $mysqli){
     $row = $risultato->fetch_row();
     return ($row[0]);
 }
+
+
+public function creaCatalogoRicerca($param){
+    
+    //Avvio il database
+    $mysqli=Database::avviaDatabase();
+   
+    $query="SELECT * FROM `Disco` JOIN `Catalogo` "
+            . "ON `Disco`.`codDisco` = `Catalogo`.`codDisco` "
+            . "WHERE `titolo` like'%".$param."%' OR `artista` like'%".$param."%'";
+    $risultato = Database::lanciaQuery($query, $mysqli);
+    Database::chiudiDatabase($mysqli);
+	
+    /*Il ciclo legge il risultato della query e salva i dati in array*/
+	
+    while($row = $risultato->fetch_row())
+    {
+        $disco = new Disco();
+        $disco->setCodDisco($row[0]);
+        $disco->setTitolo($row[1]);
+        $disco->setArtista($row[2]);
+        $disco->setGenere($row[3]);
+        $disco->setDescrizione($row[4]);
+        $disco->setEtichetta($row[5]);
+        $disco->setImmagine($row[6]);
+        $disco->setAnno($row[7]);
+        $disco->setPrezzo($row[10]);
+        $disco->setDisponibili($row[11]);
+       
+        $disco->setTracce(TracciaFactory::listaTracce($row[0]));
+        $dischi[] = $disco;
+    }
+        
+        
+    return $dischi;
+}
+
+public function creaCatalogoGenere($param){
+    
+    //Avvio il database
+    $mysqli=Database::avviaDatabase();
+   
+    $query="SELECT * FROM `Disco` JOIN `Catalogo` "
+            . "ON `Disco`.`codDisco` = `Catalogo`.`codDisco` "
+            . "WHERE `genere` = '".$param."'";
+    $risultato = Database::lanciaQuery($query, $mysqli);
+    Database::chiudiDatabase($mysqli);
+	
+    /*Il ciclo legge il risultato della query e salva i dati in array*/
+	
+    while($row = $risultato->fetch_row())
+    {
+        $disco = new Disco();
+        $disco->setCodDisco($row[0]);
+        $disco->setTitolo($row[1]);
+        $disco->setArtista($row[2]);
+        $disco->setGenere($row[3]);
+        $disco->setDescrizione($row[4]);
+        $disco->setEtichetta($row[5]);
+        $disco->setImmagine($row[6]);
+        $disco->setAnno($row[7]);
+        $disco->setPrezzo($row[10]);
+        $disco->setDisponibili($row[11]);
+       
+        $disco->setTracce(TracciaFactory::listaTracce($row[0]));
+        $dischi[] = $disco;
+    }
+        
+        
+    return $dischi;
+}
+
+
 }
 ?>

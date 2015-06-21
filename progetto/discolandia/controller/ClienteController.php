@@ -61,25 +61,21 @@ class ClienteController extends BaseController {
                     
                     // visualizzazione dei prodotti in vendita
                     case 'catalogo':
-                    /*
-                        // se nella richiesta e' presente il tipo vengono richiesti al DB solo i prodotti di quel tipo
-                        if(isset($request['tipo'])){
-                            $prodotti = ProdottoFactory::creaListaTipo($request['tipo']);
-                        }
                         
-                        // se nella richiesta e' presente un parametro vengono richiesti al DB solo i prodotti corrispondenti
-                        if(isset($request['cerca'])){
-                            $prodotti = ProdottoFactory::creaListaRicerca($request['cerca']);
+                        if(isset($request['mode'])){
+                            switch ($request['mode']){
+                            case 'ricerca':
+                                $catalogo = DiscoFactory::creaCatalogoRicerca($request['param']);
+                                break;
+                            case 'genere':
+                                $catalogo = DiscoFactory::creaCatalogoGenere($request['param']);
+                                break;
+                            }
                         }
-                            else{ 
-                            // se non e' presente parametro o tipo vengono richiesti al DB tutti i prodotti
-                            $prodotti = CatalogoFactory::creaCatalogo();
-                            } 
+                        else{
+                            $catalogo = DiscoFactory::creaCatalogo();
                         }
-                     * 
-                     */
-                
-                        $catalogo = DiscoFactory::creaCatalogo();
+
                         $vd->setSottoPagina('catalogo');
                         $vd->setTitolo("Catalogo Discolandia");
                         break;
