@@ -99,6 +99,7 @@ class ClienteController extends BaseController {
                     
                      // visualizzazione del profilo
                     case 'profilo':
+                        $storico=  Storico::getStorico($user->getId());
                         $vd->setSottoPagina('profilo');
                         $vd->setTitolo("Profilo");
                         break;
@@ -114,12 +115,7 @@ class ClienteController extends BaseController {
                         $vd->setSottoPagina('riepilogo');
                         $vd->setTitolo("Riepilogo");
                         break;
-                    
-                    case 'storico':
-                        $storico=  Storico::getStorico($user->getId());
-                        $vd->setSottoPagina('storico');
-                        $vd->setTitolo("Storico");
-                        break;
+                   
                         
                     default:
                         $catalogo = DiscoFactory::creaCatalogo();
