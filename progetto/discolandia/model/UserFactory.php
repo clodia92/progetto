@@ -110,7 +110,7 @@ class UserFactory {
      */
     public function modificaDati($id, $dati){
        
-        $query = "UPDATE `Utente` SET `email`= ? , `via`= ?, `num`= ?, `citta`= ?, `provincia`= ?, `cap`= ? WHERE `idUtente`='".$id."'";
+        $query = "UPDATE `Utente` SET `email`= ? , `via`= ?, `num`= ?, `citta`= ?, `provincia`= ?, `cap`= ? WHERE `idUtente`=?";
   
         $mysqli = Database::avviaDatabase();
         
@@ -118,7 +118,7 @@ class UserFactory {
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        $stmt->bind_param('ssisss', $dati['email'], $dati['via'], $dati['num'], $dati['citta'], $dati['provincia'], $dati['cap']);
+        $stmt->bind_param('sssssss', $dati['email'], $dati['via'], $dati['num'], $dati['citta'], $dati['provincia'], $dati['cap'], $id);
         // eseguiamo la query
         $stmt->execute();
          // liberiamo le risorse dello statement
