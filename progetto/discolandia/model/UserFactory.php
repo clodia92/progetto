@@ -118,7 +118,7 @@ class UserFactory {
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        $stmt->bind_param("ssssss", $dati['email'], $dati['via'], $dati['num'], $dati['citta'], $dati['provincia'], $dati['cap'], $id);
+        $stmt->bind_param('sssssss', $dati['email'], $dati['via'], $dati['num'], $dati['citta'], $dati['provincia'], $dati['cap'], $id);
         // eseguiamo la query
         $stmt->execute();
          // liberiamo le risorse dello statement
