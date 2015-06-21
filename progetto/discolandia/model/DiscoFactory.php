@@ -121,10 +121,12 @@ public function creaCatalogoRicerca($param){
     //Avvio il database
     $mysqli=Database::avviaDatabase();
    
-    $query="SELECT * FROM `Disco` JOIN `Catalogo` "
+    $query2="SELECT * FROM `Disco` JOIN `Catalogo` "
             . "ON `Disco`.`codDisco` = `Catalogo`.`codDisco` "
             . "WHERE `titolo` like '%?%' OR `artista` like '%?%'";
-    
+    $query="SELECT * FROM `Disco` JOIN `Catalogo` "
+            . "ON `Disco`.`codDisco` = `Catalogo`.`codDisco` "
+            . "WHERE `titolo` = ? OR `artista` = ?";
     $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
