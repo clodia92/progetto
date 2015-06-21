@@ -20,6 +20,11 @@ switch ($vd->getSottoPagina()) {
     case 'riepilogo':
         include_once 'riepilogo.php';
         break;
+    
+    case 'storico':
+        include_once 'storico.php';
+        break;
+    
     default:
         
         ?>
