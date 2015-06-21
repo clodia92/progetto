@@ -134,13 +134,8 @@ class VenditoreController extends BaseController {
                         
                         
                         // se il prodotto viene correttamente aggiunto viene mostrato un feedback positivo
-                        if(DiscoFactory::aggiungiDisco($disco))
-                        {
-                            
-                        }
-                        if(TracciaFactory::aggiungiTracce($disco['codDisco'],$tracce)){
-                            $msg="Il disco '" . $disco['titolo'] . "' è stato aggiunto al catalogo";
-                        }
+                        DiscoFactory::aggiungiDisco($disco);
+                        TracciaFactory::aggiungiTracce($disco['codDisco'],$tracce);
                         
                         $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('lista');
