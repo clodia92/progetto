@@ -109,7 +109,7 @@ class UserFactory {
      * @param Array
      */
     public function modificaDati($id, $dati){
-        
+        echo $dati['email'];echo $dati['via'];echo $dati['num'];echo $dati['citta'];echo $dati['provincia'];echo $dati['cap'];echo $id;
         $query = "UPDATE `Utenti` SET `email`=? , `via`=?, `num`=?, `citta`=?, `provincia`=?, `cap`=? WHERE `idUtente`='".$id."'";
   
         $mysqli = Database::avviaDatabase();
