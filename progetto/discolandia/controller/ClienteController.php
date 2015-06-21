@@ -237,7 +237,7 @@ else{
                         $dati=array();
                         $dati['email']=$request['email'];
                         $dati['via']=$request['via'];
-                        $dati['num']=$request['num'];
+                        $dati['num']=$request['civico'];
                         $dati['citta']=$request['citta'];
                         $dati['provincia']=$request['provincia'];
                         $dati['cap']=$request['cap'];

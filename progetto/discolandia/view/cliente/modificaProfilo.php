@@ -11,8 +11,8 @@
         <label for="via">Via o Piazza:</label>
         <input class="textbox" type="text" name="via" id="via" value="<?= $user->getVia() ?>" required/>
         <br>
-        <label for="num">Numero Civico</label>
-        <input class="textbox" type="text" name="num" id="num" value="<?= $user->getCivico() ?>" required/>
+        <label for="civico">Numero Civico</label>
+        <input class="textbox" type="text" name="civico" id="num" value="<?= $user->getCivico() ?>" required/>
         <br/>
         <label for="citta">Citt&agrave;</label>
         <input class="textbox" type="text" name="citta" id="citta" value="<?= $user->getCitta() ?>" required/>
