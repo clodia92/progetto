@@ -112,6 +112,13 @@ class ClienteController extends BaseController {
                     case 'riepilogo':
                         $vd->setSottoPagina('riepilogo');
                         $vd->setTitolo("Riepilogo");
+                        break;
+                    
+                    case 'storico':
+                        $storico=  Storico::getStorico($user->getId());
+                        $vd->setSottoPagina('storico');
+                        $vd->setTitolo("Storico");
+                        break;
                         
                     default:
                         $catalogo = DiscoFactory::creaCatalogo();
@@ -205,7 +212,8 @@ else{
                                 $nuovoCredito=(UserFactory::getCreditoById($unita->getIdVenditore(), $mysqli))+($unita->getPrezzo()*$unita->getQuantita());
                                 UserFactory::modificaCredito($unita->getIdVenditore(),$nuovoCredito, $mysqli);
                            
-                                //Aggiungi storico
+                                //Inserimento nello storico
+                                UserFactory::addTransazione($user->getId(), $unita->getIdVenditore(), $unita->getCodDisco(), date('Y/m/d H:i:s'), $prodottoConferma->getPrezzo());
                                 
                                 //Elimino elementi dal carrello
                                 Carrello::rimuoviElementi($unita->getIdCompratore(), $unita->getCodDisco(), $mysqli);
