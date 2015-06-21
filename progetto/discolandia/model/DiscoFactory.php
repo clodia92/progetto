@@ -117,7 +117,7 @@ public function leggiDisp($codDisco, $mysqli){
 
 
 public function creaCatalogoRicerca($param){
-    $parametro= "%".$param."%";
+    $parametro= "'%".$param."%'";
     //Avvio il database
     $mysqli=Database::avviaDatabase();
    
