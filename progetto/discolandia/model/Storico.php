@@ -18,9 +18,9 @@ class Storico {
      * @param Decimal $prezzo 
      * @param DateTime $data
      */
-    public function addTransazione($idCompratore, $idVenditore, $codDisco, $data, $prezzo){
-        $query = "INSERT INTO `Storico`(`idCompratore`, `idVenditore`, `codDisco`, `data`, `prezzo`) "
-                . "VALUES ('".$idCompratore."','".$idVenditore."','".$codDisco."','".$data."','".$prezzo."')";
+    public function addTransazione($idCompratore, $idVenditore, $codDisco, $data, $prezzo, $quantita){
+        $query = "INSERT INTO `Storico`(`idCompratore`, `idVenditore`, `codDisco`, `data`, `prezzo`, `quantita`) "
+                . "VALUES ('".$idCompratore."','".$idVenditore."','".$codDisco."','".$data."','".$prezzo."','".$quantita."')";
                 
         $mysqli = Database::avviaDatabase();
         Database::lanciaQuery($query, $mysqli);
@@ -35,7 +35,7 @@ class Storico {
     public function getStorico($id){
         $storico = array(); //Array che conterrà la lista delle transazioni
         $query = "SELECT `idCompratore`,`idVenditore`,`Storico`.`codDisco`,"
-                . "`Disco`.`titolo`,`data`,`prezzo`, "
+                . "`Disco`.`titolo`,`data`,`prezzo`, `quantita` "
                 . "FROM `Storico` JOIN `Disco` ON `Disco`.`codDisco` = `Storico`.`codDisco` "
                 . "WHERE `idCompratore`='".$id."'";
   
@@ -54,7 +54,7 @@ class Storico {
             $transazione->setTitolo($row[3]);
             $transazione->setData($row[4]);
             $transazione->setPrezzo($row[5]);
-
+            $transazione->setQauntita($row[6]);
             $storico[] = $transazione;
         }
         if(isset($storico))

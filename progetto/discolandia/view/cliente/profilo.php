@@ -36,28 +36,30 @@
     
 
     <!--Lista degli acquisti effettuati-->
-<div id="storico" class="contenitore altezza">
-    <h2>Storico acquisti</h2>
+    <div id="storico" class="contenitore altezza">
+        <h2>Ordini effettuati</h2>
 
     <?php 
 
 
-    if (isset($storico) && (count($storico) > 0)) { ?>
+    if (count($storico) > 0 && $storico!=0) { ?>
     <div class="storico_spazioTabella">
     <table class="storico_tabella">
         <tr>
             <th>Data</th>
-            <th>Prodotto</th>		
+            <th>Disco</th>		
             <th>Prezzo</th>
-            <th>Venditore</th>
+            <th>Quantit&agrave;</th>
+               
+            
         </tr>
     
         <?php foreach ($storico as $transazione) {?>
         <tr>
             <td><?= $transazione->getData()?></td>
-            <td><?= $transazione->getMarca()?> - <?= $transazione->getModello()?></td>
+            <td><?= $transazione->getTitolo()?></td>
             <td><?= $transazione->getPrezzo()?></td>
-            <td><?= $transazione->getVenditore()?></td>
+            <td><?= $transazione->getQuantita()?></td>
         </tr>
     <?php
 
@@ -68,6 +70,6 @@
     <p> Nessun acquisto effettuato </p>
     <?php } ?>
     </div>
-</div>
+    </div>
     
 </div>

@@ -12,6 +12,8 @@ class Transazione {
     
     private $prezzo;
     
+    private $quantita;
+    
 
     public function getIdCompratore() {
         return $this->idCompratore;
@@ -63,6 +65,13 @@ class Transazione {
         $this->prezzo = $prezzo;
     }
     
+    public function getQuantita() {
+        return $this->quantita;
+    }
+
+    public function setQuantita($quantita) {
+        $this->quantita = $quantita;
+    }
     
 }
 ?>

@@ -214,7 +214,7 @@ else{
                                 UserFactory::modificaCredito($unita->getIdVenditore(),$nuovoCredito, $mysqli);
                            
                                 //Inserimento nello storico
-                                Storico::addTransazione($user->getId(), $unita->getIdVenditore(), $unita->getCodDisco(), date('Y/m/d H:i:s'), $unita->getPrezzo());
+                                Storico::addTransazione($user->getId(), $unita->getIdVenditore(), $unita->getCodDisco(), date('Y/m/d H:i:s'), $unita->getPrezzo(), $unita->getQuantita());
                                 
                                 //Elimino elementi dal carrello
                                 Carrello::rimuoviElementi($unita->getIdCompratore(), $unita->getCodDisco(), $mysqli);
