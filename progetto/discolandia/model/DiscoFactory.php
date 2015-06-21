@@ -117,7 +117,7 @@ public function leggiDisp($codDisco, $mysqli){
 
 
 public function creaCatalogoRicerca($param){
-    $param2=$param;
+    $parametro= "%".$param."%";
     //Avvio il database
     $mysqli=Database::avviaDatabase();
    
@@ -129,7 +129,7 @@ public function creaCatalogoRicerca($param){
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        $stmt->bind_param("ss", $param, $param2);
+        $stmt->bind_param("ss", $parametro, $parametro);
         // eseguiamo la query
         $stmt->execute();
         // collego i risultati della query con un insieme di variabili
