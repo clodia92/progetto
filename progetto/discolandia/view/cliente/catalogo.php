@@ -4,7 +4,7 @@
 <?php 
 
 
-if (count($catalogo) > 0) { ?>
+if (count($catalogo) > 0 && $catalogo!=0) { ?>
 
     <?php foreach ($catalogo as $cd) {?>
 
