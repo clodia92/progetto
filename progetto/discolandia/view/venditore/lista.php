@@ -25,7 +25,7 @@ if (count($catalogo) > 0) { ?>
         </div>
         <div class="catalogo_prezzo">
             <p><?= $cd->getPrezzo()?> Euro</p>
-            <a href="venditore/lista?cmd=rimuoviDisco&codDisco=<?=$cd->getCodDisco();?>" onclick="return confirm('Sei sicuro di voler eliminare il disco: \"<?=$cd->getTitolo()?>\"?')">
+            <a href="venditore/lista?cmd=rimuoviDisco&codDisco=<?=$cd->getCodDisco();?>" onclick="return confirm('Sei sicuro di voler eliminare il disco?')">
                 Elimina
             </a>
         </div>
