@@ -123,13 +123,13 @@ public function creaCatalogoRicerca($param){
    
     $query="SELECT * FROM `Disco` JOIN `Catalogo` "
             . "ON `Disco`.`codDisco` = `Catalogo`.`codDisco` "
-            . "WHERE `titolo` like ? OR `artista` like ?";
+            . "WHERE `titolo` LIKE ? OR `artista` LIKE ?";
    
     $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        $stmt->bind_param("ss", $parametro, $parametro);
+        $stmt->bind_param("ss", '%'.$param.'%', '%'.$param.'%');
         // eseguiamo la query
         $stmt->execute();
         // collego i risultati della query con un insieme di variabili
