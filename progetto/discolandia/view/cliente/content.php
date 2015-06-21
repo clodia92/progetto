@@ -42,6 +42,12 @@ switch ($vd->getSottoPagina()) {
         </div>
     </a>
         
+    <a href="cliente/carrello">
+        <div class="contenitore_pannello">
+            <h3>Carrello</h3>
+            <img class="immagine_pannello" src="../discolandia/images/cart.png">
+        </div>
+    </a>
         <?php
         
         break;
