@@ -135,27 +135,25 @@ public function creaCatalogoRicerca($param){
         // collego i risultati della query con un insieme di variabili
         $stmt->bind_result($codDisco, $titolo, $artista, $genere, $descrizione, $etichetta, $immagine, $anno, $idVenditore, $codDisco2, $prezzo, $disponibili);
         // ciclo sulle righe che la query ha restituito
-        if(isset($codDisco)){
-            while($stmt->fetch()){
-                // ho nelle varibilidei risultati il contenuto delle colonne
-                $disco = new Disco();
-                $disco->setCodDisco($codDisco);
-                $disco->setTitolo($titolo);
-                $disco->setArtista($artista);
-                $disco->setGenere($genere);
-                $disco->setDescrizione($descrizione);
-                $disco->setEtichetta($etichetta);
-                $disco->setImmagine($immagine);
-                $disco->setAnno($anno);
-                $disco->setPrezzo($prezzo);
-                $disco->setDisponibili($disponibili);
+        
+        while($stmt->fetch()){
+            // ho nelle varibilidei risultati il contenuto delle colonne
+            $disco = new Disco();
+            $disco->setCodDisco($codDisco);
+            $disco->setTitolo($titolo);
+            $disco->setArtista($artista);
+            $disco->setGenere($genere);
+            $disco->setDescrizione($descrizione);
+            $disco->setEtichetta($etichetta);
+            $disco->setImmagine($immagine);
+            $disco->setAnno($anno);
+            $disco->setPrezzo($prezzo);
+            $disco->setDisponibili($disponibili);
 
-                $disco->setTracce(TracciaFactory::listaTracce($codDisco));
-                $dischi[] = $disco;
-                
-               
-            }
+            $disco->setTracce(TracciaFactory::listaTracce($codDisco));
+            $dischi[] = $disco;
         }
+        
         // liberiamo le risorse dello statement
         $stmt->close();
     
