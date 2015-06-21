@@ -12,7 +12,7 @@
             <th>Data</th>
             <th>Disco</th>		
             <th>Prezzo</th>
-            <th>Venditore</th>
+            
         </tr>
     
         <?php foreach ($storico as $transazione) {?>
@@ -20,7 +20,7 @@
             <td><?= $transazione->getData()?></td>
             <td><?= $transazione->getTitolo()?></td>
             <td><?= $transazione->getPrezzo()?></td>
-            <td><?= $transazione->getVenditore()?></td>
+            
         </tr>
     <?php
 

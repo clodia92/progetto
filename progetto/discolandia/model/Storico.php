@@ -34,7 +34,10 @@ class Storico {
      */
     public function getStorico($id){
         $storico = array(); //Array che conterrà la lista delle transazioni
-        $query = "SELECT * FROM `Storico` WHERE `idCompratore`='".$id."'";
+        $query = "SELECT `idCompratore`,`idVenditore`,`Storico`.`codDisco`,"
+                . "`Disco`.`titolo`,`data`,`prezzo`, "
+                . "FROM `Storico` JOIN `Disco` ON `Disco`.`codDisco` = `Storico`.`codDisco` "
+                . "WHERE `idCompratore`='".$id."'";
   
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = Database::avviaDatabase();
@@ -48,8 +51,9 @@ class Storico {
             $transazione->setIdCompratore($row[0]);
             $transazione->setIdVenditore($row[1]);
             $transazione->setCodDisco($row[2]);
-            $transazione->setData($row[3]);
-            $transazione->setPrezzo($row[4]);
+            $transazione->setTitolo($row[3]);
+            $transazione->setData($row[4]);
+            $transazione->setPrezzo($row[5]);
 
             $storico[] = $transazione;
         }
