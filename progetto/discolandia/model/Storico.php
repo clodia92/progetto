@@ -23,7 +23,7 @@ class Storico {
                 . "VALUES ('".$idCompratore."','".$idVenditore."','".$codDisco."','".$data."','".$prezzo."')";
                 
         $mysqli = Database::avviaDatabase();
-        Database::avviaQuery($query, $mysqli);
+        Database::lanciaQuery($query, $mysqli);
         Database::chiudiDatabase($mysqli);
     }
     
@@ -38,7 +38,7 @@ class Storico {
   
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = Database::avviaDatabase();
-        $result = Database::avviaQuery($query, $mysqli);
+        $result = Database::lanciaQuery($query, $mysqli);
         Database::chiudiDatabase($mysqli);	
 	
         /*Il ciclo legge il risultato della query e salva i dati in array*/
