@@ -129,7 +129,7 @@ public function creaCatalogoRicerca($param){
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        $stmt->bind_param("ss", $param, $param);
+        $stmt->bind_param("s", $param);
         // eseguiamo la query
         $stmt->execute();
         // collego i risultati della query con un insieme di variabili
