@@ -117,19 +117,19 @@ public function leggiDisp($codDisco, $mysqli){
 
 
 public function creaCatalogoRicerca($param){
-    
+    $param2=$param;
     //Avvio il database
     $mysqli=Database::avviaDatabase();
    
     $query="SELECT * FROM `Disco` JOIN `Catalogo` "
             . "ON `Disco`.`codDisco` = `Catalogo`.`codDisco` "
-            . "WHERE `titolo` like'%?%' OR `artista` like'%?%'";
+            . "WHERE `titolo` like '%?%' OR `artista` like '%?%'";
     
     $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        $stmt->bind_param("ss", $param, $param);
+        $stmt->bind_param("ss", $param, $param2);
         // eseguiamo la query
         $stmt->execute();
         // collego i risultati della query con un insieme di variabili
