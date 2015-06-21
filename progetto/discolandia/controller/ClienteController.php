@@ -243,7 +243,7 @@ else{
                         $dati['cap']=$request['cap'];
                         
                         
-                        $this->aggiornaDati($user->getId(), $dati);// aggiorna i dati dal base controller
+                        $this->modificaDati($user->getId(), $dati);// aggiorna i dati dal base controller
                         $msg1="Dati aggiornati";
                         $vd->setSottoPagina('profilo');
                         $vd->setTitolo("Profilo");
