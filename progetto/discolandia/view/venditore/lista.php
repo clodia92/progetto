@@ -23,7 +23,13 @@ if (count($catalogo) > 0) { ?>
                 <?=$cd->getArtista()?>
             </p>
         </div>
-        <div class="catalogo_prezzo"><p><?= $cd->getPrezzo()?> Euro</p></div>
+        <div class="catalogo_prezzo">
+            <p><?= $cd->getPrezzo()?> Euro</p>
+            <a href="venditore/lista?cmd=rimuoviDisco&codDisco=<?=$cd->getCodDisco();?>" onclick="return confirm('Sei sicuro di voler eliminare il disco: \"<?=$cd->getTitolo()?>\"?')">
+                Elimina
+            </a>
+        </div>
+        
     </div>
 
 <?php

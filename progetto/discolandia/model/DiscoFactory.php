@@ -109,6 +109,12 @@ public function aggiungiDisco($disco){
     return TRUE;
 }
 
+public function rimuoviDisco($codDisco){
+    $query = "DELETE FROM `Disco` WHERE `codDisco` = '" . $codDisco ."'";
+    $mysqli=Database::avviaDatabase();
+    Database::lanciaQuery($query, $mysqli);
+    Database::chiudiDatabase($mysqli);
+}
 
 public function modificaDisponibilita($codDisco, $disponibilita, $mysqli){
     

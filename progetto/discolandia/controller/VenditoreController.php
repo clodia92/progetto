@@ -169,10 +169,10 @@ class VenditoreController extends BaseController {
                         break;
                         
                     // cancellazione di un prodotto dalla lista dei prodotti i vendita    
-                    case 'cancella':
-                        if(ProdottoFactory::cancellaProdotto($request['id'], $user->getUsername()))
-                            $conferma="rimosso";
-                       $prodotti = ProdottoFactory::creaLista();
+                    case 'rimuoviDisco':
+                        
+                        DiscoFactory::rimuoviDisco($request['codDisco']);
+                        $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('lista');
                         $vd->setTitolo('Venditore - Lista Prodotti');
                         $this->showHomeUtente($vd);
