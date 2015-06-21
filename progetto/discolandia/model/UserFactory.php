@@ -108,21 +108,7 @@ class UserFactory {
      * @param String $username
      * @param Array
      */
-    public function modificaDati($username, $dati){
-        $query = 
-  
-        //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);	
-    }
-    
-    /**
-     * Aggiornamento della password di un utente
-     * @param String $user
-     * @param String $newPass
-     */
-    public function modificaPassword($id, $newPass){
+    public function modificaDati($id, $dati){
         $query = "UPDATE `Utenti` SET `email`= ? , `via`=?, `num`=?, `citta`=?, `provincia`=?, `cap`=? WHERE `idUtente`=?";
   
         $mysqli = Database::avviaDatabase();
@@ -138,6 +124,15 @@ class UserFactory {
         $stmt->close();
 
         Database::chiudiDatabase($mysqli);
+    }
+    
+    /**
+     * Aggiornamento della password di un utente
+     * @param String $user
+     * @param String $newPass
+     */
+    public function modificaPassword($id, $newPass){
+        
        
     }
 }
