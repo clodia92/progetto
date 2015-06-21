@@ -160,28 +160,33 @@ public function creaCatalogoGenere($param){
     $risultato = Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
 	
-    /*Il ciclo legge il risultato della query e salva i dati in array*/
-	
-    while($row = $risultato->fetch_row())
-    {
-        $disco = new Disco();
-        $disco->setCodDisco($row[0]);
-        $disco->setTitolo($row[1]);
-        $disco->setArtista($row[2]);
-        $disco->setGenere($row[3]);
-        $disco->setDescrizione($row[4]);
-        $disco->setEtichetta($row[5]);
-        $disco->setImmagine($row[6]);
-        $disco->setAnno($row[7]);
-        $disco->setPrezzo($row[10]);
-        $disco->setDisponibili($row[11]);
-       
-        $disco->setTracce(TracciaFactory::listaTracce($row[0]));
-        $dischi[] = $disco;
+    if(count($risultato)>0){
+    
+        /*Il ciclo legge il risultato della query e salva i dati in array*/
+
+        while($row = $risultato->fetch_row())
+        {
+            $disco = new Disco();
+            $disco->setCodDisco($row[0]);
+            $disco->setTitolo($row[1]);
+            $disco->setArtista($row[2]);
+            $disco->setGenere($row[3]);
+            $disco->setDescrizione($row[4]);
+            $disco->setEtichetta($row[5]);
+            $disco->setImmagine($row[6]);
+            $disco->setAnno($row[7]);
+            $disco->setPrezzo($row[10]);
+            $disco->setDisponibili($row[11]);
+
+            $disco->setTracce(TracciaFactory::listaTracce($row[0]));
+            $dischi[] = $disco;
+        }
+
+
+        return $dischi;
     }
-        
-        
-    return $dischi;
+    else
+        return 0;
 }
 
 
