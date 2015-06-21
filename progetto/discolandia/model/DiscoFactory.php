@@ -117,7 +117,7 @@ public function leggiDisp($codDisco, $mysqli){
 
 
 public function creaCatalogoRicerca($param){
-    $parametro= "'%".$param."%'";
+    $parametro= "%".$param."%";
     //Avvio il database
     $mysqli=Database::avviaDatabase();
    
@@ -135,7 +135,7 @@ public function creaCatalogoRicerca($param){
         // collego i risultati della query con un insieme di variabili
         $stmt->bind_result($codDisco, $titolo, $artista, $genere, $descrizione, $etichetta, $immagine, $anno, $idVenditore, $codDisco2, $prezzo, $disponibili);
         // ciclo sulle righe che la queryha restituito
-        if(isset($codDisco)){
+        //if(isset($codDisco)){
             while($stmt->fetch()){
                 // ho nelle varibilidei risultati il contenuto delle colonne
                 $disco = new Disco();
@@ -155,7 +155,7 @@ public function creaCatalogoRicerca($param){
                 
                
             }
-        }
+        //}
         // liberiamo le risorse dello statement
         $stmt->close();
     
