@@ -16,7 +16,11 @@ switch ($vd->getSottoPagina()) {
     case 'profilo':
         include_once 'profilo.php';
         break;
-        
+    
+    case 'modificaProfilo':
+        include_once 'modificaProfilo.php';
+        break;
+    
     case 'riepilogo':
         include_once 'riepilogo.php';
         break;

@@ -108,8 +108,8 @@ class UserFactory {
      * @param String $username
      * @param Array
      */
-    public function aggiornaDatiUser($username, $dati){
-        $query = queryAggiornaDati($username, $dati); 
+    public function modificaDati($username, $dati){
+        $query = 
   
         //Avvia la procedura di lettura e salva il risultato
         $mysqli = avviaDatabase();
@@ -122,13 +122,23 @@ class UserFactory {
      * @param String $user
      * @param String $newPass
      */
-    public function aggiornaPassword($user, $newPass){
-        $query = queryAggiornaPassword($user, $newPass); 
+    public function modificaPassword($id, $newPass){
+        $query = "UPDATE `Utenti` SET `email`= ? , `via`=?, `num`=?, `citta`=?, `provincia`=?, `cap`=? WHERE `idUtente`=?";
   
-        //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);
+        $mysqli = Database::avviaDatabase();
+        
+        $stmt= $mysqli->stmt_init();
+        // preparo lo statement per l'esecuzione
+        $stmt->prepare($query);
+        // collego i parametri della querycon il loro tipo
+        $stmt->bind_param("sssssss", $dati['email'],$dati['via'],$dati['num'],$dati['citta'],$dati['provincia'], $dati['cap'], $id);
+        // eseguiamo la query
+        $stmt->execute();
+         // liberiamo le risorse dello statement
+        $stmt->close();
+
+        Database::chiudiDatabase($mysqli);
+       
     }
 }
 ?>

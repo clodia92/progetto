@@ -105,10 +105,10 @@ class ClienteController extends BaseController {
                         break;
                     
                     //visualizzazione della pagina per modificare il profilo
-                    case 'modificaprofilo':
+                    case 'modificaProfilo':
                         
-                        $vd->setSottoPagina('modificaprofilo');
-                        $vd->setTitolo("Modifica Profilo Discolandia");
+                        $vd->setSottoPagina('modificaProfilo');
+                        $vd->setTitolo("Modifica Profilo");
                         break;    
                     
                     case 'riepilogo':
@@ -230,23 +230,8 @@ else{
                     // modifica del profilo del cliente
                     case 'modificaprofilo':
                         
-                        if(isset($request['pass1']) && $request['pass1']!=''){ // controllo che si voglia modificare la pass
-                            if(isset($request['pass2']) && $request['pass2']!=''){
-                                if($this->aggiornaPassword($user, $request)){ // se le password coincidono restituisco un messaggio positivo
-                                    $msg2['esito']='positivo';
-                                    $msg2['testo']='Password aggiornata';
-                                }
-                                else{ // se le password non coincidono, messaggio negativo
-                                    $msg2['esito']='negativo';
-                                    $msg2['testo']='Le password non coincidono';
-
-                                }
-                            }
-                            else //messaggio negativo se non è stata confermata la password
-                            {
-                            $msg2['esito']='negativo';
-                            $msg2['testo']='Confermare la password prima di salvare'; 
-                            }
+                        if(isset($request['pass1']) && ($request['pass1']!='') && ($request['pass1'] == $request['pass2'])){ // controllo che si voglia modificare la pass
+                            $this->modificaPassword($user->getId(), $request); // se le password coincidono restituisco un messaggio positivo         
                         }
                         // salvo i nuovi dati in un array
                         $dati=array();
@@ -258,7 +243,7 @@ else{
                         $dati['cap']=$request['cap'];
                         
                         
-                        $this->aggiornaDati($user, $dati);// aggiorna i dati dal base controller
+                        $this->aggiornaDati($user->getId(), $dati);// aggiorna i dati dal base controller
                         $msg1="Dati aggiornati";
                         $vd->setSottoPagina('profilo');
                         $vd->setTitolo("Profilo");

@@ -2,7 +2,7 @@
 <div class="profilo">
     <h2 class="titolo">Profilo</h2>
     <div class="profilo_sinistro">
-        <h3>Dati personali</h3><span>Modifica</span>
+        <h3>Dati personali</h3>
 
         <ul>
             <li><strong>Nome:</strong> <?= $user->getNome() ?></li>
@@ -22,7 +22,7 @@
             <li><strong>CAP:</strong> <?= $user->getCap() ?></li>
         </ul>
     </div>
-    
+    <span><a href="cliente/modificaProfilo">Modifica</a></span>    
     <h3>
         Credito: <text class=""><?= $user->getCredito() ?> Euro</text>
     </h3>
