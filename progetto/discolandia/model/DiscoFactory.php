@@ -83,17 +83,26 @@ public function aggiungiDisco($disco){
     
     $query="INSERT INTO `Disco`(`codDisco`,`titolo`,"
             . "`artista`,`genere`,`descrizione`,`etichetta`,`immagine`,`anno`) "
-            . "VALUES ('".$disco['codDisco']."','".$disco['titolo']."',"
-            . "'".$disco['artista']."','".$disco['genere']."',"
-            . "'".$disco['descrizione']."','".$disco['etichetta']."',"
-            . "'".$disco['immagine']."','".$disco['anno']."')";
+            . "VALUES (?,?,?,?,?,?,?,?)";
     
-    Database::lanciaQuery($query, $mysqli);
+        $stmt= $mysqli->stmt_init();
+        // preparo lo statement per l'esecuzione
+        $stmt->prepare($query);
+        // collego i parametri della querycon il loro tipo
+        $stmt->bind_param("ssssssss", $disco['codDisco'],$disco['titolo'],$disco['artista'],$disco['genere'],$disco['descrizione'],$disco['etichetta'],$disco['immagine'],$disco['anno']);
+        // eseguiamo la query
+        $stmt->execute();
     
     $query="INSERT INTO `Catalogo` (`idVenditore`,`codDisco`,`prezzo`,`quantita`) "
-            . "VALUES ('".$disco['venditore']."','".$disco['codDisco']."',"
-            . "'".$disco['prezzo']."','".$disco['quantita']."')";
-    Database::lanciaQuery($query, $mysqli);
+            . "VALUES (?,?,?,?)";
+    
+        $stmt= $mysqli->stmt_init();
+        // preparo lo statement per l'esecuzione
+        $stmt->prepare($query);
+        // collego i parametri della querycon il loro tipo
+        $stmt->bind_param("ssss", $disco['venditore'],$disco['codDisco'],$disco['prezzo'],$disco['quantita']);
+        // eseguiamo la query
+        $stmt->execute();
     
     Database::chiudiDatabase($mysqli);
     
