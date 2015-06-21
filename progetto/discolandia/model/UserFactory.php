@@ -110,20 +110,20 @@ class UserFactory {
      */
     public function modificaDati($id, $dati){
        
-        //$query = "UPDATE `Utenti` SET `email`= ? , `via`= ?, `num`= ?, `citta`= ?, `provincia`= ?, `cap`= ? WHERE `idUtente`='".$id."'";
-        $query ="UPDATE `Utenti` SET `email`='".$dati['email']."', `via`='".$dati['via']."', `num`='".$dati['num']."', `citta`='".$dati['citta']."', `provincia`='".$dati['provincia']."', `cap`='".$dati['cap']."' WHERE `idUtente`='".$id."'";
+        $query = "UPDATE `Utente` SET `email`= ? , `via`= ?, `num`= ?, `citta`= ?, `provincia`= ?, `cap`= ? WHERE `idUtente`='".$id."'";
+  
         $mysqli = Database::avviaDatabase();
         
-        //$stmt= $mysqli->stmt_init();
+        $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
-        //$stmt->prepare($query);
+        $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        //$stmt->bind_param('ssisss', $dati['email'], $dati['via'], $dati['num'], $dati['citta'], $dati['provincia'], $dati['cap']);
+        $stmt->bind_param('ssisss', $dati['email'], $dati['via'], $dati['num'], $dati['citta'], $dati['provincia'], $dati['cap']);
         // eseguiamo la query
-        //$stmt->execute();
+        $stmt->execute();
          // liberiamo le risorse dello statement
-        //$stmt->close();
-        Database::lanciaQuery($query, $mysqli);
+        $stmt->close();
+
         Database::chiudiDatabase($mysqli);
     }
     
