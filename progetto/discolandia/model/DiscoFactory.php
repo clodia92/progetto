@@ -42,8 +42,10 @@ public function creaCatalogo(){
         $dischi[] = $disco;
     }
         
-        
-    return $dischi;
+    if(isset($dischi))
+        return $dischi;
+    else
+        return 0;
 }
 
 /*Restituisce l'oggetto Disco richiesto tramite codice*/
@@ -145,8 +147,10 @@ public function creaCatalogoRicerca($param){
         $dischi[] = $disco;
     }
         
-        
-    return $dischi;
+    if(isset($dischi))
+        return $dischi;
+    else
+        return 0;
 }
 
 public function creaCatalogoGenere($param){
