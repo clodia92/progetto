@@ -102,57 +102,7 @@ class UserFactory {
     }
     
 
-    //FUNZIONI DA AGGIUNGERE
-    
-    /**
-     * Aggiunge una transazione all'elenco degli acquisti effetuati
-     * @param String $cliente Il cliente che ha effettuato l'acquisto
-     * @param String $venditore Il proprietario del prodotto venduto
-     * @param String $marca Marca del prodotto
-     * @param String $modello Modello del prodotto
-     * @param Decimal $prezzo 
-     * @param DateTime $data
-     */
-    public function addTransazione($cliente, $venditore, $marca, $modello, $prezzo, $data){
-        $query = queryAddTransazione($cliente, $venditore, $marca, $modello, $prezzo, $data);
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);
-    }
-    
-    /**
-     * Recupera la lista delle transazioni per un determinato utente
-     * @param String $user
-     * @return Array
-     */
-    public function creaStorico($user){
-        $storico = array(); //Array che conterrà la lista delle transazioni
-        $query = queryStorico($user); 
-  
-        //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        $result = avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);	
-	
-        /*Il ciclo legge il risultato della query e salva i dati in array*/
-	
-  	
-        while($row = $result->fetch_row())
-        {
-            $transazione = new Transazione();
-            $transazione->setCliente($row[0]);
-            $transazione->setVenditore($row[1]);
-            $transazione->setMarca($row[2]);
-            $transazione->setModello($row[3]);
-            $transazione->setPrezzo($row[4]);
-            $transazione->setData($row[5]);
 
-            $storico[] = $transazione;
-        }
-
-        return $storico;
-    }
-    
     /**
      * Aggiornamento dei dati di un utente
      * @param String $username
