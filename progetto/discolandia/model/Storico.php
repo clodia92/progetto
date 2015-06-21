@@ -1,5 +1,5 @@
 <?php
-
+include_once 'Transazione.php';
 class Storico {
 
     /**
