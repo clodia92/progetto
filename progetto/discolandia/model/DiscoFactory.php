@@ -115,7 +115,7 @@ public function rimuoviDisco($codDisco){
     $query = "DELETE FROM `Disco` WHERE `codDisco` = '" . $codDisco ."'"; 
     Database::lanciaQuery($query, $mysqli);
     
-    $query = "DELETE FROM `catalogo` WHERE `codDisco` = '" . $codDisco ."'"; 
+    $query = "DELETE FROM `Catalogo` WHERE `codDisco` = '" . $codDisco ."'"; 
     Database::lanciaQuery($query, $mysqli);
     
     Database::chiudiDatabase($mysqli);
