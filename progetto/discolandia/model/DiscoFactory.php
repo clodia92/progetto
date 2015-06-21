@@ -129,7 +129,7 @@ public function creaCatalogoRicerca($param){
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        $stmt->bind_param("ss", $parametro, $parametro, PDO::PARAM_STR);
+        $stmt->bind_param("ss", $parametro, $parametro);
         // eseguiamo la query
         $stmt->execute();
         // collego i risultati della query con un insieme di variabili
