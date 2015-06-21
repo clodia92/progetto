@@ -22,9 +22,9 @@ class Storico {
         $query = "INSERT INTO `Storico`(`idCompratore`, `idVenditore`, `codDisco`, `data`, `prezzo`) "
                 . "VALUES ('".$idCompratore."','".$idVenditore."','".$codDisco."','".$data."','".$prezzo."')";
                 
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);
+        $mysqli = Database::avviaDatabase();
+        Database::avviaQuery($query, $mysqli);
+        Database::chiudiDatabase($mysqli);
     }
     
     /**
@@ -37,9 +37,9 @@ class Storico {
         $query = "SELECT * FROM `Storico` WHERE `idCompratore`='".$id."'";
   
         //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        $result = avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);	
+        $mysqli = Database::avviaDatabase();
+        $result = Database::avviaQuery($query, $mysqli);
+        Database::chiudiDatabase($mysqli);	
 	
         /*Il ciclo legge il risultato della query e salva i dati in array*/
         while($row = $result->fetch_row())
