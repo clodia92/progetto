@@ -45,56 +45,58 @@ include_once basename(__DIR__) . '/../Settings.php';
             <!-- start page -->
             <!--  sidebar 1 -->
             <div id="leftBar" class="leftBar">
-               
+                <div class="interno">
                         <?php
                         $left = $vd->getLeftBarFile();
                         require "$left";
                         ?>
-                   
+                </div>   
             </div>
 
             <div id="rightBar" class="rightBar">
-                <?php
-                $right = $vd->getRightBarFile();
-                require "$right";
-                ?>
-
+                <div class="interno">
+                    <?php
+                    $right = $vd->getRightBarFile();
+                    require "$right";
+                    ?>  
+                </div>
             </div>
 
             <!-- contenuto -->
             <div id="content" class="content">
-                <?php
-                if ($vd->getMessaggioErrore() != null) {
-                    ?>
-                    <div>
-                        <div>
-                            <?=
-                            $vd->getMessaggioErrore();
-                            ?>
-                        </div>
-                    </div>
+                <div class="interno">
                     <?php
-                }
-                ?>
-                <?php
-                if ($vd->getMessaggioConferma() != null) {
-                    ?>
-                    <div>
+                    if ($vd->getMessaggioErrore() != null) {
+                        ?>
                         <div>
-                            <?=
-                            $vd->getMessaggioConferma();
-                            ?>
+                            <div>
+                                <?=
+                                $vd->getMessaggioErrore();
+                                ?>
+                            </div>
                         </div>
-                    </div>
+                        <?php
+                    }
+                    ?>
                     <?php
-                }
-                ?>
-                <?php
-                $content = $vd->getContentFile();
-                require "$content";
-                ?>
+                    if ($vd->getMessaggioConferma() != null) {
+                        ?>
+                        <div>
+                            <div>
+                                <?=
+                                $vd->getMessaggioConferma();
+                                ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    $content = $vd->getContentFile();
+                    require "$content";
+                    ?>
 
-
+                </div>
             </div>
 
         

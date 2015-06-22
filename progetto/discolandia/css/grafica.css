@@ -21,14 +21,26 @@ body{
 
 .titolo {
 	font-size: 60px;
-	color: #fff;
+	color: white;
 	font-family: fbsbltc, Arial, Helvetica, sans-serif;
         height: 80px;
         margin: 0;
 }
+.titolo:hover{
+    font-size: 62px;
+    text-decoration: none;
+}
+.titolo:visited{
+    color: white;
+    text-decoration: none;
+}
+
+.interno{
+    padding: 1em;
+}
 
 .leftBar{
-    width: 19%;
+    width: 20%;
     float: left;
     min-height: 1000px;
     background-color: whitesmoke;
@@ -51,7 +63,6 @@ body{
 }
 
 .content{
-    padding: 1%;
     width: 60%;
     min-height: 1000px;
     background-color: white;
