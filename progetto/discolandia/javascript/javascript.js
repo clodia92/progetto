@@ -23,7 +23,7 @@ $(function() {
       "Scala",
       "Scheme"
     ];
-    $( "#param" ).autocomplete({
+    $document.getElementById('textboxRicerca').autocomplete({
       source: availableTags
     });
   });
