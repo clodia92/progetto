@@ -3,7 +3,7 @@
 document.getElementById("txtCodDisco").onfocus = function(){myFunction();};
 
 function myFunction() {
-    document.getElementById("newCodDisco").style.backgroundColor = "red";
+    document.getElementById("newCodDisco").style.color = "red";
 }
 </script>
 <div id="aggiungiDisco" class="aggiungiDisco">
