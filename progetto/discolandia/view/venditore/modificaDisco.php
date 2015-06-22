@@ -6,7 +6,7 @@
     
     <form name="modificaDisco" method="post" action="venditore/disco?codDisco=<?=$disco->getCodDisco()?>">
         <label for="codDisco">Codice Disco</label>
-        <input class="textbox" type="text" name="codDisco" <?=$disco->getCodDisco()?> required>
+        <input class="textbox" type="text" name="codDisco" value="<?=$disco->getCodDisco()?>" required>
         <br>
         <label for="artista">Artista</label>
         <input class="textbox" type="text" name="artista" value="<?=$disco->getArtista()?>" required>
