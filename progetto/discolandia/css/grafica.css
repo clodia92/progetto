@@ -4,6 +4,7 @@ body{
     float: left;
     font: 16px Arial, Helvetica, sans-serif;
     color: black;
+    background-color: whitesmoke;
 }
 
 .header{
@@ -29,8 +30,6 @@ body{
 }
 
 .leftBar{
-    background-color: white;
-   
     width: 19%;
     float: left;
     min-height: 500px;
@@ -41,8 +40,6 @@ body{
 }
 
 .rightBar{
-    background-color: white;
-   
     width: 19%;
     min-height: 500px;
     float: right;
@@ -57,7 +54,7 @@ body{
     padding: 1%;
     width: 60%;
     min-height: 500px;
-    background-color: whitesmoke;
+    background-color: white;
     margin-left: 20%;
 }
 
