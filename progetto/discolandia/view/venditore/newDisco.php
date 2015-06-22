@@ -45,7 +45,7 @@
         <input class="textbox" type="text" name="quantita"/>
         <br>
         <label for="tracce">Tracce(Una per riga)</label>
-        <textarea class="textbox" rows="7" type="text" name="tracce"/>
+        <textarea class="textbox" rows="7" type="text" name="tracce"/></textarea>
         
         <div class="btn-group">
             <button id="btn_aggiungiProdotto" class="button" type="submit" name="cmd" value="aggiungi_disco">Aggiungi</button>
