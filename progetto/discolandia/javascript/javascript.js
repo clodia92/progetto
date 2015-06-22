@@ -23,7 +23,7 @@ function prova() {
       "Scala",
       "Scheme"
     ];
-    $document.getElementById('textboxRicerca').autocomplete({
+    $('textboxRicerca').autocomplete({
       source: availableTags
     });
 }
