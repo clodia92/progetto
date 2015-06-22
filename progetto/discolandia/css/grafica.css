@@ -1,3 +1,9 @@
+@font-face {
+   font-family: 'fbsbltc';
+   src: url(fbsbltc.ttf);
+   src: local('fbsbltc'), url('fbsbltc.ttf') format('truetype');
+}
+
 body{
     width: 100%;
     margin: 0;
@@ -7,20 +13,11 @@ body{
     background-color: whitesmoke;
 }
 
-
 .header{
     width: 100%;
     text-align: center;
     background-color: #8E151E;
 }
- 
-//Carico il font scelto per il titolo
-@font-face {
-   font-family: 'fbsbltc';
-   src: url(fbsbltc.ttf);
-   src: local('fbsbltc'), url('fbsbltc.ttf') format('truetype');
-}
-
 
 .titolo {
 	font-size: 60px;
@@ -58,61 +55,6 @@ body{
     width: 60%;
     min-height: 1000px;
     background-color: white;
-}
-
-.header{
-    width: 100%;
-    text-align: center;
-    background-color: #8E151E;
-}
- 
-//Carico il font scelto per il titolo
-@font-face {
-   font-family: 'fbsbltc';
-   src: url(fbsbltc.ttf);
-   src: local('fbsbltc'), url('fbsbltc.ttf') format('truetype');
-}
-
-
-.titolo {
-	font-size: 60px;
-	color: #fff;
-	font-family: fbsbltc, Arial, Helvetica, sans-serif;
-        height: 80px;
-        margin: 0;
-}
-
-.leftBar{
-    background-color: white;
-   
-    width: 19%;
-    float: left;
-    min-height: 500px;
-}
-
-.generi_leftbar{
-    margin: 1em;
-}
-
-.rightBar{
-    background-color: white;
-   
-    width: 19%;
-    min-height: 500px;
-    float: right;
-}
-
-
-.profilo_rightbar{
-    margin: 3em 1em 1em 1em;
-}
-
-.content{
-    padding: 1%;
-    width: 60%;
-    min-height: 500px;
-    background-color: whitesmoke;
-    margin-left: 20%;
 }
 
 .contenitore_pannello{
