@@ -6,7 +6,7 @@
         <input type="hidden" name="mode" value="ricerca">
         <label for="ricarica">Cerca un disco:</label>
         <input type="text" id="param" name="param" value=""/>
-        <input type="submit" value="Cerca" onchange="suggerimento()"/>
+        <input type="submit" value="Cerca"/>
     </form>
     <br>
     <h3>Generi</h3>
