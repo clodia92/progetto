@@ -27,7 +27,7 @@
         </select>
         <br>
         <label for="descrizione">Descrizione</label>
-        <textarea class="textbox"type="text" name="descrizione" /></textarea>
+        <textarea class="textbox" rows="10" type="text" name="descrizione" /></textarea>
         <br>
         <label for="etichetta">Etichetta</label>
         <input class="textbox" type="text" name="etichetta"/>
@@ -44,8 +44,8 @@
         <label for="disponibili">Qauntit&aacute;</label>
         <input class="textbox" type="text" name="quantita"/>
         <br>
-        <label for="tracce">Anno</label>
-        <textarea class="textbox" type="text" name="tracce"/></textarea><p>Una per riga</p>
+        <label for="tracce">Tracce</label>
+        <textarea class="textbox" rows="10" type="text" name="tracce"/></textarea><span>Una per riga</span>
         
         <div class="btn-group">
             <button id="btn_aggiungiProdotto" class="button" type="submit" name="cmd" value="aggiungi_disco">Aggiungi</button>
