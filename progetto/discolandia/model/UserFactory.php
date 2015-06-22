@@ -117,7 +117,7 @@ class UserFactory {
         $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
-        echo $query;
+       
         // collego i parametri della querycon il loro tipo
         $stmt->bind_param('ssisssi', $dati['email'], $dati['via'], $dati['civico'], $dati['citta'], $dati['provincia'], $dati['cap'], $id);
         // eseguiamo la query
@@ -142,7 +142,6 @@ class UserFactory {
         $stmt= $mysqli->stmt_init();
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
-        echo $query;
         // collego i parametri della querycon il loro tipo
         $stmt->bind_param('si', $newPass, $id);
         // eseguiamo la query
