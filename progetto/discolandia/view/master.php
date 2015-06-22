@@ -27,9 +27,6 @@ include_once basename(__DIR__) . '/../Settings.php';
         <link href="../discolandia/css/grafica.css" rel="stylesheet" type="text/css" media="screen" />
         <script type="text/javascript" src="javascript/javascript.js"></script>
         
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     </head>
     <body>
