@@ -11,8 +11,7 @@
     <h3>Generi</h3>
 
     <ul>
-        <li><a href="cliente/catalogo"><b>Tutti</b></a></li>
-        <br>
+        <li><a href="cliente/catalogo">Tutti</a></li>
         <li><a href="cliente/catalogo?mode=genere&param=blues">Blues</a></li>
         <li><a href="cliente/catalogo?mode=genere&param=disco">Disco</a></li>
         <li><a href="cliente/catalogo?mode=genere&param=jazz">Jazz</a></li>

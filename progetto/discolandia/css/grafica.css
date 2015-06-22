@@ -88,6 +88,7 @@ body{
 .catalogo_immagine{
     
     max-height: 100%;
+    max-width: 100%;
 }
 
 .catalogo_box_immagine{
