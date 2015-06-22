@@ -6,7 +6,7 @@
     
     <form name="newDisco" method="post" action="venditore/lista">
         <label for="codDisco">Codice Disco</label>
-        <input class="textbox" type="text" name="codDisco" onfocus="suggerimento('codDisco')" onblur="nascondi('codDisco')" required>
+        <input class="textbox" type="text" name="codDisco" required>
         <span id="codDisco" hidden></span>
         <br>
         <label for="artista">Artista</label>
