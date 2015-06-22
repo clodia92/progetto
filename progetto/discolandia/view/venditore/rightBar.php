@@ -11,6 +11,6 @@
     <div class="info_profilo_laterale">
         <a href="venditore/profilo">Profilo</a>
         <br>
-        <a href="cliente?cmd=logout">Logout</a>
+        <a href="venditore?cmd=logout">Logout</a>
     </div>
 </div>
