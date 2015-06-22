@@ -5,8 +5,8 @@
     <form method="post" action="cliente/catalogo">
         <input type="hidden" name="mode" value="ricerca">
         <label for="ricarica">Cerca un disco:</label>
-        <input type="text" name="param" value=""/>
-        <input type="submit" value="Cerca"/>
+        <input type="text" id="param" name="param" value=""/>
+        <input type="submit" value="Cerca" onchange="suggerimento()"/>
     </form>
     <br>
     <h3>Generi</h3>
