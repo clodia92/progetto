@@ -26,7 +26,7 @@ if (count($catalogo) > 0) { ?>
         <div class="catalogo_prezzo">
             <span class="spaziato">Disponibili: <?= $cd->getDisponibili()?></span>
             <span class="spaziato"><?= $cd->getPrezzo()?> Euro</span>
-            <a class="spaziato" href="venditore/lista?cmd=modificaDisco&codDisco=<?=$cd->getCodDisco();?>">
+            <a class="spaziato" href="venditore/modificaDisco?codDisco=<?=$cd->getCodDisco();?>">
                 Modifica
             </a>
             <a class="spaziato" href="venditore/lista?cmd=rimuoviDisco&codDisco=<?=$cd->getCodDisco();?>" onclick="return confirm('Sei sicuro di voler eliminare il disco (<?=$cd->getTitolo()?>)?')">
