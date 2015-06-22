@@ -1,6 +1,5 @@
 <div class="generi_leftbar">
-    <h3>Catalogo</h3>
-    <br>
+    
     <h3>Ricerca</h3>
     <form method="post" action="cliente/catalogo">
         <input type="hidden" name="mode" value="ricerca">
@@ -12,6 +11,8 @@
     <h3>Generi</h3>
 
     <ul>
+        <li><a href="cliente/catalogo"><b>Tutti</b></a></li>
+        <br>
         <li><a href="cliente/catalogo?mode=genere&param=blues">Blues</a></li>
         <li><a href="cliente/catalogo?mode=genere&param=disco">Disco</a></li>
         <li><a href="cliente/catalogo?mode=genere&param=jazz">Jazz</a></li>

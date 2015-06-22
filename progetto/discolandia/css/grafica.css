@@ -42,29 +42,20 @@ body{
 .leftBar{
     width: 20%;
     float: left;
-    min-height: 1000px;
+    min-height: 600px;
     background-color: whitesmoke;
-}
-
-.generi_leftbar{
-    //margin: 1em;
 }
 
 .rightBar{
     width: 20%;
-    min-height: 1000px;
+    min-height: 600px;
     float: right;
     background-color: whitesmoke;
 }
 
-
-.profilo_rightbar{
-    //margin: 3em 1em 1em 1em;
-}
-
 .content{
     width: 60%;
-    min-height: 1000px;
+    min-height: 600px;
     background-color: white;
     margin-left: 20%;
 }

@@ -29,16 +29,17 @@
         <?php } ?>
     </table>
     <p>Totale: <?=$tot?></p>
-    <?php
-    
-    }
-    ?>
     <br>
     <form method="post" action="cliente/riepilogo">
         <input type="hidden" name="tot" value="<?=$tot?>"/>
         <input type="hidden" name="cmd" value="pagamento">
         <input class="button btn_pagamento" type="submit" value="Procedi al pagamento" onclick="return confirm('Sei sicuro di voler effettuare il pagamento di <?=$tot?> Euro?')"/>
+        <?php if($user->getCredito()<$tot)echo 'Credito insufficiente per completare l\nacquisto';?>
     </form>
+    <?php
+    
+    }
+    ?>
 
 </div>
 
