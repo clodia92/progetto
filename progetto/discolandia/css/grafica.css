@@ -4,7 +4,6 @@ body{
     float: left;
     font: 16px Arial, Helvetica, sans-serif;
     color: black;
-
     background-color: whitesmoke;
 }
 
@@ -34,7 +33,8 @@ body{
 .leftBar{
     width: 19%;
     float: left;
-    min-height: 500px;
+    min-height: 1000px;
+    background-color: whitesmoke;
 }
 
 .generi_leftbar{
@@ -43,8 +43,9 @@ body{
 
 .rightBar{
     width: 19%;
-    min-height: 500px;
+    min-height: 1000px;
     float: right;
+    background-color: whitesmoke;
 }
 
 
@@ -55,7 +56,7 @@ body{
 .content{
     padding: 1%;
     width: 60%;
-    min-height: 500px;
+    min-height: 1000px;
     background-color: white;
 }
 
