@@ -135,7 +135,22 @@ class UserFactory {
      */
     public function modificaPassword($id, $newPass){
         
-       
+       $query = "UPDATE `Utente` SET `pass`= ? WHERE `idUtente`=?";
+  
+        $mysqli = Database::avviaDatabase();
+        
+        $stmt= $mysqli->stmt_init();
+        // preparo lo statement per l'esecuzione
+        $stmt->prepare($query);
+        echo $query;
+        // collego i parametri della querycon il loro tipo
+        $stmt->bind_param('si', $newPass, $id);
+        // eseguiamo la query
+        $stmt->execute();
+         // liberiamo le risorse dello statement
+        $stmt->close();
+
+        Database::chiudiDatabase($mysqli);
     }
 }
 ?>

@@ -232,7 +232,7 @@ else{
                     case 'modificaProfilo':
                         
                         if(isset($request['pass1']) && ($request['pass1']!='') && ($request['pass1'] == $request['pass2'])){ // controllo che si voglia modificare la pass
-                            $this->modificaPassword($user->getId(), $request); // se le password coincidono restituisco un messaggio positivo         
+                            UserFactory::modificaPassword($user->getId(), $request['pass1']); // se le password coincidono restituisco un messaggio positivo         
                         }
                         // salvo i nuovi dati in un array
                         $dati=array();
