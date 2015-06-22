@@ -221,8 +221,9 @@ else{
                             Database::chiudiDatabase($mysqli);
                             
                         }
-                        $vd->setSottoPagina('carrello');
-                        $vd->setTitolo("Carrello");
+                        $tot=$request['tot'];
+                        $vd->setSottoPagina('riepilogo');
+                        $vd->setTitolo("Riepilogo");
                         $this->showHomeUtente($vd);
                         break;
                     
