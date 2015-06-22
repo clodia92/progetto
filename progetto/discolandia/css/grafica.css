@@ -153,11 +153,13 @@ body{
 
 .profilo_sinistro{
     float: left;
+    width: 50%;
 }
 
 .profilo_destro{
-    float: right;
+    margin-left: 50%;
     margin-right: 3em;
+    
 }
 
 .tabella_carrello{
