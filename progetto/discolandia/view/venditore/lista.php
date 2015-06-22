@@ -24,11 +24,12 @@ if (count($catalogo) > 0) { ?>
             </p>
         </div>
         <div class="catalogo_prezzo">
-            <span><?= $cd->getPrezzo()?> Euro</span>
-            <a href="venditore/lista?cmd=modificaDisco&codDisco=<?=$cd->getCodDisco();?>">
+            <span class="spaziato">Disponibili: <?= $cd->getDisponibili()?></span>
+            <span class="spaziato"><?= $cd->getPrezzo()?> Euro</span>
+            <a class="spaziato" href="venditore/lista?cmd=modificaDisco&codDisco=<?=$cd->getCodDisco();?>">
                 Modifica
             </a>
-            <a href="venditore/lista?cmd=rimuoviDisco&codDisco=<?=$cd->getCodDisco();?>" onclick="return confirm('Sei sicuro di voler eliminare il disco (<?=$cd->getTitolo()?>)?')">
+            <a class="spaziato" href="venditore/lista?cmd=rimuoviDisco&codDisco=<?=$cd->getCodDisco();?>" onclick="return confirm('Sei sicuro di voler eliminare il disco (<?=$cd->getTitolo()?>)?')">
                 Elimina
             </a>
         </div>
