@@ -82,7 +82,7 @@ class VenditoreController extends BaseController {
                     
                     // pagina per modificare i dati di un prodotto
                     case 'modificaDisco':
-                        $disco = DiscoFactory::getDisco($request['cod']);
+                        $disco = DiscoFactory::getDisco($request['codDisco']);
                         $vd->setSottoPagina('modifica_disco');
                         $vd->setTitolo('Modifica '.$disco->getTitolo());
                         break;
