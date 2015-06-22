@@ -89,7 +89,7 @@ public function aggiungiDisco($disco){
         // preparo lo statement per l'esecuzione
         $stmt->prepare($query);
         // collego i parametri della querycon il loro tipo
-        $stmt->bind_param("ssssssss", $disco['codDisco'],$disco['titolo'],$disco['artista'],$disco['genere'],$disco['descrizione'],$disco['etichetta'],$disco['immagine'],$disco['anno']);
+        $stmt->bind_param("sssssssi", $disco['codDisco'],$disco['titolo'],$disco['artista'],$disco['genere'],$disco['descrizione'],$disco['etichetta'],$disco['immagine'],$disco['anno']);
         // eseguiamo la query
         $stmt->execute();
     
