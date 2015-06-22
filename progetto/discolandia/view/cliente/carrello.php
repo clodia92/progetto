@@ -29,7 +29,7 @@
         <?php } ?>
     </table>
     <div class="allineaDestra">
-        <p>Totale: <?=$tot?></p>
+        <p><b>Totale: <?=$tot?> Euro</b></p>
 
         <form method="post" action="cliente/riepilogo">
             <input type="hidden" name="tot" value="<?=$tot?>"/>

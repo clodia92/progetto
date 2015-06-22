@@ -186,4 +186,9 @@ table, th, td {
 
 .allineaDestra{
     float: right;
+    text-align: center;
+}
+
+.nome_profilo{
+    margin-bottom: 0px;
 }
