@@ -10,6 +10,8 @@
             <li><strong>E-mail:</strong> <?= $user->getEmail() ?></li>
             <li><strong>Credito:</strong> <span class=""><?= $user->getCredito() ?> Euro</span></li>
         </ul>
+        <br>
+         <span><a href="cliente/modificaProfilo">Modifica</a></span>
     </div>
     
     <div class="profilo_destro">
@@ -22,7 +24,7 @@
             <li><strong>CAP:</strong> <?= $user->getCap() ?></li>
         </ul>
     </div>
-    <span><a href="cliente/modificaProfilo">Modifica</a></span>    
+       
     <h4>
         Credito: <text class=""><?= $user->getCredito() ?> Euro</text>
     </h4>
