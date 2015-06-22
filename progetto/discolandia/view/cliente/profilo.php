@@ -24,7 +24,7 @@
             <li><strong>CAP:</strong> <?= $user->getCap() ?></li>
         </ul>
     </div>
-       
+    <br>   
     <h4>
         Credito: <text class=""><?= $user->getCredito() ?> Euro</text>
     </h4>
