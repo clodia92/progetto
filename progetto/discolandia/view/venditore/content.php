@@ -36,7 +36,7 @@ switch ($vd->getSottoPagina()) {
     <a href="venditore/nuovo_disco">
         <div class="contenitore_pannello">
             <h3>Aggiungi un nuovo disco</h3>
-            <img class="immagine_pannello" src= "../discolandia/images/disc.png">
+            <img class="immagine_pannello" src= "../discolandia/images/plus.png">
         </div>
     </a>
     

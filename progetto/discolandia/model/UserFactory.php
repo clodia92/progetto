@@ -1,5 +1,4 @@
 <?php
-
 include_once 'User.php';
 include_once 'Cliente.php';
 include_once 'Venditore.php';
@@ -52,6 +51,7 @@ class UserFactory {
                         $toRet->setRuolo(User::Venditore);
                         break;
                 }
+                $toRet->setId($idUtente);
                 $toRet->setUsername($username);
                 $toRet->setPassword($password);
                 $toRet->setNome($nome);
@@ -88,82 +88,44 @@ class UserFactory {
         Database::chiudiDatabase($mysqli);
     }
     
-    /**
-     * Recupera il credito di un determinato utente
-     * @param String $user
-     * @return Decimal
-     */
-    public function recuperaCredito($user) {
-        $query=queryGetCredito($user);
-        $mysqli = Database::avviaDatabase();
-        $result = Database::lanciaQuery($query, $mysqli);
-        $row = $result->fetch_row();
+    public function modificaCredito ($idUtente, $credito, $mysqli){
+        $query="UPDATE `Utente` SET `credito` = '". $credito . "' WHERE idUtente = '". $idUtente."'";
+        Database::lanciaQuery($query, $mysqli);
+    }
+    
+    public function getCreditoById($idUtente, $mysqli){
+        $query= "SELECT `credito` FROM `Utente` WHERE `idUtente` = '".$idUtente."'";
+        $risultato=  Database::lanciaQuery($query, $mysqli);
+        $row = $risultato->fetch_row();
         $credito=$row[0];
-        Database::chiudiDatabase($mysqli);
         return $credito;
     }
     
-    /**
-     * Aggiunge una transazione all'elenco degli acquisti effetuati
-     * @param String $cliente Il cliente che ha effettuato l'acquisto
-     * @param String $venditore Il proprietario del prodotto venduto
-     * @param String $marca Marca del prodotto
-     * @param String $modello Modello del prodotto
-     * @param Decimal $prezzo 
-     * @param DateTime $data
-     */
-    public function addTransazione($cliente, $venditore, $marca, $modello, $prezzo, $data){
-        $query = queryAddTransazione($cliente, $venditore, $marca, $modello, $prezzo, $data);
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);
-    }
-    
-    /**
-     * Recupera la lista delle transazioni per un determinato utente
-     * @param String $user
-     * @return Array
-     */
-    public function creaStorico($user){
-        $storico = array(); //Array che conterrà la lista delle transazioni
-        $query = queryStorico($user); 
-  
-        //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        $result = avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);	
-	
-        /*Il ciclo legge il risultato della query e salva i dati in array*/
-	
-  	
-        while($row = $result->fetch_row())
-        {
-            $transazione = new Transazione();
-            $transazione->setCliente($row[0]);
-            $transazione->setVenditore($row[1]);
-            $transazione->setMarca($row[2]);
-            $transazione->setModello($row[3]);
-            $transazione->setPrezzo($row[4]);
-            $transazione->setData($row[5]);
 
-            $storico[] = $transazione;
-        }
 
-        return $storico;
-    }
-    
     /**
      * Aggiornamento dei dati di un utente
      * @param String $username
      * @param Array
      */
-    public function aggiornaDatiUser($username, $dati){
-        $query = queryAggiornaDati($username, $dati); 
+    public function modificaDati($id, $dati){
+       
+        $query = "UPDATE `Utente` SET `email`= ? , `via`= ?, `civico`= ?, `citta`= ?, `provincia`= ?, `cap`= ? WHERE `idUtente`=?";
   
-        //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);	
+        $mysqli = Database::avviaDatabase();
+        
+        $stmt= $mysqli->stmt_init();
+        // preparo lo statement per l'esecuzione
+        $stmt->prepare($query);
+        echo $query;
+        // collego i parametri della querycon il loro tipo
+        $stmt->bind_param('ssisssi', $dati['email'], $dati['via'], $dati['civico'], $dati['citta'], $dati['provincia'], $dati['cap'], $id);
+        // eseguiamo la query
+        $stmt->execute();
+         // liberiamo le risorse dello statement
+        $stmt->close();
+
+        Database::chiudiDatabase($mysqli);
     }
     
     /**
@@ -171,13 +133,9 @@ class UserFactory {
      * @param String $user
      * @param String $newPass
      */
-    public function aggiornaPassword($user, $newPass){
-        $query = queryAggiornaPassword($user, $newPass); 
-  
-        //Avvia la procedura di lettura e salva il risultato
-        $mysqli = avviaDatabase();
-        avviaQuery($query, $mysqli);
-        chiudiDatabase($mysqli);
+    public function modificaPassword($id, $newPass){
+        
+       
     }
 }
 ?>

@@ -20,7 +20,7 @@
         <tr>
             <td><?=$cartItem->getTitolo()?></td>
             <td><?=$cartItem->getQuantita()?></td>
-            <td><?=$cartItem->getPrezzo(); $tot=$tot+$cartItem->getPrezzo();?></td>
+            <td><?=$cartItem->getPrezzo(); $tot=$tot+($cartItem->getPrezzo()*$cartItem->getQuantita());?></td>
             <td>
                 <a href="cliente/carrello?cmd=removeCart&codDisco=<?=$cartItem->getCodDisco()?>">
                     Rimuovi</a>
@@ -30,11 +30,15 @@
     </table>
     <p>Totale: <?=$tot?></p>
     <?php
+    
     }
     ?>
-
-    
-    
-    <p>Manca il bottone di conferma</p>
+    <br>
+    <form method="post" action="cliente/riepilogo">
+        <input type="hidden" name="tot" value="<?=$tot?>"/>
+        <input type="hidden" name="cmd" value="pagamento">
+        <input class="button btn_pagamento" type="submit" value="Procedi al pagamento" onclick="return confirm('Sei sicuro di voler effettuare il pagamento di <?=$tot?> Euro?')"/>
+    </form>
 
 </div>
+

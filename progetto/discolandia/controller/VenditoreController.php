@@ -72,6 +72,14 @@ class VenditoreController extends BaseController {
                         $vd->setTitolo('Venditore - Lista Prodotti');
                         break;
                     
+                    // visualizzazione della pagina del prodotto generata dinamicamente    
+                    case 'disco':
+                        
+                        $disco = DiscoFactory::getDisco($request['cod']);
+                        $vd->setSottoPagina('disco');
+                        $vd->setTitolo($disco->getTitolo());
+                        break;
+                    
                     // pagina per modificare i dati di un prodotto
                     case 'modificaProdotto':
                         $nome=$request["id"];
@@ -126,13 +134,8 @@ class VenditoreController extends BaseController {
                         
                         
                         // se il prodotto viene correttamente aggiunto viene mostrato un feedback positivo
-                        if(DiscoFactory::aggiungiDisco($disco))
-                        {
-                            
-                        }
-                        if(TracciaFactory::aggiungiTracce($disco['codDisco'],$tracce)){
-                            $msg="Il disco '" . $disco['titolo'] . "' è stato aggiunto al catalogo";
-                        }
+                        DiscoFactory::aggiungiDisco($disco);
+                        TracciaFactory::aggiungiTracce($disco['codDisco'],$tracce);
                         
                         $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('lista');
@@ -166,10 +169,10 @@ class VenditoreController extends BaseController {
                         break;
                         
                     // cancellazione di un prodotto dalla lista dei prodotti i vendita    
-                    case 'cancella':
-                        if(ProdottoFactory::cancellaProdotto($request['id'], $user->getUsername()))
-                            $conferma="rimosso";
-                       $prodotti = ProdottoFactory::creaLista();
+                    case 'rimuoviDisco':
+                        
+                        DiscoFactory::rimuoviDisco($request['codDisco']);
+                        $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('lista');
                         $vd->setTitolo('Venditore - Lista Prodotti');
                         $this->showHomeUtente($vd);

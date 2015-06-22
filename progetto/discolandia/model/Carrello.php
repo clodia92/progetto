@@ -14,7 +14,7 @@ public function getCarrello($idCliente){
     $mysqli=Database::avviaDatabase();
     
     $query="SELECT `idCompratore`, `Carrello`.`codDisco`, "
-            . "`Carrello`.`quantita`, `titolo`, `prezzo` "
+            . "`Carrello`.`quantita`, `titolo`, `prezzo`, `idVenditore` "
             . "FROM `Carrello` JOIN `Disco` ON `Disco`.`codDisco` = `Carrello`.`codDisco` "
             . "JOIN `Catalogo` ON `Catalogo`.`codDisco` = `Carrello`.`CodDisco` "
             . "WHERE `idCompratore`='" . $idCliente."'";
@@ -34,7 +34,7 @@ public function getCarrello($idCliente){
         $cartItem->setQuantita($row[2]);
         $cartItem->setTitolo($row[3]);
         $cartItem->setPrezzo($row[4]);
-
+        $cartItem->setIdVenditore($row[5]);
         $carrello[] = $cartItem;
     }
         
@@ -75,7 +75,7 @@ public function addToCart($idCliente, $codDisco){
     }
     
     $mysqli=Database::avviaDatabase();
-    $risultato = Database::lanciaQuery($query, $mysqli);
+    Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
     
 }
@@ -84,11 +84,19 @@ public function removeToCart($idCliente, $codDisco){
 
     $query = "DELETE FROM `Carrello` WHERE `idCompratore` ='". $idCliente . "' AND `codDisco` = '" . $codDisco ."'";
     $mysqli=Database::avviaDatabase();
-    $risultato = Database::lanciaQuery($query, $mysqli);
+    Database::lanciaQuery($query, $mysqli);
     Database::chiudiDatabase($mysqli);
     
 }
 
 
+public function rimuoviElementi($idCliente, $codDisco, $mysqli){
+
+    $query = "DELETE FROM `Carrello` WHERE `idCompratore` ='". $idCliente . "' AND `codDisco` = '" . $codDisco ."'";
+
+    Database::lanciaQuery($query, $mysqli);
+
+    
+}
 
 }

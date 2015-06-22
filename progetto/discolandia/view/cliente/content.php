@@ -16,10 +16,15 @@ switch ($vd->getSottoPagina()) {
     case 'profilo':
         include_once 'profilo.php';
         break;
-        
-    case 'conferma':
-        include_once 'conferma.php';
+    
+    case 'modificaProfilo':
+        include_once 'modificaProfilo.php';
         break;
+    
+    case 'riepilogo':
+        include_once 'riepilogo.php';
+        break;
+    
     default:
         
         ?>
@@ -42,6 +47,12 @@ switch ($vd->getSottoPagina()) {
         </div>
     </a>
         
+    <a href="cliente/carrello">
+        <div class="contenitore_pannello">
+            <h3>Carrello</h3>
+            <img class="immagine_pannello" src="../discolandia/images/cart100.png">
+        </div>
+    </a>
         <?php
         
         break;

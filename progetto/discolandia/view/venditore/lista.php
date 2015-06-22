@@ -10,8 +10,11 @@ if (count($catalogo) > 0) { ?>
 
     
     <div class="catalogo_disco">
-       
-        <a href="venditore/disco?cod=<?=$cd->getCodDisco();?>"><img src="<?=$cd->getImmagine();?>" class="catalogo_immagine"></a>
+        <a href="venditore/disco?cod=<?=$cd->getCodDisco();?>">
+            <div class="catalogo_box_immagine">
+                <img src="<?=$cd->getImmagine();?>" class="catalogo_immagine">
+            </div>
+        </a>
         
         <div class="catalogo_dati">
             <p>
@@ -20,8 +23,13 @@ if (count($catalogo) > 0) { ?>
                 <?=$cd->getArtista()?>
             </p>
         </div>
-        <p><?= $cd->getDisponibili()?></p>
-        <div class="catalogo_prezzo"><p><?= $cd->getPrezzo()?> Euro</p></div>
+        <div class="catalogo_prezzo">
+            <p><?= $cd->getPrezzo()?> Euro</p>
+            <a href="venditore/lista?cmd=rimuoviDisco&codDisco=<?=$cd->getCodDisco();?>" onclick="return confirm('Sei sicuro di voler eliminare il disco (<?=$cd->getTitolo()?>)?')">
+                Elimina
+            </a>
+        </div>
+        
     </div>
 
 <?php

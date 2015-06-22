@@ -11,6 +11,7 @@ class CartItem {
     
     private $prezzo;
 
+    private $idVenditore;
 
     public function getIdCompratore() {
         return $this->idCompratore;
@@ -51,5 +52,14 @@ class CartItem {
     public function setPrezzo($prezzo) {
         $this->prezzo = $prezzo;
     }
+    
+    public function getIdVenditore() {
+        return $this->idVenditore;
+    }
+
+    public function setIdVenditore($idVenditore) {
+        $this->idVenditore = $idVenditore;
+    }
+    
 }
 ?>

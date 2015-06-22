@@ -4,14 +4,17 @@
 <?php 
 
 
-if (count($catalogo) > 0) { ?>
+if (count($catalogo) > 0 && $catalogo!=0) { ?>
 
     <?php foreach ($catalogo as $cd) {?>
 
     
     <div class="catalogo_disco">
-       
-        <a href="cliente/disco?cod=<?=$cd->getCodDisco();?>"><img src="<?=$cd->getImmagine();?>" class="catalogo_immagine"></a>
+        <a href="cliente/disco?cod=<?=$cd->getCodDisco();?>">
+            <div class="catalogo_box_immagine">
+                <img src="<?=$cd->getImmagine();?>" class="catalogo_immagine">
+            </div>
+        </a>
         
         <div class="catalogo_dati">
             <p>

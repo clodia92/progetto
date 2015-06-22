@@ -2,7 +2,7 @@
 <div class="profilo">
     <h2 class="titolo">Profilo</h2>
     <div class="profilo_sinistro">
-        <h3>Dati personali</h3><span>Modifica</span>
+        <h3>Dati personali</h3>
 
         <ul>
             <li><strong>Nome:</strong> <?= $user->getNome() ?></li>
@@ -22,7 +22,7 @@
             <li><strong>CAP:</strong> <?= $user->getCap() ?></li>
         </ul>
     </div>
-    
+    <span><a href="cliente/modificaProfilo">Modifica</a></span>    
     <h3>
         Credito: <text class=""><?= $user->getCredito() ?> Euro</text>
     </h3>
@@ -36,28 +36,30 @@
     
 
     <!--Lista degli acquisti effettuati-->
-<div id="storico" class="contenitore altezza">
-    <h2>Storico acquisti</h2>
+    <div id="storico" class="contenitore altezza">
+        <h2>Ordini effettuati</h2>
 
     <?php 
 
 
-    if (isset($storico) && (count($storico) > 0)) { ?>
+    if (count($storico) > 0 && $storico!=0) { ?>
     <div class="storico_spazioTabella">
     <table class="storico_tabella">
         <tr>
             <th>Data</th>
-            <th>Prodotto</th>		
+            <th>Disco</th>		
             <th>Prezzo</th>
-            <th>Venditore</th>
+            <th>Quantit&agrave;</th>
+               
+            
         </tr>
     
         <?php foreach ($storico as $transazione) {?>
         <tr>
             <td><?= $transazione->getData()?></td>
-            <td><?= $transazione->getMarca()?> - <?= $transazione->getModello()?></td>
+            <td><?= $transazione->getTitolo()?></td>
             <td><?= $transazione->getPrezzo()?></td>
-            <td><?= $transazione->getVenditore()?></td>
+            <td><?= $transazione->getQuantita()?></td>
         </tr>
     <?php
 
@@ -68,6 +70,6 @@
     <p> Nessun acquisto effettuato </p>
     <?php } ?>
     </div>
-</div>
+    </div>
     
 </div>

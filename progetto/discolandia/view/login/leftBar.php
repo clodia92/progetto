@@ -1,3 +1,3 @@
-<div class="leftBar">
-    LeftBar
+<div class="testo_centrato">
+    <p>Accedi per visualizzare il catalogo</p>
 </div>

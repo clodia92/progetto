@@ -8,7 +8,6 @@ body{
 
 .header{
     width: 100%;
-    //height: 200px;
     text-align: center;
     background-color: #8E151E;
 }
@@ -25,12 +24,14 @@ body{
 	font-size: 60px;
 	color: #fff;
 	font-family: fbsbltc, Arial, Helvetica, sans-serif;
+        height: 80px;
+        margin: 0;
 }
 
 .leftBar{
-
-    border: solid 1px grey;
-    width: 20%;
+    background-color: white;
+   
+    width: 19%;
     float: left;
     min-height: 500px;
 }
@@ -40,9 +41,9 @@ body{
 }
 
 .rightBar{
-
-    border: solid 1px grey;
-    width: 20%;
+    background-color: white;
+   
+    width: 19%;
     min-height: 500px;
     float: right;
 }
@@ -53,11 +54,10 @@ body{
 }
 
 .content{
-
-    border: solid 1px grey;
+    padding: 1%;
     width: 60%;
     min-height: 500px;
-    background-color: white;
+    background-color: whitesmoke;
     margin-left: 20%;
 }
 
@@ -87,8 +87,14 @@ body{
 }
 
 .catalogo_immagine{
-    float: left;
+    
     max-height: 100%;
+}
+
+.catalogo_box_immagine{
+    float: left;
+    height: 90px;
+    width: 90px;
 }
 
 .catalogo_dati{
@@ -124,6 +130,7 @@ body{
     float: left;
     margin-left: 30px;
     height: 250px;
+    min-width: 30%;
 }
 
 .disco_tracce{
