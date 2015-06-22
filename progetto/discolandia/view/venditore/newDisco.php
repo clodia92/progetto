@@ -6,7 +6,7 @@
     
     <form name="newDisco" method="post" action="venditore/lista">
         <label for="codDisco">Codice Disco</label>
-        <input class="textbox" type="text" name="codDisco" required>
+        <input id="txtCodDisco" class="textbox" type="text" name="codDisco" required>
         <span id="newCodDisco" hidden="hidden">Es: 00001</span>
         <br>
         <label for="artista">Artista</label>
