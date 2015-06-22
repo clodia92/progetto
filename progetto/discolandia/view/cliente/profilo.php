@@ -1,6 +1,6 @@
 <!--Visualizzazione del profilo del cliente-->
 <div class="profilo">
-    <h2 class="titolo">Profilo</h2>
+    <h3 class="titolo"><strong>Profilo</strong></h3>
     <div class="profilo_sinistro">
         <h3>Dati personali</h3>
 
