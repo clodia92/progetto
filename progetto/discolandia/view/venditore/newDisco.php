@@ -1,6 +1,6 @@
 <!--Pagina per l'aggiunta di un prodotto-->
-<script>document.getElementById('txtCodDisco').onfocus=function(){
-    document.getElementById('newCodDisco').show();
+<script>$('#txtCodDisco').onfocus=function(){
+    $('#newCodDisco').show();
 };</script>
 <div id="aggiungiDisco" class="aggiungiDisco">
     
