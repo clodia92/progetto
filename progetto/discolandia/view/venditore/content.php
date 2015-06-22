@@ -13,6 +13,10 @@ switch ($vd->getSottoPagina()) {
         include_once 'profilo.php';
         break;
     
+    case 'modificaProfilo':
+        include_once 'modificaProfilo.php';
+        break;
+    
     case 'nuovo_disco':
         include_once 'newDisco.php';
         break;

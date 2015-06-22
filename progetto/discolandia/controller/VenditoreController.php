@@ -53,11 +53,11 @@ class VenditoreController extends BaseController {
                         $vd->setTitolo('Venditore - Profilo');
                         break;
                     
-                    // visualizzazione della pagina per la modifica dei dati del venditore
-                    case 'modificaprofilo':
-                        $vd->setSottoPagina('modificaprofilo');
-                        $vd->setTitolo('Modifica Profilo');
-                        break;
+                    //visualizzazione della pagina per modificare il profilo
+                    case 'modificaProfilo':
+                        $vd->setSottoPagina('modificaProfilo');
+                        $vd->setTitolo("Modifica Profilo");
+                        break; 
                     
                     // pagina per l'aggiunta di un prodotto
                     case 'nuovo_disco':
@@ -178,40 +178,26 @@ class VenditoreController extends BaseController {
                         $this->showHomeUtente($vd);
                         break;
 
-                    // modifica dei dati del venditore    
-                    case 'modprofilo':
-                        if(isset($request['pass1']) && $request['pass1']!=''){
-                            if(isset($request['pass2']) && $request['pass2']!=''){
-                                if($this->aggiornaPassword($user, $request)){ // aggiorna la password e restituisce un feedback
-                                    $msg2['esito']='positivo';
-                                    $msg2['testo']='Password aggiornata';
-                                }
-                                else{
-                                    $msg2['esito']='negativo';
-                                    $msg2['testo']='Le password non coincidono';
-
-                                }
-                            }
-                            else
-                            {
-                            $msg2['esito']='negativo';
-                            $msg2['testo']='Confermare la password prima di salvare'; 
-                            }
-                        }
+                    // modifica del profilo del cliente
+                    case 'modificaProfilo':
                         
+                        if(isset($request['pass1']) && ($request['pass1']!='') && ($request['pass1'] == $request['pass2'])){ // controllo che si voglia modificare la pass
+                            UserFactory::modificaPassword($user->getId(), $request['pass1']); // se le password coincidono restituisco un messaggio positivo         
+                        }
+                        // salvo i nuovi dati in un array
                         $dati=array();
                         $dati['email']=$request['email'];
                         $dati['via']=$request['via'];
-                        $dati['num']=$request['num'];
+                        $dati['civico']=$request['civico'];
                         $dati['citta']=$request['citta'];
                         $dati['provincia']=$request['provincia'];
                         $dati['cap']=$request['cap'];
                         
                         
-                        $this->aggiornaDati($user, $dati);//Aggiorna i dati dal base controller
+                        UserFactory::modificaDati($user->getId(), $dati);// aggiorna i dati dal base controller
                         $msg1="Dati aggiornati";
                         $vd->setSottoPagina('profilo');
-                        $vd->setTitolo("AMMazon - Profilo");
+                        $vd->setTitolo("Profilo");
                         $this->showHomeUtente($vd);
                         break;
                 }
