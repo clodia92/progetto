@@ -48,13 +48,11 @@
         <label for="tracce">Tracce(Una per riga)</label>
         <textarea class="textbox" rows="7" type="text" name="tracce"/>
         <?php
-            $tracce=$disco->getTracce();
-            foreach ($tracce as $traccia) {
-                
-                echo $traccia->getTitolo().'<br>';
-              }
-              ?>
-    
+        $tracce=$disco->getTracce();
+        foreach ($tracce as $traccia) {
+            echo $traccia->getTitolo();
+        }
+        ?>
         </textarea>
         
         <div class="btn-group">
