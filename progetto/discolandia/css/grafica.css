@@ -159,3 +159,21 @@ body{
     float: right;
     margin-right: 3em;
 }
+
+.tabella_carrello{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tabella_disco{
+    width: 40%;
+}
+.tabella_prezzo{
+    width: 20%;
+}
+.tabella_qta{
+    width: 20%;
+}
+.tabella_remove{
+    width: 20%;
+}
