@@ -157,7 +157,7 @@ class VenditoreController extends BaseController {
                         DiscoFactory::rimuoviDisco($disco['oldCodDisco']);
                         TracciaFactory::rimuoviTracce($disco['oldCodDisco']);
                         
-                        DiscoFactory::aggiungiDisco($disco["codDisco"]);
+                        DiscoFactory::aggiungiDisco($disco);
                         TracciaFactory::aggiungiTracce($disco['codDisco'], $tracce);
                         
                         $catalogo = DiscoFactory::creaCatalogo();
