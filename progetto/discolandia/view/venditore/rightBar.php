@@ -5,10 +5,8 @@
             <h4 class="nome_profilo"><?=$user->getNome(); ?></h4>
         </a>
         <br>
-        <a href="venditore/profilo">Credito: <?=$user->getCredito(); ?> Euro</a>
-    </div>
-    <!--Aggiungi gli altri dati profilo, carrello-->
-    <div class="info_profilo_laterale">
+        Credito: <?=$user->getCredito(); ?> Euro
+        <br>
         <a href="venditore/profilo">Profilo</a>
         <br>
         <a href="venditore?cmd=logout">Logout</a>
