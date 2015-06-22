@@ -178,6 +178,7 @@ body{
 .disco_immagine{
     float: left;
     max-height: 250px;
+    max-width: 250px;
 }
 
 .disco_dati{

@@ -6,6 +6,8 @@
             <input type="hidden" name="cmd" value="addCart"/>
             <input type="hidden" name='codDisco' value="<?=$disco->getCodDisco()?>">
             <input type="submit" <?php if($disco->getDisponibili()<1) echo 'disabled';?> value="Aggiungi al carrello"/>
+            <br>
+            <?php if($disco->getDisponibili()<1) echo '<p>Prodotto terminato!</p>';?>
         </form>
         
     </div>    
