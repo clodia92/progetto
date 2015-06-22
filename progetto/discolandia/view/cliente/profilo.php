@@ -44,12 +44,12 @@
 
     if (count($storico) > 0 && $storico!=0) { ?>
     <div class="storico_spazioTabella">
-    <table class="storico_tabella">
+    <table class="tabella">
         <tr>
-            <th>Data</th>
-            <th>Disco</th>		
-            <th>Prezzo</th>
-            <th>Quantit&agrave;</th>
+            <th class="tabella_prezzo">Data</th>
+            <th class="tabella_disco">Disco</th>		
+            <th class="tabella_prezzo">Prezzo</th>
+            <th class="tabella_prezzo">Quantit&agrave;</th>
                
             
         </tr>

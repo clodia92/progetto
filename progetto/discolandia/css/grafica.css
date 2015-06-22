@@ -86,11 +86,6 @@ body{
 }
 
 .catalogo_immagine{
-    
-   
-}
-
-.catalogo_immagine{
     float: left;
     max-height: 90px;
     max-width: 90px;
@@ -162,7 +157,7 @@ body{
     
 }
 
-.tabella_carrello{
+.tabella{
     width: 90%;
     margin-left: auto;
     margin-right: auto;

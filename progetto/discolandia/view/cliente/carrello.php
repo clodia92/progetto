@@ -8,7 +8,7 @@
     {
     $tot=0;    
     ?>
-    <table class="tabella_carrello">
+    <table class="tabella">
         <tr>
             <th class="tabella_disco">Disco</th>
             <th class="tabella_qta">Quantit&agrave;</th>
