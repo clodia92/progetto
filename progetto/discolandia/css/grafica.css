@@ -193,3 +193,8 @@ table, th, td {
 .spaziato{
     margin: 1em;
 }
+
+.textbox{
+    margin-left: 6em;
+    margin-bottom: 1em;
+}
