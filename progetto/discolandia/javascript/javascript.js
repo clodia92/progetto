@@ -1,4 +1,4 @@
-$(function() {
+function prova() {
     var availableTags = [
       "ActionScript",
       "AppleScript",
@@ -26,7 +26,7 @@ $(function() {
     $document.getElementById('textboxRicerca').autocomplete({
       source: availableTags
     });
-  });
+}
 
 
 
