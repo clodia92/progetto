@@ -4,8 +4,8 @@
     <h3>Ricerca</h3>
     <form method="post" action="cliente/catalogo">
         <input type="hidden" name="mode" value="ricerca">
-        <label for="ricarica">Quanto vuoi ricaricare?:</label>
-        <input type="text" name="param" value=""/>
+        <label for="ricarica">Cerca un disco:</label>
+        <input type="text" id="textboxRicerca" name="param" value=""/>
         <input type="submit" value="Cerca"/>
     </form>
     <br>

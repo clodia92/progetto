@@ -21,14 +21,14 @@ switch ($vd->getSottoPagina()) {
         
         ?>
 
-    <h2>Pannello di Controllo</h2>
+    <h2>Home</h2>
     <p>
         Benvenuto, <?= $user->getNome() ?>
     </p>
     <br>
     <a href="venditore/lista">
         <div class="contenitore_pannello">
-            <h3>Catalogo Dischi</h3>
+            <h3>I tuoi dischi</h3>
             <img class="immagine_pannello" src= "../discolandia/images/disc.png">
         </div>
     </a>

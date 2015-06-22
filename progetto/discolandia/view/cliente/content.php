@@ -29,7 +29,7 @@ switch ($vd->getSottoPagina()) {
         
         ?>
 
-    <h2>Pannello di Controllo</h2>
+    <h2>Home</h2>
     <p>
         Benvenuto, <?= $user->getNome() ?>
     </p>

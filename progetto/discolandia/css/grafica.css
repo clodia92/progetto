@@ -1,9 +1,16 @@
+@font-face {
+   font-family: 'fbsbltc';
+   src: url(fbsbltc.ttf);
+   src: local('fbsbltc'), url('fbsbltc.ttf') format('truetype');
+}
+
 body{
     width: 100%;
     margin: 0;
     float: left;
     font: 16px Arial, Helvetica, sans-serif;
     color: black;
+    background-color: whitesmoke;
 }
 
 .header{
@@ -11,53 +18,54 @@ body{
     text-align: center;
     background-color: #8E151E;
 }
- 
-//Carico il font scelto per il titolo
-@font-face {
-   font-family: 'fbsbltc';
-   src: url(fbsbltc.ttf);
-   src: local('fbsbltc'), url('fbsbltc.ttf') format('truetype');
-}
-
 
 .titolo {
 	font-size: 60px;
-	color: #fff;
+	color: white;
 	font-family: fbsbltc, Arial, Helvetica, sans-serif;
         height: 80px;
         margin: 0;
 }
+.titolo:hover{
+    font-size: 62px;
+    text-decoration: none;
+}
+.titolo:visited{
+    color: white;
+    text-decoration: none;
+}
+
+.interno{
+    padding: 1em;
+}
 
 .leftBar{
-    background-color: white;
-   
-    width: 19%;
+    width: 20%;
     float: left;
-    min-height: 500px;
+    min-height: 1000px;
+    background-color: whitesmoke;
 }
 
 .generi_leftbar{
-    margin: 1em;
+    //margin: 1em;
 }
 
 .rightBar{
-    background-color: white;
-   
-    width: 19%;
-    min-height: 500px;
+    width: 20%;
+    min-height: 1000px;
     float: right;
+    background-color: whitesmoke;
 }
 
 
 .profilo_rightbar{
-    margin: 3em 1em 1em 1em;
+    //margin: 3em 1em 1em 1em;
 }
 
 .content{
-    padding: 1%;
     width: 60%;
-    min-height: 500px;
-    background-color: whitesmoke;
+    min-height: 1000px;
+    background-color: white;
     margin-left: 20%;
 }
 
@@ -124,6 +132,7 @@ body{
 .disco_immagine{
     float: left;
     max-height: 250px;
+    max-width: 250px;
 }
 
 .disco_dati{

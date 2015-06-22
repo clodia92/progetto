@@ -25,7 +25,11 @@ include_once basename(__DIR__) . '/../Settings.php';
         <meta name="description" content="Una pagina per l'acquisto di cd" />
         <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
         <link href="../discolandia/css/grafica.css" rel="stylesheet" type="text/css" media="screen" />
-       
+        <script type="text/javascript" src="javascript/javascript.js"></script>
+        
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     </head>
     <body>
@@ -41,56 +45,58 @@ include_once basename(__DIR__) . '/../Settings.php';
             <!-- start page -->
             <!--  sidebar 1 -->
             <div id="leftBar" class="leftBar">
-               
+                <div class="interno">
                         <?php
                         $left = $vd->getLeftBarFile();
                         require "$left";
                         ?>
-                   
+                </div>   
             </div>
 
             <div id="rightBar" class="rightBar">
-                <?php
-                $right = $vd->getRightBarFile();
-                require "$right";
-                ?>
-
+                <div class="interno">
+                    <?php
+                    $right = $vd->getRightBarFile();
+                    require "$right";
+                    ?>  
+                </div>
             </div>
 
             <!-- contenuto -->
             <div id="content" class="content">
-                <?php
-                if ($vd->getMessaggioErrore() != null) {
-                    ?>
-                    <div>
-                        <div>
-                            <?=
-                            $vd->getMessaggioErrore();
-                            ?>
-                        </div>
-                    </div>
+                <div class="interno">
                     <?php
-                }
-                ?>
-                <?php
-                if ($vd->getMessaggioConferma() != null) {
-                    ?>
-                    <div>
+                    if ($vd->getMessaggioErrore() != null) {
+                        ?>
                         <div>
-                            <?=
-                            $vd->getMessaggioConferma();
-                            ?>
+                            <div>
+                                <?=
+                                $vd->getMessaggioErrore();
+                                ?>
+                            </div>
                         </div>
-                    </div>
+                        <?php
+                    }
+                    ?>
                     <?php
-                }
-                ?>
-                <?php
-                $content = $vd->getContentFile();
-                require "$content";
-                ?>
+                    if ($vd->getMessaggioConferma() != null) {
+                        ?>
+                        <div>
+                            <div>
+                                <?=
+                                $vd->getMessaggioConferma();
+                                ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    $content = $vd->getContentFile();
+                    require "$content";
+                    ?>
 
-
+                </div>
             </div>
 
         
