@@ -1,5 +1,7 @@
 <?php
 include_once 'Transazione.php';
+
+//Classe che comunica con il database per la gestione degli ordini effettuati
 class Storico {
 
     /**
@@ -9,15 +11,7 @@ class Storico {
         
     }
 
-/**
-     * Aggiunge una transazione all'elenco degli acquisti effetuati
-     * @param String $cliente Il cliente che ha effettuato l'acquisto
-     * @param String $venditore Il proprietario del prodotto venduto
-     * @param String $marca Marca del prodotto
-     * @param String $modello Modello del prodotto
-     * @param Decimal $prezzo 
-     * @param DateTime $data
-     */
+    //Aggiunge una nuova transazione
     public function addTransazione($idCompratore, $idVenditore, $codDisco, $data, $prezzo, $quantita){
         $query = "INSERT INTO `Storico`(`idCompratore`, `idVenditore`, `codDisco`, `data`, `prezzo`, `quantita`) "
                 . "VALUES ('".$idCompratore."','".$idVenditore."','".$codDisco."','".$data."','".$prezzo."','".$quantita."')";
@@ -27,11 +21,7 @@ class Storico {
         Database::chiudiDatabase($mysqli);
     }
     
-    /**
-     * Recupera la lista delle transazioni per un determinato utente
-     * @param String $user
-     * @return Array
-     */
+    //Recupera le transazioni per un determinato utente
     public function getStorico($id){
         $storico = array(); //Array che conterrà la lista delle transazioni
         $query = "SELECT `idCompratore`,`idVenditore`,`Storico`.`codDisco`,"

@@ -2,13 +2,15 @@
 include_once basename(__DIR__) . '/../model/CartItem.php';
 include_once basename(__DIR__) . '/../database/Database.php';
 
+//Classe carrello che comunica con il Database
 class Carrello{
 public function __construct() {
         parent::__construct();
     }
 
 
-
+//Funzione che recupera i dati dal Database e restituisce
+//un array di "CartItem"
 public function getCarrello($idCliente){
     //Avvio il database
     $mysqli=Database::avviaDatabase();
@@ -60,6 +62,7 @@ public function exist($idCliente, $codDisco){
         return 0;
 }
 
+//Funzione per l'aggiunta di un disco al carrello
 public function addToCart($idCliente, $codDisco){
 
     //controllo se l'elemento è già nel carrello
@@ -80,6 +83,7 @@ public function addToCart($idCliente, $codDisco){
     
 }
 
+//Funzione per la rimozione di un disco dal carrello
 public function removeToCart($idCliente, $codDisco){
 
     $query = "DELETE FROM `Carrello` WHERE `idCompratore` ='". $idCliente . "' AND `codDisco` = '" . $codDisco ."'";
@@ -89,7 +93,8 @@ public function removeToCart($idCliente, $codDisco){
     
 }
 
-
+//Svuota il carrello per un Cliente
+//Le operazioni di apertura e chiusura del database sono all'interno della transazione
 public function rimuoviElementi($idCliente, $codDisco, $mysqli){
 
     $query = "DELETE FROM `Carrello` WHERE `idCompratore` ='". $idCliente . "' AND `codDisco` = '" . $codDisco ."'";

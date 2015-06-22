@@ -1,6 +1,7 @@
 <?php
 include_once basename(__DIR__) . '/../database/Database.php';
 
+//Classe che rappresenta l'utente
 class User{
     /**
      * Username dell'utente

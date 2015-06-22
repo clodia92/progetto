@@ -190,7 +190,7 @@ class VenditoreController extends BaseController {
                         
                         $this->aggiornaDati($user, $dati);//Aggiorna i dati dal base controller
                         UserFactory::modificaDati($user->getId(), $dati);// aggiorna i dati dal base controller
-                        $msg1="Dati aggiornati";
+                        
                         $vd->setSottoPagina('profilo');
                         $vd->setTitolo("Profilo");
                         $this->showHomeUtente($vd);
@@ -203,7 +203,6 @@ class VenditoreController extends BaseController {
                 $this->showHomeUtente($vd);
             }
         }
-
 
         // richiamo la vista
         require basename(__DIR__) . '/../view/master.php';

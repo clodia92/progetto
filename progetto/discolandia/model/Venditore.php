@@ -2,6 +2,7 @@
 
 include_once 'User.php';
 
+//Classe che rappresenta il venditore
 class Venditore extends User {
 
     /**

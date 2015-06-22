@@ -1,4 +1,6 @@
 <?php
+
+//Classe che identifica il disco all'interno del carrello
 class CartItem {
    
     private $idCompratore;

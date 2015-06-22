@@ -1,4 +1,6 @@
 <?php
+
+//Classe che rappresenta una transazione(ordine effettuato)
 class Transazione {
     private $idCompratore;
     

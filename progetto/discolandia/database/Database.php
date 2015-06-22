@@ -23,6 +23,7 @@ class Database{
                 return $mysqli;
     }
     
+    //Funzione che esegue le query in cui non vi e' l'input dell'utente
     function lanciaQuery($query, $mysqli){
 			// nessun errore
 	
@@ -41,6 +42,7 @@ class Database{
 	}
     }
     
+    //Chiude il Database
     function chiudiDatabase($mysqli){
        mysqli_close($mysqli);	
     }

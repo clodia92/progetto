@@ -1,4 +1,6 @@
 <?php
+
+//Classe che rappresenta le informazioni di un disco
 class Disco {
     private $codDisco;
     

@@ -1,20 +1,16 @@
 <?php
-/*
-*/
-
 include_once basename(__DIR__) . '/../model/Traccia.php';
 
+//Classe che comunica con il Database per la gestione delle tracce
 class TracciaFactory{
 public function __construct() {
         parent::__construct();
     }
 
 
-
+//Recuoera la lista delle tracce per un determinato disco
 public function listaTracce($codDisco){
     
-    //Ho cancellato la definizione di trecce=array();
-
     //Avvio il database
     $mysqli=Database::avviaDatabase();
     $query = "SELECT * FROM `Traccia` WHERE `codDisco`=" . $codDisco. " ORDER BY `numero`";
@@ -39,6 +35,7 @@ public function listaTracce($codDisco){
     return $tracce;
 }
 
+//Aggiunta di una nuova traccia
 public function aggiungiTracce($codDisco, $tracce){
     $i=1;
     $mysqli=Database::avviaDatabase();
@@ -53,6 +50,7 @@ public function aggiungiTracce($codDisco, $tracce){
     return TRUE;
 }
 
+//Rimazione di tutte le tracce di un disco
 public function rimuoviTracce($codDisco){
     $mysqli=Database::avviaDatabase(); 
     $query = "DELETE FROM `Traccia` WHERE `codDisco` = '" . $codDisco ."'"; 

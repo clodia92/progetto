@@ -1,4 +1,6 @@
 <?php
+
+//Classe che rappresenta una traccia di un disco
 class Traccia {
     
     private $codTraccia;

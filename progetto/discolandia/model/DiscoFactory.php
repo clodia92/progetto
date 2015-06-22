@@ -1,5 +1,6 @@
 <?php
 /*
+ * Classe che comunica con il database
 */
 include_once basename(__DIR__) . '/../model/Disco.php';
 include_once basename(__DIR__) . '/../model/TracciaFactory.php';
@@ -12,7 +13,8 @@ public function __construct() {
     }
 
 
-
+//Funzione per leggere i dischi in vendita e restituire i dati all'interno
+//di un array di oggetti "Disco"
 public function creaCatalogo(){
     
     //Avvio il database
@@ -48,7 +50,7 @@ public function creaCatalogo(){
         return 0;
 }
 
-/*Restituisce l'oggetto Disco richiesto tramite codice*/
+//Restituisce l'oggetto Disco richiesto tramite codice
 public function getDisco($codDisco){
     
     //Avvio il database
@@ -75,12 +77,13 @@ public function getDisco($codDisco){
     return $disco;
 }
 
-
+//Aggiunge un disco a quelli in vendita
+//Utilizzo i Prepared Statements per evitare problemi di SQL injection
 public function aggiungiDisco($disco){
     //Avvio il database
     $mysqli=Database::avviaDatabase();
     
-    
+    //Inserisco i dati del disco
     $query="INSERT INTO `Disco`(`codDisco`,`titolo`,"
             . "`artista`,`genere`,`descrizione`,`etichetta`,`immagine`,`anno`) "
             . "VALUES (?,?,?,?,?,?,?,?)";
@@ -93,6 +96,7 @@ public function aggiungiDisco($disco){
         // eseguiamo la query
         $stmt->execute();
     
+    //Inserisco i dati di vendita
     $query="INSERT INTO `Catalogo` (`idVenditore`,`codDisco`,`prezzo`,`quantita`) "
             . "VALUES (?,?,?,?)";
     
@@ -109,6 +113,7 @@ public function aggiungiDisco($disco){
     return TRUE;
 }
 
+//Rimozione del disco e dei suoi dati da quelli in vendita
 public function rimuoviDisco($codDisco){
     $mysqli=Database::avviaDatabase();
     
@@ -121,6 +126,7 @@ public function rimuoviDisco($codDisco){
     Database::chiudiDatabase($mysqli);
 }
 
+//Modifica la disponibilita' per un determinato disco
 public function modificaDisponibilita($codDisco, $disponibilita, $mysqli){
     
     $query="UPDATE `Catalogo` SET `quantita`='". $disponibilita ."' WHERE `codDisco` = '".$codDisco."'";
@@ -128,6 +134,7 @@ public function modificaDisponibilita($codDisco, $disponibilita, $mysqli){
     
 }
 
+//Recupera la disponibilita' di un determinato disco
 public function leggiDisp($codDisco, $mysqli){
     $query="SELECT `quantita` FROM `Catalogo` WHERE `codDisco` = '".$codDisco."'";
     $risultato=Database::lanciaQuery($query, $mysqli);
@@ -135,7 +142,8 @@ public function leggiDisp($codDisco, $mysqli){
     return ($row[0]);
 }
 
-
+//Crea il catalogo in base alla ricerca effettuata
+//Utilizzo i Prepared Statements per evitare problemi di SQL injection
 public function creaCatalogoRicerca($param){
     $parametro= '%'.$param.'%';
     //Avvio il database
@@ -187,6 +195,7 @@ public function creaCatalogoRicerca($param){
         return 0;
 }
 
+//Crea il catalogo in base al genere selezionato
 public function creaCatalogoGenere($param){
     
     //Avvio il database
