@@ -154,8 +154,8 @@ class VenditoreController extends BaseController {
                         
                         
                         // se il prodotto viene correttamente aggiunto viene mostrato un feedback positivo
-                        DiscoFactory::rimuoviDisco($disco[oldCodDisco]);
-                        TracciaFactory::rimuoviTracce($disco[oldCodDisco]);
+                        DiscoFactory::rimuoviDisco($disco['oldCodDisco']);
+                        TracciaFactory::rimuoviTracce($disco['oldCodDisco']);
                         
                         DiscoFactory::aggiungiDisco($disco["codDisco"]);
                         TracciaFactory::aggiungiTracce($disco['codDisco'], $tracce);
