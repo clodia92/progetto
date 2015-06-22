@@ -6,9 +6,7 @@
         </a>
         <br>
         <a href="cliente/profilo">Credito: <?=$user->getCredito(); ?> Euro</a>
-    </div>
-    <!--Aggiungi gli altri dati profilo, carrello-->
-    <div class="info_profilo_laterale">
+        <br>
         <a href="cliente/profilo">Profilo</a>
         <br>
         <a href="cliente/carrello">Carrello</a>
