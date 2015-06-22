@@ -24,7 +24,7 @@ include_once basename(__DIR__) . '/../Settings.php';
         <meta name="keywords" content="Discolandia" />
         <meta name="description" content="Una pagina per l'acquisto di cd" />
         <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
-        <link href="../discolandia/css/grafica.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="../discolandia/css/stile.css" rel="stylesheet" type="text/css" media="screen" />
        
 
     </head>
