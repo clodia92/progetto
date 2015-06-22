@@ -5,7 +5,7 @@
         <form method="post" action="cliente/carrello">
             <input type="hidden" name="cmd" value="addCart"/>
             <input type="hidden" name='codDisco' value="<?=$disco->getCodDisco()?>">
-            <input type="submit" <?php if($disco->getQuantita()<1) echo 'disabled';?> value="Aggiungi al carrello"/>
+            <input type="submit" <?php if($disco->getDisponibili()<1) echo 'disabled';?> value="Aggiungi al carrello"/>
         </form>
         
     </div>    
@@ -19,7 +19,7 @@
         <br>Anno: <?=$disco->getAnno()?>
         <br>Genere: <?=$disco->getGenere()?>
         <br>Codice Disco: <?=$disco->getCodDisco()?>
-        <br>Disponibili: <?=$disco->getQuantita()?>
+        <br>Disponibili: <?=$disco->getDisponibili()?>
         </p>
     </div>
     <br>
