@@ -53,5 +53,12 @@ public function aggiungiTracce($codDisco, $tracce){
     return TRUE;
 }
 
-    }
+public function rimuoviTracce($codDisco){
+    $mysqli=Database::avviaDatabase(); 
+    $query = "DELETE FROM `Traccia` WHERE `codDisco` = '" . $codDisco ."'"; 
+    Database::lanciaQuery($query, $mysqli);
+    Database::chiudiDatabase($mysqli);
+}
+
+}
 ?>

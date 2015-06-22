@@ -32,7 +32,7 @@
         <label for="etichetta">Etichetta</label>
         <input class="textbox" type="text" name="etichetta"/>
         <br>
-        <label for="immagine">Immagine</label>
+        <label for="immagine">Immagine link</label>
         <input class="textbox" type="text" name="immagine"/>
         <br>
         <label for="anno">Anno</label>

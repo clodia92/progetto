@@ -20,6 +20,10 @@ switch ($vd->getSottoPagina()) {
     case 'nuovo_disco':
         include_once 'newDisco.php';
         break;
+    
+    case 'modifica_disco':
+        include_once 'modificaDisco.php';
+        break;
         
     default:
         
