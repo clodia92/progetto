@@ -1,7 +1,11 @@
 <!--Pagina per l'aggiunta di un prodotto-->
-<script>$('#txtCodDisco').onfocus=function(){
-    $('#newCodDisco').show();
-};</script>
+<script>
+document.getElementById("txtCodDisco").onfocus = function() {myFunction()};
+
+function myFunction() {
+    document.getElementById("newCodDisco").style.backgroundColor = "red";
+}
+</script>
 <div id="aggiungiDisco" class="aggiungiDisco">
     
     <h2>Aggiungi un nuovo disco:</h2>
@@ -9,7 +13,7 @@
     <form name="newDisco" method="post" action="venditore/lista">
         <label for="codDisco">Codice Disco</label>
         <input id="txtCodDisco" class="textbox" type="text" name="codDisco" required>
-        <span id="newCodDisco" hidden="hidden">Es: 00001</span>
+        <span id="newCodDisco" >Es: 00001</span>
         <br>
         <label for="artista">Artista</label>
         <input class="textbox" type="text" name="artista" required>
