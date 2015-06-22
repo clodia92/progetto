@@ -75,7 +75,7 @@ class VenditoreController extends BaseController {
                     // visualizzazione della pagina del prodotto generata dinamicamente    
                     case 'disco':
                         
-                        $disco = DiscoFactory::getDisco($request['cod']);
+                        $disco = DiscoFactory::getDisco($request['codDisco']);
                         $vd->setSottoPagina('disco');
                         $vd->setTitolo($disco->getTitolo());
                         break;
