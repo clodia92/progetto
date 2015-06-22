@@ -1,8 +1,8 @@
 <!--Visualizzazione del profilo del cliente-->
 <div class="profilo">
-    <h3 class="titolo"><strong>Profilo</strong></h3>
+    <h3>Profilo</h3>
     <div class="profilo_sinistro">
-        <h3>Dati personali</h3>
+        <h4>Dati personali</h4>
 
         <ul>
             <li><strong>Nome:</strong> <?= $user->getNome() ?></li>
@@ -13,7 +13,7 @@
     </div>
     
     <div class="profilo_destro">
-        <h3>Dati per la spedizione:</h3>
+        <h4>Dati per la spedizione:</h4>
         <ul class="none">
             <li><strong>Via:</strong> <?= $user->getVia() ?></li>
             <li><strong>Civico:</strong> <?= $user->getCivico() ?></li>
@@ -23,9 +23,9 @@
         </ul>
     </div>
     <span><a href="cliente/modificaProfilo">Modifica</a></span>    
-    <h3>
+    <h4>
         Credito: <text class=""><?= $user->getCredito() ?> Euro</text>
-    </h3>
+    </h4>
     <!--Form per ricaricare il credito-->    
     <form method="post" action="cliente/profilo">
         <input type="hidden" name="cmd" value="ricarica"/>
@@ -37,7 +37,7 @@
 
     <!--Lista degli acquisti effettuati-->
     <div id="storico" class="contenitore altezza">
-        <h2>Ordini effettuati</h2>
+        <h3>Ordini effettuati</h3>
 
     <?php 
 
