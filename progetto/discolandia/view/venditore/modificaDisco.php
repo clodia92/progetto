@@ -51,7 +51,7 @@
             $tracce=$disco->getTracce();
             foreach ($tracce as $traccia) {
                 
-                echo $traccia->getTitolo().'\n';
+                echo $traccia->getTitolo().'<br>';
               }
               ?>
     

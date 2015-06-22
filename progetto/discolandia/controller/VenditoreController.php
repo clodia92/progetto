@@ -113,7 +113,7 @@ class VenditoreController extends BaseController {
                         $disco["artista"]=$request['artista'];
                         $disco["titolo"]=$request['titolo'];
                         $disco["genere"]=$request['genere'];
-                        $disco["descrizione"]=$request['descrizione'];
+                        $disco["descrizione"]=HtmlEntities(addslashes($request['descrizione']));
                         $disco["etichetta"]=$request['etichetta'];
                         $disco["immagine"]=$request['immagine'];
                         $disco["anno"]=$request['anno'];
@@ -141,7 +141,7 @@ class VenditoreController extends BaseController {
                         $disco["artista"]=$request['artista'];
                         $disco["titolo"]=$request['titolo'];
                         $disco["genere"]=$request['genere'];
-                        $disco["descrizione"]=$request['descrizione'];
+                        $disco["descrizione"]=HtmlEntities(addslashes($request['descrizione']));
                         $disco["etichetta"]=$request['etichetta'];
                         $disco["immagine"]=$request['immagine'];
                         $disco["anno"]=$request['anno'];
