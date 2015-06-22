@@ -10,7 +10,7 @@ if (count($catalogo) > 0) { ?>
 
     
     <div class="catalogo_disco">
-        <a href="venditore/disco?cod=<?=$cd->getCodDisco();?>">
+        <a href="venditore/disco?codDisco=<?=$cd->getCodDisco();?>">
             <div class="catalogo_box_immagine">
                 <img src="<?=$cd->getImmagine();?>" class="catalogo_immagine">
             </div>
@@ -18,7 +18,7 @@ if (count($catalogo) > 0) { ?>
         
         <div class="catalogo_dati">
             <p>
-                <a href="venditore/disco?cod=<?=$cd->getCodDisco();?>"><strong><?=$cd->getTitolo()?></strong></a>
+                <a href="venditore/disco?codDisco=<?=$cd->getCodDisco();?>"><strong><?=$cd->getTitolo()?></strong></a>
                 <br>
                 <?=$cd->getArtista()?>
             </p>
