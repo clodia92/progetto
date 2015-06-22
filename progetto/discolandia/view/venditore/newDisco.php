@@ -1,6 +1,6 @@
 <!--Pagina per l'aggiunta di un prodotto-->
 <script>
-document.getElementById("txtCodDisco").onfocus = function(){myFunction();};
+document.getElementById("pippo").onfocus = function(){myFunction();};
 
 function myFunction() {
     document.getElementById("newCodDisco").style.color = "red";
@@ -12,7 +12,7 @@ function myFunction() {
     
     <form name="newDisco" method="post" action="venditore/lista">
         <label for="codDisco">Codice Disco</label>
-        <input id="txtCodDisco" class="textbox" type="text" name="codDisco" required>
+        <input id="pippo" class="textbox" type="text" name="codDisco" required>
         <span id="newCodDisco" >Es: 00001</span>
         <br>
         <label for="artista">Artista</label>
