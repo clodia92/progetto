@@ -87,14 +87,13 @@ body{
 
 .catalogo_immagine{
     
-    max-height: 100%;
-    max-width: 100%;
+   
 }
 
-.catalogo_box_immagine{
+.catalogo_immagine{
     float: left;
-    height: 90px;
-    width: 90px;
+    max-height: 90px;
+    max-width: 90px;
 }
 
 .catalogo_dati{
