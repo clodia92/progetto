@@ -47,11 +47,11 @@ body{
 }
 
 .generi_leftbar{
-    margin: 1em;
+    //margin: 1em;
 }
 
 .rightBar{
-    width: 19%;
+    width: 20%;
     min-height: 1000px;
     float: right;
     background-color: whitesmoke;
@@ -59,13 +59,14 @@ body{
 
 
 .profilo_rightbar{
-    margin: 3em 1em 1em 1em;
+    //margin: 3em 1em 1em 1em;
 }
 
 .content{
     width: 60%;
     min-height: 1000px;
     background-color: white;
+    margin-left: 20%;
 }
 
 .contenitore_pannello{
