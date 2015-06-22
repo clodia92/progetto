@@ -1,4 +1,5 @@
 function suggerimento(id){
     document.getElementById(id).innerHTML="errore";
-    document.getElementById(id).show();
+    mostra=document.getElementById(id);
+    mostra.show();
 }
