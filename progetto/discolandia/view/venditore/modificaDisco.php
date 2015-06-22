@@ -4,7 +4,7 @@
     
     <h2>Modifica disco:</h2>
     
-    <form name="modificaDisco" method="post" action="venditore/disco?codDisco=">
+    <form name="modificaDisco" method="post" action="venditore/disco?codDisco=<?=$disco->getCodDisco()?>">
         <label for="codDisco">Codice Disco</label>
         <input class="textbox" type="text" name="codDisco" <?=$disco->getCodDisco()?> required>
         <br>
