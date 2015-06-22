@@ -1,6 +1,6 @@
 <!--Pagina per l'aggiunta di un prodotto-->
 <script>
-document.getElementById("txtCodDisco").onfocus = function() {myFunction()};
+document.getElementById("txtCodDisco").onfocus = function(){myFunction();};
 
 function myFunction() {
     document.getElementById("newCodDisco").style.backgroundColor = "red";
