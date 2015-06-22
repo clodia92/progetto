@@ -1,10 +1,14 @@
 <!--Pagina per l'aggiunta di un prodotto-->
 <script>
-$('#pippo').onfocus = function(){myFunction();};
+     $(function() {
+    $('#pippo').onfocus = function(){myFunction();};
 
 function myFunction() {
     document.getElementById("newCodDisco").style.color = "red";
 }
+    
+  });
+
 </script>
 <div id="aggiungiDisco" class="aggiungiDisco">
     
