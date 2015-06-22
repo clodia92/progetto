@@ -25,12 +25,13 @@
         <h3>Tracce:</h3>
         <ol>
         <?php
+        $tracce=$disco->getTracce();
         if(!(isset($tracce)))
                 echo "Non sono presenti tracce per questo disco";
         else
         {
             //Le tracce arrivano già ordinate
-            $tracce=$disco->getTracce();
+            
             foreach ($tracce as $traccia) {
                 ?>
                 <li><?=$traccia->getTitolo()?></li>
