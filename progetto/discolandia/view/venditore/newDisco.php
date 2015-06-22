@@ -1,23 +1,13 @@
 <!--Pagina per l'aggiunta di un prodotto-->
-<script>
-     $(function() {
-    $('#pippo').onfocus = function(){myFunction();};
 
-function myFunction() {
-    document.getElementById("newCodDisco").style.color = "red";
-}
-    
-  });
-
-</script>
 <div id="aggiungiDisco" class="aggiungiDisco">
     
     <h2>Aggiungi un nuovo disco:</h2>
     
     <form name="newDisco" method="post" action="venditore/lista">
         <label for="codDisco">Codice Disco</label>
-        <input id="pippo" class="textbox" type="text" name="codDisco" required>
-        <span id="newCodDisco" >Es: 00001</span>
+        <input class="textbox" type="text" name="codDisco" onfocus="suggerimento('codDisco')" onblur="nascondi('codDisco')" required>
+        <span id="codDisco" hidden></span>
         <br>
         <label for="artista">Artista</label>
         <input class="textbox" type="text" name="artista" required>
