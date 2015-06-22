@@ -210,6 +210,16 @@ class BaseController {
        
     }
     
+    /**
+     * Aggiorno la password di un utente
+     * @param User $user l'utente da aggiornare
+     * @param array $request la richiesta http da gestire
+     * I controlli vengono eseguiti da ClienteController e VenditoreController
+     */
+    protected function aggiornaPassword($user, &$request) {
+                $user->setPassword($request['pass1']); // aggiorna i dati nella classe
+    }
+    
     
     /**
      * Crea un messaggio di feedback per l'utente 

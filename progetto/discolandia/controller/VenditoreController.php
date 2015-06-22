@@ -176,6 +176,8 @@ class VenditoreController extends BaseController {
                         
                         if(isset($request['pass1']) && ($request['pass1']!='') && ($request['pass1'] == $request['pass2'])){ // controllo che si voglia modificare la pass
                             UserFactory::modificaPassword($user->getId(), $request['pass1']); // se le password coincidono restituisco un messaggio positivo         
+                            $this->aggiornaPassword($user, $request);
+                            
                         }
                         // salvo i nuovi dati in un array
                         $dati=array();

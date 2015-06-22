@@ -234,6 +234,7 @@ else{
                     case 'modificaProfilo':
                         
                         if(isset($request['pass1']) && ($request['pass1']!='') && ($request['pass1'] == $request['pass2'])){ // controllo che si voglia modificare la pass
+                            $this->aggiornaPassword($user, $request);
                             UserFactory::modificaPassword($user->getId(), $request['pass1']); // se le password coincidono restituisco un messaggio positivo         
                         }
                         // salvo i nuovi dati in un array
@@ -245,7 +246,7 @@ else{
                         $dati['provincia']=$request['provincia'];
                         $dati['cap']=$request['cap'];
                         
-                        
+                        $this->aggiornaDati($user, $dati);//Aggiorna i dati dal base controller
                         UserFactory::modificaDati($user->getId(), $dati);// aggiorna i dati dal base controller
                         $msg1="Dati aggiornati";
                         $vd->setSottoPagina('profilo');
