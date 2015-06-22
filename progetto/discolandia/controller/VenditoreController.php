@@ -65,29 +65,27 @@ class VenditoreController extends BaseController {
                         $vd->setTitolo('Aggiungi Disco');
                         break;
 
-                    // visualizzazione dell'elenco dei prodotti in vendita per il venditore
+                    // visualizzazione dei dischi in vendita per il venditore
                     case 'lista':
                         $catalogo = DiscoFactory::creaCatalogo();
                         $vd->setSottoPagina('lista');
                         $vd->setTitolo('Venditore - Lista Prodotti');
                         break;
                     
-                    // visualizzazione della pagina del prodotto generata dinamicamente    
+                    // visualizzazione della pagina di presentazione del disco    
                     case 'disco':
-                        
                         $disco = DiscoFactory::getDisco($request['codDisco']);
                         $vd->setSottoPagina('disco');
                         $vd->setTitolo($disco->getTitolo());
                         break;
                     
-                    // pagina per modificare i dati di un prodotto
+                    // pagina per modificare i dati di un disco
                     case 'modificaDisco':
                         $disco = DiscoFactory::getDisco($request['codDisco']);
                         $vd->setSottoPagina('modifica_disco');
                         $vd->setTitolo('Modifica '.$disco->getTitolo());
                         break;
                     
-                   
                     default:
                         $vd->setSottoPagina('home');
                         break;
@@ -106,7 +104,7 @@ class VenditoreController extends BaseController {
                         $this->logout($vd);
                         break;
 
-                    // salvataggio di un nuovo prodotto
+                    // salvataggio di un nuovo disco
                     case 'aggiungi_disco':
                         $disco=array(); // dati del disco
                         $disco["codDisco"]=$request['codDisco'];
@@ -122,9 +120,6 @@ class VenditoreController extends BaseController {
                         $disco["venditore"]=$user->getId();
                         $tracce=  explode("\n", $request['tracce']);
                         
-                        
-                        
-                        // se il prodotto viene correttamente aggiunto viene mostrato un feedback positivo
                         DiscoFactory::aggiungiDisco($disco);
                         TracciaFactory::aggiungiTracce($disco['codDisco'],$tracce);
                         
@@ -134,7 +129,8 @@ class VenditoreController extends BaseController {
                         $this->showHomeUtente($vd);
                         break;
                     
-                    // modifica dei dati di un prodotto e dei dettagli di vendita
+                    // modifica dei dati di un disco
+                    //cancello i vecchi dati e inserisco i nuovi
                     case 'modifica_disco':
                         $disco=array(); // dati del disco
                         $disco["codDisco"]=$request['codDisco'];
@@ -149,14 +145,13 @@ class VenditoreController extends BaseController {
                         $disco["quantita"]=$request['quantita'];
                         $disco["oldCodDisco"]=$request['oldCodDisco'];
                         $disco["venditore"]=$user->getId();
-                        $tracce=  explode("\n", $request['tracce']);
+                        $tracce=explode("\n", $request['tracce']);
                         
-                        
-                        
-                        // se il prodotto viene correttamente aggiunto viene mostrato un feedback positivo
+                        //Rimuovo i vecchi dati
                         DiscoFactory::rimuoviDisco($disco['oldCodDisco']);
                         TracciaFactory::rimuoviTracce($disco['oldCodDisco']);
                         
+                        //Inserisco i nuovi dati
                         DiscoFactory::aggiungiDisco($disco);
                         TracciaFactory::aggiungiTracce($disco['codDisco'], $tracce);
                         
@@ -166,7 +161,7 @@ class VenditoreController extends BaseController {
                         $this->showHomeUtente($vd);
                         break;
                         
-                    // cancellazione di un prodotto dalla lista dei prodotti i vendita    
+                    // cancellazione di un disco dai dischi in vendita    
                     case 'rimuoviDisco':
                         
                         DiscoFactory::rimuoviDisco($request['codDisco']);
@@ -191,7 +186,7 @@ class VenditoreController extends BaseController {
                         $dati['provincia']=$request['provincia'];
                         $dati['cap']=$request['cap'];
                         
-                        
+                        $this->aggiornaDati($user, $dati);//Aggiorna i dati dal base controller
                         UserFactory::modificaDati($user->getId(), $dati);// aggiorna i dati dal base controller
                         $msg1="Dati aggiornati";
                         $vd->setSottoPagina('profilo');

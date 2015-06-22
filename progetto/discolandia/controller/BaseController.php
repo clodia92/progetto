@@ -181,82 +181,36 @@ class BaseController {
         $this->showLoginPage($vd);
     }
 
-    /**
+    
+        /**
      * Aggiorno indirizze e e-mail di un utente
      * @param User $user l'utente da aggiornare
      * @param array $dati i nuovi dati dell'utente
      */
-    protected function aggiornaIndirizzo($user, &$request, &$msg) {
+    protected function aggiornaDati($user, $dati) {
 
-        if (isset($request['via'])) {
-            if (!$user->setVia($request['via'])) {
-                $msg[] = '<li>La via specificata non &egrave; corretta</li>';
-            }
+        if (isset($dati['via'])) {
+            $user->setVia($dati['via']); 
         }
-        if (isset($request['civico'])) {
-            if (!$user->setNumeroCivico($request['civico'])) {
-                $msg[] = '<li>Il formato del numero civico non &egrave; corretto</li>';
-            }
+        if (isset($dati['civico'])) {
+            $user->setCivico($dati['civico']);   
         }
-        if (isset($request['citta'])) {
-            if (!$user->setCitta($request['citta'])) {
-                $msg[] = '<li>La citt&agrave; specificata non &egrave; corretta</li>';
-            }
+        if (isset($dati['citta'])) {
+            $user->setCitta($dati['citta']);
         }
-        if (isset($request['provincia'])) {
-            if (!$user->setProvincia($request['provincia'])) {
-                $msg[] = '<li>La provincia specificata &egrave; corretta</li>';
-            }
+        if (isset($dati['provincia'])) {
+            $user->setProvincia($dati['provincia']); 
         }
-        if (isset($request['cap'])) {
-            if (!$user->setCap($request['cap'])) {
-                $msg[] = '<li>Il CAP specificato non &egrave; corretto</li>';
-            }
+        if (isset($dati['cap'])) {
+            $user->setCap($dati['cap']); 
         }
-        UserFactory::aggiornaIndirizzo($user->getUsername(), $dati); // aggiorna i dati nel DataBase
+        if (isset($dati['email'])) {
+            $user->setEmail($dati['email']);
+        }
+       
     }
     
-    /**
-     * Aggiorno l'indirizzo email di un utente
-     * @param User $user l'utente da aggiornare
-     * @param array $request la richiesta http da gestire
-     * @param array $msg riferimento ad un array da riempire con eventuali
-     * messaggi d'errore
-     */
-    protected function aggiornaEmail($user, &$request, &$msg) {
-        if (isset($request['email'])) {
-            if (!$user->setEmail($request['email'])) {
-                $msg[] = '<li>L\'indirizzo email specificato non &egrave; corretto</li>';
-            }
-            else
-            {
-                UserFactory::aggiornaEmail($user->getUsername(), $email); // aggiorna email nel db
-            }
-        }
-    }    
     
-
-
-    /**
-     * Aggiorno la password di un utente
-     * @param User $user l'utente da aggiornare
-     * @param array $request la richiesta http da gestire
-     * @return boolean Vero se l'aggiornamento è andato a buon fine,
-     * Falso altrimenti
-     */
-    protected function aggiornaPassword($user, &$request) {
-        if (isset($request['pass1']) && isset($request['pass2'])) {
-            if ($request['pass1'] == $request['pass2']) {
-                UserFactory::aggiornaPassword($user->getUsername(), $request['pass1']); // aggiorna la password nel DataBase
-                $user->setPassword($request['pass1']); // aggiorna i dati nella classe
-                return TRUE;
-            }
-            else
-            return FALSE;
-                
-        }
-    }
-
     /**
      * Crea un messaggio di feedback per l'utente 
      * @param array $msg lista di messaggi di errore
@@ -281,3 +235,5 @@ class BaseController {
     }
 
 }
+
+?>

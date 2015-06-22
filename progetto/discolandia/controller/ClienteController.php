@@ -60,7 +60,7 @@ class ClienteController extends BaseController {
             if (isset($request["subpage"])) {
                 switch ($request["subpage"]) {
                     
-                    // visualizzazione dei prodotti in vendita
+                    // visualizzazione dei dischi in vendita
                     case 'catalogo':
                         
                         if(isset($request['mode'])){
@@ -81,9 +81,8 @@ class ClienteController extends BaseController {
                         $vd->setTitolo("Catalogo Discolandia");
                         break;
                     
-                    // visualizzazione della pagina del prodotto generata dinamicamente    
+                    // visualizzazione della pagina del disco   
                     case 'disco':
-                        
                         $disco = DiscoFactory::getDisco($request['codDisco']);
                         $vd->setSottoPagina('disco');
                         $vd->setTitolo($disco->getTitolo());
@@ -91,8 +90,8 @@ class ClienteController extends BaseController {
                     
                     // visualizzazione del carrello del cliente
                     case 'carrello':
-                        
-                        $carrello = Carrello::getCarrello($user->getUsername()); // aggiorno la lista dei prodotti nel carrello
+                        // aggiorno la lista dei dischi nel carrello
+                        $carrello = Carrello::getCarrello($user->getUsername()); 
                         $vd->setSottoPagina('carrello');
                         $vd->setTitolo('Carrello');
                         break;
@@ -106,11 +105,11 @@ class ClienteController extends BaseController {
                     
                     //visualizzazione della pagina per modificare il profilo
                     case 'modificaProfilo':
-                        
                         $vd->setSottoPagina('modificaProfilo');
                         $vd->setTitolo("Modifica Profilo");
                         break;    
                     
+                    //pagina di riepilogo dopo un pagamento
                     case 'riepilogo':
                         $vd->setSottoPagina('riepilogo');
                         $vd->setTitolo("Riepilogo");
@@ -137,10 +136,10 @@ else{
                     
                     // logout
                     case 'logout':
-                        
                         $this->logout($vd);
                         break;
-
+                    
+                    //aggiunta di un disco al carrello
                     case 'addCart':
                         
                         if(isset($request['codDisco']))
@@ -151,19 +150,19 @@ else{
                         $this->showHomeUtente($vd);    
                         break;
                         
-                        
+                    //rimozione di un disco dal carrello    
                     case 'removeCart':
-                        
                         if(isset($request['codDisco']))
                         {
                             Carrello::removeToCart($user->getUsername(), $request['codDisco']);
                         }
-                        $carrello = Carrello::getCarrello($user->getUsername()); // aggiorno la lista dei prodotti nel carrello
+                        // aggiorno la lista dei dischi nel carrello
+                        $carrello = Carrello::getCarrello($user->getUsername()); 
                         $this->showHomeUtente($vd);    
                         break;
                     
                         
-                         //ricarica il credito del cliente
+                    //ricarica il credito del cliente
                     case 'ricarica':
                         if(isset($request['importo'])){
                             $newCredito=($user->getCredito()+$request['importo']);
@@ -174,7 +173,7 @@ else{
                         $this->showHomeUtente($vd);
                         break;
                         
-                        
+                    //Pagamento dei dischi nel carrello    
                     case 'pagamento':
                         
                         $errore=0;
@@ -186,12 +185,15 @@ else{
                         else{
  
                             $carrello =  Carrello::getCarrello($user->getUsername());
-             
+                            
+                            //Avvio la transazione
                             $mysqli = Database::avviaDatabase(); 
                             $mysqli->autocommit(false);
                             
                       
                             foreach ($carrello as $unita){
+                                
+                                //Controllo la disponibilita' e rimuovo i dischi acquistati
                                 $disp =  DiscoFactory::leggiDisp($unita->getCodDisco(), $mysqli);
                                 $qta = $unita->getQuantita();
                                 $nuovaDisp = $disp - $qta;
